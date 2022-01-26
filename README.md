@@ -4,11 +4,12 @@
 ### Use Case Diagram
 
 <p>
-<img height="600px" width="800px" alt="Use Case" width="26px" src="https://github.com/Brij15/Luncheon/blob/main/Contents/usecase-diagram.jpeg" />
+<img height="600px" width="800px" alt="Use Case" src="https://github.com/Brij15/Luncheon/blob/main/Contents/usecase-diagram.jpeg" />
 </p>
 <hr>
-### Activity Diagram
 
+### Activity Diagram
+<img height="600px" width="800px" alt="Activity Diagram" src="https://github.com/Brij15/Luncheon/blob/main/Contents/activity-diagram.jpeg" />
 
 ### Technologies
 <img align="left" alt="MySQL" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/mysql/mysql.png" />
