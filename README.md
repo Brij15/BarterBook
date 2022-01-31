@@ -4,6 +4,9 @@
 <p>
   Tiffin service is required for students, working-class people, and physically challenged people where they can get homemade food. The aim of an application is that people can earn money by providing tiffin service and people who need it can get homemade food at their doorstep. Users can search tiffin services based on type (veg/nonveg), the nearby area, and price filters. Users can subscribe tiffin service for a particular time interval (week, month). 
 </p>
+
+<hr>
+
 ### Use Case Diagram
 
 <p>
