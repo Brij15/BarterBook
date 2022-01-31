@@ -1,7 +1,18 @@
 ## Luncheon
 
+<div class='width:100%;height:auto;padding:1%;'>
+        <div>
+            <img height="150px" width="150px" alt="LOGO" src="https://github.com/Brij15/Luncheon/blob/main/images/Luncheon.png" />
+        </div>  
+    <div style='margin-left:60px;'>
+    <div style="font-size:.6em;text-align:center;">
+      Tiffin service is required for students, working-class people, and physically challenged people where they can get homemade food. The aim of an application is that people can earn money by providing tiffin service and people who need it can get homemade food at their doorstep. Users can search tiffin services based on type (veg/nonveg), the nearby area, and price filters. Users can subscribe tiffin service for a particular time interval (week, month). 
+      </div>
+    </div>
+</div>
+
 <p>
-<img height="300px" width="300px" alt="LOGO" src="https://github.com/Brij15/Luncheon/blob/main/images/Luncheon.png" />
+
 </p>
 
 ## Tiffin Service Application
