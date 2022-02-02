@@ -13,7 +13,7 @@
 
 ### Miro Board
 <p>
-  <img height="500px" width="800px" alt="LOGO" src="https://github.com/Brij15/Luncheon/blob/main/images/Miro.png" />
+  <img height="400px" width="800px" alt="LOGO" src="https://github.com/Brij15/Luncheon/blob/main/images/Miro.png" />
   </p>
 
 ### Use Case Diagram
