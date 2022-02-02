@@ -3,8 +3,8 @@
 <p>
 </p>
 
-## Tiffin Service Application
-<img height="150px" width="150px" alt="LOGO" src="https://github.com/Brij15/Luncheon/blob/main/images/Luncheon.png" />
+## Book Barter Application
+<img height="150px" width="150px" alt="LOGO" src="" />
 <p style="text-align:center;">
  Sometimes it is hard to find books you want. Maybe they are expensive maybe they are out of print. This is an app that exclusively allows its users to post ads on their available books and view these ads according to their location (Target Barrie City - For Now). Users can post books they want with books they have so they can barter the books. This will also allow students to find textbooks at affordable prices and readers to buy/barter books used by other readers caringly. 
 </p>
