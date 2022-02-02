@@ -1,4 +1,4 @@
-# Luncheon
+# Barter Books
 
 <p>
 </p>
@@ -6,16 +6,13 @@
 ## Tiffin Service Application
 <img height="150px" width="150px" alt="LOGO" src="https://github.com/Brij15/Luncheon/blob/main/images/Luncheon.png" />
 <p style="text-align:center;">
-  Tiffin service is required for students, working-class people, and physically challenged people where they can get homemade food. The aim of an application is that people can earn money by providing tiffin service and people who need it can get homemade food at their doorstep. Users can search tiffin services based on type (veg/nonveg), the nearby area, and price filters. Users can subscribe tiffin service for a particular time interval (week, month). 
+ Sometimes it is hard to find books you want. Maybe they are expensive maybe they are out of print. This is an app that exclusively allows its users to post ads on their available books and view these ads according to their location (Target Barrie City - For Now). Users can post books they want with books they have so they can barter the books. This will also allow students to find textbooks at affordable prices and readers to buy/barter books used by other readers caringly. 
 </p>
 
 <hr>
 
 ### Miro Board
-<p>
-  <img height="400px" width="800px" alt="LOGO" src="https://github.com/Brij15/Luncheon/blob/main/images/Miro.png" />
-  </p>
-
+ 
 ### Use Case Diagram
 
 <p>
