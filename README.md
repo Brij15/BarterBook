@@ -11,15 +11,16 @@
 
 <hr>
 
-<!-- ### Miro Board -->
-<!--  ![BrainStorming](https://github.com/RoarshacH/ReadWithMe/blob/main/images/Miro.png) -->
+### Miro Board
+![BrainStorming](https://github.com/Brij15/BarterBook/blob/main/images/Miro.png)
+
 ### Use Case Diagram
 
- ![UML Case Diagram](https://github.com/Brij15/Luncheon/blob/main/images/class-diagram.jpeg)
+ ![UML Case Diagram](https://github.com/Brij15/BarterBook/blob/main/images/class-diagram.jpeg)
 <hr>
 
 ### Activity Diagram
-![UML Case Diagram](https://github.com/Brij15/Luncheon/blob/main/images/activity-diagram.jpeg)
+![UML Case Diagram](https://github.com/Brij15/BarterBook/blob/main/images/activity-diagram.jpeg)
 
 ### Technologies
 <ul style="list-style-type:none">
