@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E9F9F9"
@@ -19,150 +20,15 @@
         android:textColor="#E9F9F9"
         android:textSize="34sp" />
 
-
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/headerTextView"
-        android:rowCount="3"
-        android:columnCount="2">
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="0"
-            android:layout_column="0"
-            android:layout_gravity="fill"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_gravity="center_vertical|center_horizontal">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/logo"
-                    app:srcCompat="@drawable/ic_launcher_foreground" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Card"
-                    android:textStyle="bold"
-                    android:textAlignment="center"/>
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="0"
-            android:layout_column="1"
-            android:layout_gravity="fill"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_gravity="center_vertical|center_horizontal">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/logo"
-                    app:srcCompat="@drawable/ic_launcher_foreground" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Card"
-                    android:textStyle="bold"
-                    android:textAlignment="center"/>
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="1"
-            android:layout_column="0"
-            android:layout_gravity="fill"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_gravity="center_vertical|center_horizontal">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/logo"
-                    app:srcCompat="@drawable/ic_launcher_foreground" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Card"
-                    android:textStyle="bold"
-                    android:textAlignment="center"/>
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="1"
-            android:layout_column="1"
-            android:layout_gravity="fill"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_gravity="center_vertical|center_horizontal">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/logo"
-                    app:srcCompat="@drawable/ic_launcher_foreground" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Card"
-                    android:textStyle="bold"
-                    android:textAlignment="center"/>
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-
-
-    </GridLayout>
-
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
