@@ -50,7 +50,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         holder.conditionTextView.setText(conditions.get(position));
         holder.locationTextView.setText(locations.get(position));
         holder.priceTextView.setText(prices.get(position));
-        holder.barterCheckBox.setEnabled(Math.random() < 0.5);
+        holder.barterCheckBox.setChecked(Math.random() < 0.5);
     }
 
     @Override
