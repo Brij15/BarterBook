@@ -2,7 +2,9 @@ package com.example.barterbooksapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -10,5 +12,20 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+        //Remove action Bar
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
+
+        Runnable r = new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(SplashScreen.this, MainActivity.class));
+            }
+        };
+
+        Handler h = new Handler();
+        // The Runnable will be executed after the given delay time
+        h.postDelayed(r, 2000); // will be delayed for 2 seconds
     }
 }

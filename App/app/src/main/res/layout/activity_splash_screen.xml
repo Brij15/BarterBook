@@ -5,6 +5,4 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E9F9F9"
-    tools:context=".SplashScreen">
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    tools:context=".SplashScreen"/>
