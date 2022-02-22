@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="10dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="#314085"
+        app:strokeWidth="2dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/lstImageView"
+                    android:layout_width="100dp"
+                    android:layout_height="150dp"
+                    android:padding="2dp"
+                    android:src="@drawable/book1" />
+
+                <RelativeLayout
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:id="@+id/lstTitleText"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:text="Gardens of the Moon"
+                        android:textColor="#848CA4"
+                        android:textSize="14dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/lstAuthorText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/lstTitleText"
+                        android:text="Steven Erikson"
+                        android:textColor="#848CA4"
+                        android:textSize="14dp"
+                        android:textStyle="italic"/>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:id="@+id/lstBtnEdit"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/edit"/>
+
+                    <ImageButton
+                        android:id="@+id/lstBtnDelete"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/bin" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

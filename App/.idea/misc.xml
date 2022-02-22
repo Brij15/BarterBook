@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/smvdi/StudioProjects/BarterBooksProject/App/app/src/main/res/layout/activity_main.xml" value="0.12982456140350876" />
-        <entry key="..\:/Users/smvdi/StudioProjects/BarterBooksProject/App/app/src/main/res/layout/activity_splash_screen.xml" value="0.25" />
-        <entry key="..\:/Users/smvdi/StudioProjects/BarterBooksProject/App/app/src/main/res/layout/grid_item.xml" value="0.4" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/grid_item.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/list_item.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/seller_list_main.xml" value="0.24375" />
       </map>
     </option>
   </component>
