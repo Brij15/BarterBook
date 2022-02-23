@@ -2,13 +2,13 @@
 
 <p>
 </p>
-![example workflow](https://github.com/Brij15/BarterBook/blob/main/.github/workflows/android.yml/badge.svg)
 ## Book Barter Application
 ![Logo](https://github.com/Brij15/BarterBook/blob/main/images/Logo%201.png)
 <p style="text-align:center;">
  Sometimes it is hard to find books you want. Maybe they are expensive maybe they are out of print. This is an app that exclusively allows its users to post ads on their available books and view these ads according to their location (Target Barrie City - For Now). Users can post books they want with books they have so they can barter the books. This will also allow students to find textbooks at affordable prices and readers to buy/barter books used by other readers caringly. 
 </p>
 
+<!-- ![Android Workflow](https://github.com/Brij15/BarterBook/blob/main/.github/workflows/android.yml/badge.svg) -->
 <hr>
 
 ### Miro Board
