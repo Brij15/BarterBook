@@ -2,7 +2,7 @@
 
 <p>
 </p>
-
+![example workflow](https://github.com/Brij15/BarterBook/blob/main/.github/workflows/android.yml/badge.svg)
 ## Book Barter Application
 ![Logo](https://github.com/Brij15/BarterBook/blob/main/images/Logo%201.png)
 <p style="text-align:center;">
