@@ -3,6 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:title="Item"
+        android:icon="@drawable/home_icon_24"
+        android:id="@+id/go_home"/>
+    <item android:title="Item"
         android:icon="@drawable/seller_list_icon_24"
         android:id="@+id/seller_list"/>
     <item android:title="Item"

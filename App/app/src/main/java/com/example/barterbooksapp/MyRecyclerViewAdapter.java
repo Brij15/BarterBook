@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -77,6 +78,14 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             conditionTextView = itemView.findViewById(R.id.conditionText);
             priceTextView = itemView.findViewById(R.id.priceText);
             barterCheckBox = itemView.findViewById(R.id.barterCheckBox);
+
+//            On click listener to open a Seller list view
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(view.getContext(), "Item Clicked", Toast.LENGTH_SHORT );
+                }
+            });
         }
     }
 }

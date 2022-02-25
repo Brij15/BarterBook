@@ -47,6 +47,12 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent;
                 switch (item.getItemId()){
                     case R.id.seller_list:
+//                        intent = new Intent(MainActivity.this, SellerListActivity.class);
+//                        startActivity(intent);
+//                        Not working Issue with Seller list Activity
+                        break;
+
+                    case R.id.userSettings:
                         intent = new Intent(MainActivity.this, SplashScreen.class);
                         startActivity(intent);
                         break;
