@@ -17,5 +17,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo"
-        android:contentDescription="Barter Books Logo" />
+        android:contentDescription="@string/barter_books_logo_text" />
 </androidx.constraintlayout.widget.ConstraintLayout>

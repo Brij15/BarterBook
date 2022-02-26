@@ -2,6 +2,7 @@ package com.example.barterbooksapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,6 +11,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+@SuppressLint("CustomSplashScreen")
 public class SplashScreen extends AppCompatActivity {
 
     private  static final int SPLASH = 2000;
@@ -30,14 +32,11 @@ public class SplashScreen extends AppCompatActivity {
         imageView = findViewById(R.id.imageView);
         imageView.setAnimation(animation);
 
-        Runnable r = new Runnable() {
-            @Override
-            public void run() {
-                startActivity(new Intent(SplashScreen.this, MainActivity.class));
-                finish();
+        Runnable r = () -> {
+            startActivity(new Intent(SplashScreen.this, MainActivity.class));
+            finish();
 //                or try this in manifest
 //                android:noHistory="true"
-            }
         };
 
         Handler h = new Handler();

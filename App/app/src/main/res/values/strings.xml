@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">BarterBooksApp</string>
+    <string name="barter_books_logo_text">Barter Books Logo</string>
 </resources>
