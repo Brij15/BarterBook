@@ -1,10 +1,15 @@
 package com.example.barterbooksapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private List<String> prices;
 
     private MyRecyclerViewAdapter adapter;
+    private BottomNavigationView bottomNavigationView;
 
 
     @Override
@@ -31,6 +37,31 @@ public class MainActivity extends AppCompatActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
+
+        bottomNavigationView = findViewById(R.id.bottomNavigationBar);
+        bottomNavigationView.setSelected(false);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Intent intent;
+                switch (item.getItemId()){
+                    case R.id.seller_list:
+                        intent = new Intent(MainActivity.this, SellerListActivity.class);
+                        startActivity(intent);
+//                        Not working Issue with Seller list Activity
+                        break;
+
+                    case R.id.userSettings:
+                        intent = new Intent(MainActivity.this, SplashScreen.class);
+                        startActivity(intent);
+                        break;
+                }
+
+                return true;
+            }
+        });
+
 
 
         recyclerView = findViewById(R.id.recyclerView);
@@ -57,8 +88,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
 
         recyclerView.setAdapter(adapter);
-
-
 
     }
 
