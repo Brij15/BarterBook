@@ -30,7 +30,7 @@ public class SellerListActivity extends AppCompatActivity {
             getSupportActionBar().hide();
         }
 
-        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.sellerRecycleView);
         titles = new ArrayList<>();
         images = new ArrayList<>();
         authors = new ArrayList<>();

@@ -23,6 +23,12 @@
             android:exported="false"
             android:label="Home">
         </activity>
+        <activity
+            android:name=".SellerListActivity"
+            android:exported="false"
+            android:label="SellerList">
+        </activity>
+
     </application>
 
 </manifest>
