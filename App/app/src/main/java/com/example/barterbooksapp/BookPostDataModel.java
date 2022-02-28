@@ -1,6 +1,6 @@
 package com.example.barterbooksapp;
 
-public class BookPost {
+public class BookPostDataModel {
     private String title;
     private Integer image;
     private String author;
@@ -8,10 +8,10 @@ public class BookPost {
     private String location;
     private Double price;
 
-    public BookPost() {
+    public BookPostDataModel() {
     }
 
-    public BookPost(String title, Integer image, String author, String condition, String location, Double price) {
+    public BookPostDataModel(String title, Integer image, String author, String condition, String location, Double price) {
         this.title = title;
         this.image = image;
         this.author = author;
