@@ -16,10 +16,10 @@ import java.util.List;
 
 public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.MyViewHolder> {
     private Context context;
-    private List<BookPost> postList;
+    private List<BookPostDataModel> postList;
 
 
-    public MyRecyclerViewAdapter(Context context, List<BookPost> postList) {
+    public MyRecyclerViewAdapter(Context context, List<BookPostDataModel> postList) {
         this.context = context;
         this.postList = postList;
     }

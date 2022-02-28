@@ -19,7 +19,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private List<BookPost> bookPosts;
+    private List<BookPostDataModel> bookPosts;
     private MyRecyclerViewAdapter adapter;
     private BottomNavigationView bottomNavigationView;
     private LinearLayout locationSelect;
@@ -86,14 +86,14 @@ public class MainActivity extends AppCompatActivity {
 
     private void initializeTestData(){
         //initialize images TEST only
-        bookPosts.add(new BookPost("Gardens Of The moon",R.drawable.book1,"Steven Erikson", "Used Like New", "Barrie", 8.99 ));
-        bookPosts.add(new BookPost("Algebra and Geometry", R.drawable.book2,"Mark V. Lawson", "Library", "Barrie", 8.99));
-        bookPosts.add(new BookPost("Mathematics and The Real World",R.drawable.book3 ,"Zvi Artstein", "Used", "Barrie", 4.99));
-        bookPosts.add(new BookPost("Fifth Season",R.drawable.book4,"N. K Jemsin", "Used","Barrie", 6.00 ));
-        bookPosts.add(new BookPost("Name of the Wind", R.drawable.book5,"Patrick Rothfuss", "Used Like New", "Barrie", 12.99));
-        bookPosts.add(new BookPost("What IF", R.drawable.book6,"Randall Munroe", "Used Like New", "Barrie", 10.00));
-        bookPosts.add(new BookPost("Deep Learning With Python", R.drawable.book7 ,"François Chollet", "Used", "Barrie", 6.50));
-        bookPosts.add(new BookPost("Wise Man's Fear", R.drawable.book8, "Patrick Rothfuss", "New", "Barrie", 14.00));
+        bookPosts.add(new BookPostDataModel("Gardens Of The moon",R.drawable.book1,"Steven Erikson", "Used Like New", "Barrie", 8.99 ));
+        bookPosts.add(new BookPostDataModel("Algebra and Geometry", R.drawable.book2,"Mark V. Lawson", "Library", "Barrie", 8.99));
+        bookPosts.add(new BookPostDataModel("Mathematics and The Real World",R.drawable.book3 ,"Zvi Artstein", "Used", "Barrie", 4.99));
+        bookPosts.add(new BookPostDataModel("Fifth Season",R.drawable.book4,"N. K Jemsin", "Used","Barrie", 6.00 ));
+        bookPosts.add(new BookPostDataModel("Name of the Wind", R.drawable.book5,"Patrick Rothfuss", "Used Like New", "Barrie", 12.99));
+        bookPosts.add(new BookPostDataModel("What IF", R.drawable.book6,"Randall Munroe", "Used Like New", "Barrie", 10.00));
+        bookPosts.add(new BookPostDataModel("Deep Learning With Python", R.drawable.book7 ,"François Chollet", "Used", "Barrie", 6.50));
+        bookPosts.add(new BookPostDataModel("Wise Man's Fear", R.drawable.book8, "Patrick Rothfuss", "New", "Barrie", 14.00));
     }
 
 }
