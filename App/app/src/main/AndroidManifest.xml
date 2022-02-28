@@ -14,6 +14,11 @@
             android:exported="false" />
         <activity
             android:name=".SplashScreen"
+        <activity
+            android:name=".CategoriesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SplashScreen"
             android:exported="true"
             android:label="Splash">
             <intent-filter>
@@ -25,14 +30,11 @@
         <activity
             android:name=".MainActivity"
             android:exported="false"
-            android:label="Home">
-        </activity>
+            android:label="Home"></activity>
         <activity
             android:name=".SellerListActivity"
             android:exported="false"
-            android:label="SellerList">
-        </activity>
-
+            android:label="SellerList"></activity>
     </application>
 
 </manifest>
