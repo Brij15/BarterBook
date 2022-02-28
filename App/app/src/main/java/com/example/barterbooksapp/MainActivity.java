@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private List<BookPost> bookPosts;
     private MyRecyclerViewAdapter adapter;
     private BottomNavigationView bottomNavigationView;
+    private LinearLayout locationSelect;
 
 
     @Override
@@ -68,6 +71,16 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
 
         recyclerView.setAdapter(adapter);
+
+        //Top Bar
+        locationSelect = findViewById(R.id.categorySelect);
+        locationSelect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, CategoriesActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
