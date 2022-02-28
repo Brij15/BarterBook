@@ -12,28 +12,16 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.net.Inet4Address;
 import java.util.List;
 
 public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.MyViewHolder> {
     private Context context;
-    private List<String> titles;
-    private List<Integer> images;
-    private List<String> authors;
-    private List<String> conditions;
-    private List<String> locations;
-    private List<String> prices;
+    private List<BookPost> postList;
 
-    public MyRecyclerViewAdapter(Context context, List<String> titles, List<Integer> images, List<String> authors,
-                                 List<String> conditions, List<String> locations, List<String> prices){
+
+    public MyRecyclerViewAdapter(Context context, List<BookPost> postList) {
         this.context = context;
-        this.titles = titles;
-        this.images = images;
-        this.authors = authors;
-        this.conditions = conditions;
-        this.locations = locations;
-        this.prices = prices;
-
+        this.postList = postList;
     }
 
     @NonNull
@@ -45,18 +33,18 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.textView.setText(titles.get(position));
-        holder.imageView.setImageResource(images.get(position));
-        holder.authorTextView.setText(authors.get(position));
-        holder.conditionTextView.setText(conditions.get(position));
-        holder.locationTextView.setText(locations.get(position));
-        holder.priceTextView.setText(prices.get(position));
+        holder.textView.setText(postList.get(position).getTitle());
+        holder.imageView.setImageResource(postList.get(position).getImage());
+        holder.authorTextView.setText(postList.get(position).getAuthor());
+        holder.conditionTextView.setText(postList.get(position).getCondition());
+        holder.locationTextView.setText(postList.get(position).getLocation());
+        holder.priceTextView.setText( "$"+ postList.get(position).getPrice().toString());
         holder.barterCheckBox.setChecked(Math.random() < 0.5);
     }
 
     @Override
     public int getItemCount() {
-        return titles.size();
+        return postList.size();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
