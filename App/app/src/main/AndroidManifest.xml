@@ -4,9 +4,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/applogo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/applogo"
         android:supportsRtl="true"
         android:theme="@style/Theme.BarterBooksApp">
         <activity
@@ -14,8 +14,7 @@
             android:exported="false" />
         <activity
             android:name=".SplashScreen"
-            android:exported="true"
-            android:label="Splash">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,11 +24,11 @@
         <activity
             android:name=".MainActivity"
             android:exported="false"
-            android:label="Home"></activity>
+            android:label="Home"/>
         <activity
             android:name=".SellerListActivity"
             android:exported="false"
-            android:label="SellerList"></activity>
+            android:label="SellerList"/>
     </application>
 
 </manifest>
