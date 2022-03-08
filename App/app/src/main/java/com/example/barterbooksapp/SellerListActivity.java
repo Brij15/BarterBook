@@ -1,10 +1,15 @@
 package com.example.barterbooksapp;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +17,7 @@ import java.util.List;
 public class SellerListActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-
+    private BottomNavigationView bottomNavigationView;
     private List<String> titles;
     private List<String> authors;
     private List<Integer> images;
@@ -29,6 +34,29 @@ public class SellerListActivity extends AppCompatActivity {
         if(getSupportActionBar() != null){
             getSupportActionBar().hide();
         }
+
+        bottomNavigationView = findViewById(R.id.sellerBottomNavigationBar);
+        bottomNavigationView.setSelectedItemId(R.id.seller_list);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Intent intent;
+                switch (item.getItemId()){
+                    case R.id.go_home:
+                        intent = new Intent(SellerListActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        break;
+
+                    case R.id.userSettings:
+                        intent = new Intent(SellerListActivity.this, SplashScreen.class);
+                        startActivity(intent);
+                        break;
+                }
+
+                return true;
+            }
+        });
 
         recyclerView = findViewById(R.id.sellerRecycleView);
         titles = new ArrayList<>();

@@ -2,19 +2,19 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Item"
+    <item android:title="Home"
         android:icon="@drawable/home_icon_24"
         android:id="@+id/go_home"/>
-    <item android:title="Item"
+    <item android:title="List"
         android:icon="@drawable/seller_list_icon_24"
         android:id="@+id/seller_list"/>
-    <item android:title="Item"
+    <item android:title="Setting"
         android:icon="@drawable/user_settings_24"
         android:id="@+id/userSettings"/>
-    <item android:title="Item"
+    <item android:title="Add Post"
         android:icon="@drawable/add__post_circle_24"
         android:id="@+id/add_post"/>
-    <item android:title="Item"
+    <item android:title="Search"
         android:icon="@drawable/search_posts_24"
         android:id="@+id/searchPosts"/>
 </menu>
