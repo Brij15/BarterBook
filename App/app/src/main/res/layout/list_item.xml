@@ -4,14 +4,14 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginHorizontal="10dp"
-    android:layout_marginVertical="10dp">
+    android:layout_marginVertical="5dp">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="380dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         app:cardCornerRadius="10dp"
-        app:cardElevation="10dp"
+        app:cardElevation="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -38,13 +38,13 @@
                     android:src="@drawable/book1" />
 
                 <RelativeLayout
-                    android:layout_width="150dp"
+                    android:layout_width="200dp"
                     android:layout_height="match_parent"
                     android:padding="5dp">
 
                     <TextView
                         android:id="@+id/lstTitleText"
-                        android:layout_width="140dp"
+                        android:layout_width="190dp"
                         android:layout_height="wrap_content"
                         android:text="Gardens of the Moon"
                         android:textColor="#848CA4"
@@ -63,20 +63,20 @@
                 </RelativeLayout>
 
                 <LinearLayout
-                    android:layout_width="120dp"
+                    android:layout_width="70dp"
                     android:layout_height="match_parent">
 
                     <ImageButton
                         android:id="@+id/lstBtnEdit"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:background="@drawable/edit"/>
+                        android:background="@drawable/edit_icon"/>
 
                     <ImageButton
                         android:id="@+id/lstBtnDelete"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:background="@drawable/bin" />
+                        android:background="@drawable/delete_icon" />
                 </LinearLayout>
 
             </LinearLayout>

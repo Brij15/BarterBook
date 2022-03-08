@@ -11,6 +11,17 @@
         <entry key="..\:/Users/smvdi/StudioProjects/BarterBooksProject/App/app/src/main/res/layout/list_item.xml" value="0.25" />
         <entry key="..\:/Users/smvdi/StudioProjects/BarterBooksProject/App/app/src/main/res/layout/seller_list_main.xml" value="0.19895833333333332" />
         <entry key="..\:/Users/smvdi/StudioProjects/BarterBooksProject/App/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
+        <entry key="app/src/main/res/drawable/categories_icon_.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/delete_icon.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/edit_icon.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/home_icon_24.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/search_posts_24.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/grid_item.xml" value="0.1272644927536232" />
+        <entry key="app/src/main/res/layout/list_item.xml" value="0.26771240234375004" />
+        <entry key="app/src/main/res/layout/seller_list_main.xml" value="0.24375" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.24375" />
       </map>
     </option>
   </component>

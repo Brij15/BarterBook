@@ -49,9 +49,9 @@ public class SellerRecycleViewAdapter extends RecyclerView.Adapter<SellerRecycle
 
         public SellerViewHolder(@NonNull View itemView){
             super(itemView);
-            imageView = itemView.findViewById(R.id.imageView);
-            textView = itemView.findViewById(R.id.titleText);
-            authorView = itemView.findViewById(R.id.authorText);
+            imageView = itemView.findViewById(R.id.lstImageView);
+            textView = itemView.findViewById(R.id.lstTitleText);
+            authorView = itemView.findViewById(R.id.lstAuthorText);
         }
     }
 }
