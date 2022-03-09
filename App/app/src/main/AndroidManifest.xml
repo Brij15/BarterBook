@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BarterBooksApp">
         <activity
+            android:name=".LocationActivity"
+            android:exported="false" />
+        <activity
             android:name=".CategoriesActivity"
             android:exported="false" />
         <activity
@@ -24,11 +27,11 @@
         <activity
             android:name=".MainActivity"
             android:exported="false"
-            android:label="Home"/>
+            android:label="Home" />
         <activity
             android:name=".SellerListActivity"
             android:exported="false"
-            android:label="SellerList"/>
+            android:label="SellerList" />
     </application>
 
 </manifest>

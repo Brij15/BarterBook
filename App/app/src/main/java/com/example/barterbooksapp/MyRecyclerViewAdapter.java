@@ -1,6 +1,7 @@
 package com.example.barterbooksapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,6 +58,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         TextView priceTextView;
         CheckBox barterCheckBox;
 
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.imageView);
@@ -72,6 +74,9 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
                 @Override
                 public void onClick(View view) {
                     Toast.makeText(view.getContext(), "Item Clicked", Toast.LENGTH_SHORT ).show();
+                    Intent intent = new Intent(view.getContext(), CategoriesActivity.class);
+                    intent.putExtra("ID", textView.getText());
+                    view.getContext().startActivity(intent);
                 }
             });
         }
