@@ -7,10 +7,19 @@ public class BookPostDataModel {
     private String condition;
     private String location;
     private Double price;
+    private String category;
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
 
     public BookPostDataModel() {
     }
-
+//Without Category
     public BookPostDataModel(String title, Integer image, String author, String condition, String location, Double price) {
         this.title = title;
         this.image = image;
@@ -18,6 +27,16 @@ public class BookPostDataModel {
         this.condition = condition;
         this.location = location;
         this.price = price;
+    }
+//With Category
+    public BookPostDataModel(String title, Integer image, String author, String condition, String location, Double price, String category) {
+        this.title = title;
+        this.image = image;
+        this.author = author;
+        this.condition = condition;
+        this.location = location;
+        this.price = price;
+        this.category = category;
     }
 
     public String getTitle() {
@@ -70,13 +89,14 @@ public class BookPostDataModel {
 
     @Override
     public String toString() {
-        return "BookPost{" +
+        return "BookPostDataModel{" +
                 "title='" + title + '\'' +
                 ", image=" + image +
                 ", author='" + author + '\'' +
                 ", condition='" + condition + '\'' +
                 ", location='" + location + '\'' +
-                ", price='" + price + '\'' +
+                ", price=" + price +
+                ", category='" + category + '\'' +
                 '}';
     }
 }

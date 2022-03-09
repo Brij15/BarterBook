@@ -69,12 +69,17 @@ public class MainActivity extends AppCompatActivity {
 //            Log.i("FilterID", thisIntent.getStringExtra("FilterID"));
             if (!thisIntent.getStringExtra("FilterID").isEmpty()){
                 String filterValue = thisIntent.getStringExtra("FilterID");
-
-                if (filterValue.equals("All Locations")){
-    //                Do nothing here
+                String filterID = thisIntent.getStringExtra("PageID");
+                if (filterValue.equals("All Locations") || filterValue.equals("All Categories") ){
+//                    Do nothing
+                }
+                else {
+                    if (filterID.equals("LOCATION")){
+                        bookPosts = filterBy(filterValue, FilterType.LOCATION);
                     }
-                else{
-                    bookPosts = filterBy(filterValue, FilterType.LOCATION);
+                    else if((filterID.equals("CATEGORY"))){
+                        bookPosts = filterBy(filterValue, FilterType.CATEGORY);
+                    }
                 }
             }
         }
@@ -113,19 +118,17 @@ public class MainActivity extends AppCompatActivity {
 
     private List<BookPostDataModel> filterBy(String filterValue, FilterType type){
         List<BookPostDataModel> filteredList = new ArrayList<>();
+        //currently filter by category or Location not both
         if (type.equals(FilterType.CATEGORY)){
-//            for(BookPostDataModel item : bookPosts) {
-//                if (item.getCondition() == filterValue){
-//                    filteredList.add(item);
-//                }
-//            }
+            for(BookPostDataModel item : bookPosts) {
+                if (item.getCategory().equals(filterValue)){
+                    filteredList.add(item);
+                }
+            }
         }
         else if(type.equals(FilterType.LOCATION)){
             for(BookPostDataModel item : bookPosts) {
-                Log.i("Location", item.getLocation());
-                Log.i("Location", filterValue);
                 if (item.getLocation().equals(filterValue)){
-                    Log.i("Location", "Im Inside");
                     filteredList.add(item);
                 }
             }
@@ -135,14 +138,14 @@ public class MainActivity extends AppCompatActivity {
 
     private void initializeTestData(){
         //initialize images TEST only
-        bookPosts.add(new BookPostDataModel("Gardens Of The moon",R.drawable.book1,"Steven Erikson", "Used Like New", "Aurora", 8.99 ));
-        bookPosts.add(new BookPostDataModel("Algebra and Geometry", R.drawable.book2,"Mark V. Lawson", "Library", "Crimson Ridge", 8.99));
-        bookPosts.add(new BookPostDataModel("Mathematics and The Real World",R.drawable.book3 ,"Zvi Artstein", "Used", "Stanely", 4.99));
-        bookPosts.add(new BookPostDataModel("Fifth Season",R.drawable.book4,"N. K Jemsin", "Used","Crimson Ridge", 6.00 ));
-        bookPosts.add(new BookPostDataModel("Name of the Wind", R.drawable.book5,"Patrick Rothfuss", "Used Like New", "Orilla", 12.99));
-        bookPosts.add(new BookPostDataModel("What IF", R.drawable.book6,"Randall Munroe", "Used Like New", "CollingWood", 10.00));
-        bookPosts.add(new BookPostDataModel("Deep Learning With Python", R.drawable.book7 ,"François Chollet", "Used", "CollingWood", 6.50));
-        bookPosts.add(new BookPostDataModel("Wise Man's Fear", R.drawable.book8, "Patrick Rothfuss", "New", "Orilla", 14.00));
+        bookPosts.add(new BookPostDataModel("Gardens Of The moon",R.drawable.book1,"Steven Erikson", "Used Like New", "Aurora", 8.99, "Fantasy and Science Friction" ));
+        bookPosts.add(new BookPostDataModel("Algebra and Geometry", R.drawable.book2,"Mark V. Lawson", "Library", "Crimson Ridge", 8.99, "Text Books"));
+        bookPosts.add(new BookPostDataModel("Mathematics and The Real World",R.drawable.book3 ,"Zvi Artstein", "Used", "Stanely", 4.99, "Text Books"));
+        bookPosts.add(new BookPostDataModel("Fifth Season",R.drawable.book4,"N. K Jemsin", "Used","Crimson Ridge", 6.00 , "Fantasy and Science Friction"));
+        bookPosts.add(new BookPostDataModel("Name of the Wind", R.drawable.book5,"Patrick Rothfuss", "Used Like New", "Orilla", 12.99, "Fantasy and Science Friction"));
+        bookPosts.add(new BookPostDataModel("What IF", R.drawable.book6,"Randall Munroe", "Used Like New", "CollingWood", 10.00, "Science"));
+        bookPosts.add(new BookPostDataModel("Deep Learning With Python", R.drawable.book7 ,"François Chollet", "Used", "CollingWood", 6.50, "Computers"));
+        bookPosts.add(new BookPostDataModel("Wise Man's Fear", R.drawable.book8, "Patrick Rothfuss", "New", "Orilla", 14.00, "Fantasy and Science Friction"));
     }
 
     private  enum FilterType{

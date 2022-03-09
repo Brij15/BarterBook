@@ -2,6 +2,7 @@ package com.example.barterbooksapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,6 +53,16 @@ public class LocCatListRecyclerView extends RecyclerView.Adapter<LocCatListRecyc
 //                Toast.makeText(view.getContext(), "Item Clicked" + textView.getText(), Toast.LENGTH_SHORT ).show();
                 Intent intent = new Intent(view.getContext(), MainActivity.class);
                 intent.putExtra("FilterID", textView.getText());
+
+                String pageContext = view.getContext().getClass().toString();
+                if (pageContext.equals("class com.example.barterbooksapp.LocationActivity") ){
+                    Log.i("Context", "Im Inside Location");
+                    intent.putExtra("PageID", "LOCATION");
+                }
+                else if(pageContext.equals("class com.example.barterbooksapp.CategoriesActivity") ){
+                    Log.i("Context", "Im Inside Category");
+                    intent.putExtra("PageID", "CATEGORY");
+                }
                 view.getContext().startActivity(intent);
             });
         }
