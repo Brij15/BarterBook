@@ -48,10 +48,11 @@ public class LocCatListRecyclerView extends RecyclerView.Adapter<LocCatListRecyc
             textView = itemView.findViewById(R.id.listTextView);
 
 //            On click listener to filter
-            itemView.setOnClickListener(view -> {
-//                    Intent intent = new Intent(view.getContext(), MainActivity.class);
-//                    intent.putExtra("filter", textView.getText());
-                Toast.makeText(view.getContext(), "Item Clicked" + textView.getText(), Toast.LENGTH_SHORT ).show();
+            itemView.setOnClickListener(view -> {//
+//                Toast.makeText(view.getContext(), "Item Clicked" + textView.getText(), Toast.LENGTH_SHORT ).show();
+                Intent intent = new Intent(view.getContext(), MainActivity.class);
+                intent.putExtra("FilterID", textView.getText());
+                view.getContext().startActivity(intent);
             });
         }
     }

@@ -73,7 +73,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(view.getContext(), "Item Clicked", Toast.LENGTH_SHORT ).show();
+//                    Toast.makeText(view.getContext(), "Item Clicked", Toast.LENGTH_SHORT ).show();
                     Intent intent = new Intent(view.getContext(), CategoriesActivity.class);
                     intent.putExtra("ID", textView.getText());
                     view.getContext().startActivity(intent);
