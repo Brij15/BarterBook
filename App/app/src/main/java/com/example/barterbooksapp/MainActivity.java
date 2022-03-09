@@ -19,9 +19,10 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private List<BookPostDataModel> bookPosts;
+    private List<BookPostDataModel> bookPosts ;
     private MyRecyclerViewAdapter adapter;
     private BottomNavigationView bottomNavigationView;
+    private LinearLayout categorySelect;
     private LinearLayout locationSelect;
 
 
@@ -72,11 +73,20 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         //Top Bar
-        locationSelect = findViewById(R.id.categorySelect);
-        locationSelect.setOnClickListener(new View.OnClickListener() {
+        categorySelect = findViewById(R.id.categorySelect);
+        categorySelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, CategoriesActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        locationSelect = findViewById(R.id.locationSelect);
+        locationSelect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, LocationActivity.class);
                 startActivity(intent);
             }
         });
