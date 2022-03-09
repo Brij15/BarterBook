@@ -49,6 +49,7 @@ public class CategoriesActivity extends AppCompatActivity {
         categoriesList.add("Personal Development");
         categoriesList.add("Society and Social Sciences");
         categoriesList.add("Short Stories");
+        categoriesList.add("Science");
         categoriesList.add("Text Books");
 
 
