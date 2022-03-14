@@ -32,8 +32,9 @@ public class SplashScreen extends AppCompatActivity {
         imageView = findViewById(R.id.imageView);
         imageView.setAnimation(animation);
 
+        //NOTE Rename to MAINACTIVITY
         Runnable r = () -> {
-            startActivity(new Intent(SplashScreen.this, MainActivity.class));
+            startActivity(new Intent(SplashScreen.this, PostADActivity.class));
             finish();
 //                or try this in manifest
 //                android:noHistory="true"
