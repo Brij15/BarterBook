@@ -16,6 +16,9 @@
             android:name=".CategoriesActivity"
             android:exported="false" />
         <activity
+            android:name=".registration_screen"
+            android:exported="false" />
+        <activity
             android:name=".SplashScreen"
             android:exported="true">
             <intent-filter>
