@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.userSettings:
-                        intent = new Intent(MainActivity.this, SplashScreen.class);
+                        intent = new Intent(MainActivity.this, registration_screen.class);
                         startActivity(intent);
                         break;
                 }
