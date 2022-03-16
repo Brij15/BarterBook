@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BarterBooksApp">
         <activity
+            android:name=".DetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".LoginPageActivity"
             android:exported="false" />
         <activity
