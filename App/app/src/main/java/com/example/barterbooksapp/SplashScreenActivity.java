@@ -12,7 +12,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 @SuppressLint("CustomSplashScreen")
-public class SplashScreen extends AppCompatActivity {
+public class SplashScreenActivity extends AppCompatActivity {
 
     private  static final int SPLASH = 2000;
     Animation animation;
@@ -33,7 +33,7 @@ public class SplashScreen extends AppCompatActivity {
         imageView.setAnimation(animation);
 
         Runnable r = () -> {
-            startActivity(new Intent(SplashScreen.this, LoginPage.class));
+            startActivity(new Intent(SplashScreenActivity.this, LoginPageActivity.class));
             finish();
 //                or try this in manifest
 //                android:noHistory="true"

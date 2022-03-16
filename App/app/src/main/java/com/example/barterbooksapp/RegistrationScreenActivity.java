@@ -9,11 +9,12 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.regex.Pattern;
 
-public class registration_screen extends AppCompatActivity {
+public class RegistrationScreenActivity extends AppCompatActivity {
 
     private static final Pattern PASSWORD_PATTERN =
             Pattern.compile("^" +
@@ -33,6 +34,7 @@ public class registration_screen extends AppCompatActivity {
     EditText confirmPassword;
     Button register;
     String passwordInput;
+    TextView haveAccount;
 
 
 
@@ -47,6 +49,15 @@ public class registration_screen extends AppCompatActivity {
          confirmPassword = (EditText) findViewById(R.id.confirmPassword);
          register = (Button) findViewById(R.id.register);
 
+         haveAccount = (TextView) findViewById(R.id.textViewHaveAccount);
+
+         haveAccount.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 startActivity(new Intent(RegistrationScreenActivity.this, LoginPageActivity.class));
+                 finish();
+             }
+         });
 
     }
 
@@ -137,7 +148,7 @@ public class registration_screen extends AppCompatActivity {
             return;
         }
         else {
-            startActivity(new Intent(registration_screen.this, MainActivity.class));
+            startActivity(new Intent(RegistrationScreenActivity.this, MainActivity.class));
             finish();
         }
 

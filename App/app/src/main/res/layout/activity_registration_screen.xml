@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E0F0FA"
-    tools:context=".registration_screen">
+    tools:context=".RegistrationScreenActivity">
 
     <ImageView
         android:id="@+id/imageView15"
@@ -29,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHaveAccount"
         app:srcCompat="@drawable/line"
         tools:ignore="ImageContrastCheck" />
 
@@ -141,7 +141,7 @@
         app:layout_constraintVertical_bias="0.684" />
 
     <Button
-        android:id="@+id/textView"
+        android:id="@+id/textViewHaveAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -172,7 +172,7 @@
         app:layout_constraintEnd_toStartOf="@+id/imageView5"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHaveAccount"
         tools:ignore="TextContrastCheck" />
 
     <TextView
@@ -198,7 +198,7 @@
         app:layout_constraintEnd_toStartOf="@+id/textView3"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHaveAccount"
         app:srcCompat="@drawable/line"
         tools:ignore="ImageContrastCheck" />
 
@@ -220,7 +220,7 @@
         android:id="@+id/googleRegister"
         android:layout_width="57dp"
         android:layout_height="46dp"
-        android:background="#FFFFFF"
+        android:background="#00FFFFFF"
         android:onClick="googleSignUp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/facebookRegister"
@@ -247,7 +247,7 @@
         android:id="@+id/twitterRegister"
         android:layout_width="57dp"
         android:layout_height="46dp"
-        android:background="#FFFFFF"
+        android:background="#00FFFFFF"
         android:onClick="twitterSignUp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

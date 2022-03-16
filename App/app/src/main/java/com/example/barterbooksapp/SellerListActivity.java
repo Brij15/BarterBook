@@ -49,7 +49,7 @@ public class SellerListActivity extends AppCompatActivity {
                         break;
 
                     case R.id.userSettings:
-                        intent = new Intent(SellerListActivity.this, registration_screen.class);
+                        intent = new Intent(SellerListActivity.this, RegistrationScreenActivity.class);
                         startActivity(intent);
                         break;
                 }
