@@ -6,7 +6,6 @@
         <entry key="..\:/Users/smvdi/StudioProjects/BarterBooksProject/App/app/src/main/res/layout/activity_categories.xml" value="0.25" />
         <entry key="..\:/Users/smvdi/StudioProjects/BarterBooksProject/App/app/src/main/res/layout/activity_location.xml" value="0.4" />
         <entry key="..\:/Users/smvdi/StudioProjects/BarterBooksProject/App/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/smvdi/StudioProjects/BarterBooksProject/App/app/src/main/res/layout/activity_registration_screen.xml" value="0.4" />
         <entry key="..\:/Users/smvdi/StudioProjects/BarterBooksProject/App/app/src/main/res/layout/activity_splash_screen.xml" value="0.2" />
         <entry key="..\:/Users/smvdi/StudioProjects/BarterBooksProject/App/app/src/main/res/layout/categories_location_list_item.xml" value="0.25" />
         <entry key="..\:/Users/smvdi/StudioProjects/BarterBooksProject/App/app/src/main/res/layout/grid_item.xml" value="0.4" />
@@ -19,6 +18,7 @@
         <entry key="app/src/main/res/drawable/home_icon_24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/search_posts_24.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_login_page.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/grid_item.xml" value="0.1272644927536232" />
         <entry key="app/src/main/res/layout/list_item.xml" value="0.26771240234375004" />
