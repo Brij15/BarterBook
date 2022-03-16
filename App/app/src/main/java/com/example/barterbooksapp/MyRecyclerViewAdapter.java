@@ -74,8 +74,8 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
                 @Override
                 public void onClick(View view) {
 //                    Toast.makeText(view.getContext(), "Item Clicked", Toast.LENGTH_SHORT ).show();
-                    Intent intent = new Intent(view.getContext(), CategoriesActivity.class);
-                    intent.putExtra("ID", textView.getText());
+                    Intent intent = new Intent(view.getContext(), DetailsActivity.class);
+                    intent.putExtra("BookID", textView.getText());
                     view.getContext().startActivity(intent);
                 }
             });
