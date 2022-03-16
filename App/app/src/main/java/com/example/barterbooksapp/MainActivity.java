@@ -16,6 +16,8 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -35,16 +37,23 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout categorySelect;
     private LinearLayout locationSelect;
     private DatabaseReference budgetRef;
+    private FirebaseAuth mAuth;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        mAuth = FirebaseAuth.getInstance();
         //Remove action Bar
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
+        }
+
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser == null){
+            startActivity(new Intent(MainActivity.this, LoginPageActivity.class));
+            finish();
         }
         budgetRef = FirebaseDatabase.getInstance().getReference().child("testBarterBooks");
         String data = "Hello World";
@@ -91,10 +100,12 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
 
-//                    case R.id.userSettings:
-//                        intent = new Intent(MainActivity.this, registration_screen.class);
-//                        startActivity(intent);
-//                        break;
+                    case R.id.userSettings:
+                        mAuth.signOut();
+                        intent = new Intent(MainActivity.this, LoginPageActivity.class);
+                        startActivity(intent);
+                        finish();
+                        break;
                 }
 
                 return true;
