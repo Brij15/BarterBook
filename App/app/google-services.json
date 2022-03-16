@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "1005982740417",
+    "firebase_url": "https://budget-app-5142f-default-rtdb.firebaseio.com",
+    "project_id": "budget-app-5142f",
+    "storage_bucket": "budget-app-5142f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1005982740417:android:022e5be7e02b1b1b7c0940",
+        "android_client_info": {
+          "package_name": "com.example.barterbooksapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1005982740417-utjl4bkpubvl1hggvfdcj0iekjbvo7tp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCW09YMzaFjDQn0qzwLGjcq8z3AK00PMbM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1005982740417-utjl4bkpubvl1hggvfdcj0iekjbvo7tp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1005982740417:android:db6a9489b1f340b67c0940",
+        "android_client_info": {
+          "package_name": "com.example.budgetingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1005982740417-utjl4bkpubvl1hggvfdcj0iekjbvo7tp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCW09YMzaFjDQn0qzwLGjcq8z3AK00PMbM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1005982740417-utjl4bkpubvl1hggvfdcj0iekjbvo7tp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
