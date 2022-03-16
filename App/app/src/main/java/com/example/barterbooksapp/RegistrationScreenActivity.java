@@ -1,5 +1,6 @@
 package com.example.barterbooksapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,6 +12,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.regex.Pattern;
 
@@ -35,6 +42,7 @@ public class RegistrationScreenActivity extends AppCompatActivity {
     Button register;
     String passwordInput;
     TextView haveAccount;
+    private FirebaseAuth mAuth;
 
 
 
@@ -42,6 +50,8 @@ public class RegistrationScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration_screen);
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
 
          userName = (EditText) findViewById(R.id.userName);
          emailAddress = (EditText) findViewById(R.id.emailAddress);
@@ -144,15 +154,32 @@ public class RegistrationScreenActivity extends AppCompatActivity {
         Log.i("user details", String.valueOf(password.getText()));
         Log.i("user details", String.valueOf(confirmPassword.getText()));
 
+
+        String email = (String) String.valueOf(emailAddress.getText());
+        String userPassword = (String) String.valueOf(password.getText());
+
         if(!validateEmail() | !validateUsername() |!validatePassword()| !validateConfirmPassword()){
             return;
         }
         else {
-            startActivity(new Intent(RegistrationScreenActivity.this, MainActivity.class));
-            finish();
+            mAuth.createUserWithEmailAndPassword(email, userPassword)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                // Sign in success, update UI with the signed-in user's information
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                startActivity(new Intent(RegistrationScreenActivity.this, MainActivity.class));
+                                finish();
+                            } else {
+                                // If sign in fails, display a message to the user.
+                                Toast.makeText(RegistrationScreenActivity.this, "Authentication failed.",
+                                        Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+                        }
+                    });
         }
-
-
     }
 
     public void  behanceSignUp(View view){
