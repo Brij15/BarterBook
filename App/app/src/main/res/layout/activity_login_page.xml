@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A9C6D3"
-    android:foregroundTint="#A4CFE3"
+    android:background="#E0F0FA"
     tools:context=".LoginPageActivity">
 
     <Button
@@ -156,7 +155,7 @@
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.89"
-        app:srcCompat="@drawable/google_icon" />
+        app:srcCompat="@drawable/googleicon" />
 
     <ImageView
         android:id="@+id/imageView"
