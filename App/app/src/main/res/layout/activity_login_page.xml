@@ -7,10 +7,12 @@
     android:background="#A9C6D3"
     android:foregroundTint="#A4CFE3"
     tools:context=".LoginPage">
+
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/buttonLogin"
         android:layout_width="wrap_content"
         android:layout_height="57dp"
+        android:background="#3F4F94"
         android:text="Log In"
         app:layout_constraintBottom_toTopOf="@+id/textView11"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,7 +30,7 @@
         android:textAlignment="center"
         android:textColor="#3F4F94"
         android:textSize="10sp"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintBottom_toTopOf="@+id/buttonLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,25 +40,41 @@
         android:id="@+id/textView11"
         android:layout_width="24dp"
         android:layout_height="57dp"
-        android:text="or"
+        android:gravity="center"
+        android:text="Or"
+        android:textAlignment="center"
         android:textColor="#3F4F94"
-        app:layout_constraintBottom_toTopOf="@+id/textView12"
+        app:layout_constraintBottom_toTopOf="@+id/textViewSignup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonLogin" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/textViewSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Try Login Through"
+        android:contextClickable="true"
+        android:text="Not a User Sign Up Here!"
+        android:textAlignment="center"
         android:textColor="#3F4F94"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/textViewAlternateLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Or Login Using"
+        android:textAlignment="center"
+        android:textColor="#3F4F94"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSignup" />
 
     <EditText
         android:id="@+id/editTextTextPersonName3"

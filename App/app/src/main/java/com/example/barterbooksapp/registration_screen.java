@@ -2,6 +2,7 @@ package com.example.barterbooksapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
@@ -127,16 +128,17 @@ public class registration_screen extends AppCompatActivity {
 
     public void signUp(View view) {
 
-
-
         Log.i("user details", String.valueOf(userName.getText()));
         Log.i("user details", String.valueOf(emailAddress.getText()));
         Log.i("user details", String.valueOf(password.getText()));
         Log.i("user details", String.valueOf(confirmPassword.getText()));
 
         if(!validateEmail() | !validateUsername() |!validatePassword()| !validateConfirmPassword()){
-
             return;
+        }
+        else {
+            startActivity(new Intent(registration_screen.this, MainActivity.class));
+            finish();
         }
 
 
