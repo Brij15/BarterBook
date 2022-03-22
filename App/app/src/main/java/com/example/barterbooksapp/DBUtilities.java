@@ -116,4 +116,75 @@ public class DBUtilities {
                     }
                 });
     }
+
+    public Map<String, BookPostDataModel> GetByCategory(String category){
+        final Map<String,BookPostDataModel> newPosts = new HashMap<>();
+        db.collection("BarterBooksDB")
+                .whereEqualTo("category", category)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d("DB", document.getId() + " => " + document.getData());
+                                BookPostDataModel post = document.toObject(BookPostDataModel.class);
+                                newPosts.put(document.getId(), post);
+                            }
+                        } else {
+                            Log.d("DB", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+        return newPosts;
+    }
+
+    public Map<String, BookPostDataModel> GetByLocation(String location){
+        final Map<String,BookPostDataModel> newPosts = new HashMap<>();
+        db.collection("BarterBooksDB")
+                .whereEqualTo("location", location)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d("DB", document.getId() + " => " + document.getData());
+                                BookPostDataModel post = document.toObject(BookPostDataModel.class);
+                                newPosts.put(document.getId(), post);
+                            }
+                        } else {
+                            Log.d("DB", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+        return newPosts;
+    }
+
+    public Map<String, BookPostDataModel> filterByLocCat(String location, String category){
+        final Map<String,BookPostDataModel> newPosts = new HashMap<>();
+        db.collection("BarterBooksDB")
+                .whereEqualTo("location", location)
+                .whereEqualTo("category", category)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d("DB", document.getId() + " => " + document.getData());
+                                BookPostDataModel post = document.toObject(BookPostDataModel.class);
+                                newPosts.put(document.getId(), post);
+                            }
+                        } else {
+                            Log.d("DB", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+        return newPosts;
+    }
+
+
+
+
 }

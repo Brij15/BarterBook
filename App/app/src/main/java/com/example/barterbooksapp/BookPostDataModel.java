@@ -1,5 +1,7 @@
 package com.example.barterbooksapp;
 
+import java.util.Date;
+
 public class BookPostDataModel {
     private String title;
     private Integer image;
@@ -8,14 +10,9 @@ public class BookPostDataModel {
     private String location;
     private Double price;
     private String category;
+    private Date timePosted;
 
-    public String getCategory() {
-        return category;
-    }
 
-    public void setCategory(String category) {
-        this.category = category;
-    }
 
     public BookPostDataModel() {
     }
@@ -37,6 +34,18 @@ public class BookPostDataModel {
         this.location = location;
         this.price = price;
         this.category = category;
+    }
+
+//    With Timestamp
+    public BookPostDataModel(String title, Integer image, String author, String condition, String location, Double price, String category, Date timePosted) {
+        this.title = title;
+        this.image = image;
+        this.author = author;
+        this.condition = condition;
+        this.location = location;
+        this.price = price;
+        this.category = category;
+        this.timePosted = timePosted;
     }
 
     public String getTitle() {
@@ -87,6 +96,22 @@ public class BookPostDataModel {
         this.price = price;
     }
 
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public Date getTimePosted() {
+        return timePosted;
+    }
+
+    public void setTimePosted(Date timePosted) {
+        this.timePosted = timePosted;
+    }
+
     @Override
     public String toString() {
         return "BookPostDataModel{" +
@@ -97,6 +122,7 @@ public class BookPostDataModel {
                 ", location='" + location + '\'' +
                 ", price=" + price +
                 ", category='" + category + '\'' +
+                ", timePosted=" + timePosted +
                 '}';
     }
 }
