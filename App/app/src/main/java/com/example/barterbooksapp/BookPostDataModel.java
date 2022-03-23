@@ -11,9 +11,7 @@ public class BookPostDataModel {
     private Double price;
     private String category;
     private Date timePosted;
-
-
-
+    private String userDetails;
 
     public BookPostDataModel() {
     }
@@ -37,8 +35,7 @@ public class BookPostDataModel {
         this.category = category;
     }
 
-//    With Timestamp
-    public BookPostDataModel(String title, Integer image, String author, String condition, String location, Double price, String category, Date timePosted) {
+    public BookPostDataModel(String title, Integer image, String author, String condition, String location, Double price, String category, Date timePosted, String userDetails) {
         this.title = title;
         this.image = image;
         this.author = author;
@@ -47,6 +44,7 @@ public class BookPostDataModel {
         this.price = price;
         this.category = category;
         this.timePosted = timePosted;
+        this.userDetails = userDetails;
     }
 
     public String getTitle() {

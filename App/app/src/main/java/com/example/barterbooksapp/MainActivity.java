@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -38,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout locationSelect;
     private DatabaseReference budgetRef;
     private FirebaseAuth mAuth;
+    private TextView locationText;
+    private TextView categoryText;
 
 
     @Override
@@ -115,6 +118,8 @@ public class MainActivity extends AppCompatActivity {
         bookPosts = new ArrayList<>();
         initializeTestData();
 
+        locationText = findViewById(R.id.textViewLocationSelect);
+        categoryText = findViewById(R.id.textViewCategorySelect);
         //Do filter
         Intent thisIntent = getIntent();
         if (thisIntent.hasExtra("FilterID")){
@@ -123,19 +128,20 @@ public class MainActivity extends AppCompatActivity {
                 String filterValue = thisIntent.getStringExtra("FilterID");
                 String filterID = thisIntent.getStringExtra("PageID");
                 if (filterValue.equals("All Locations") || filterValue.equals("All Categories") ){
-//                    Do nothing
+//                    Do nothing here
                 }
                 else {
                     if (filterID.equals("LOCATION")){
                         bookPosts = filterBy(filterValue, FilterType.LOCATION);
+                        locationText.setText(filterValue);
                     }
                     else if((filterID.equals("CATEGORY"))){
                         bookPosts = filterBy(filterValue, FilterType.CATEGORY);
+                        categoryText.setText(filterValue);
                     }
                 }
             }
         }
-
 
         recyclerView = findViewById(R.id.recyclerView);
 

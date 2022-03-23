@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,10 +16,12 @@ public class CategoriesActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private List<String> categoriesList;
     private LocCatListRecyclerView adapter;
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categories);
+        mAuth = FirebaseAuth.getInstance();
 
         categoriesList = new ArrayList<>();
         initiateCategoriesList();

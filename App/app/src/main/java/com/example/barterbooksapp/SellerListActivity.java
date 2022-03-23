@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +25,7 @@ public class SellerListActivity extends AppCompatActivity {
     private List<Integer> images;
 
     private SellerRecycleViewAdapter adapter;
+    private FirebaseAuth mAuth;
 
 
     @Override
@@ -30,9 +33,17 @@ public class SellerListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.seller_list_main);
 
+        mAuth = FirebaseAuth.getInstance();
+
         //Remove action bar
         if(getSupportActionBar() != null){
             getSupportActionBar().hide();
+        }
+
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser == null){
+            startActivity(new Intent(SellerListActivity.this, LoginPageActivity.class));
+            finish();
         }
 
         bottomNavigationView = findViewById(R.id.sellerBottomNavigationBar);
