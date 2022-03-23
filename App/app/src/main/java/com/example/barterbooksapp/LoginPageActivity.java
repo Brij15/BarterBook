@@ -38,6 +38,7 @@ public class LoginPageActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
+//        If the user is not logged out they will be directed to home
         if(currentUser != null){
             startActivity(new Intent(LoginPageActivity.this, MainActivity.class));
             finish();
@@ -69,30 +70,32 @@ public class LoginPageActivity extends AppCompatActivity {
     private boolean signIN(){
         String emailAddress = (String) String.valueOf(email.getText());
         String userPassword = (String) String.valueOf(password.getText());
-        boolean result = false;
+        boolean isValid = false;
 
         //validations
         if (emailAddress.isEmpty()) {
             Toast.makeText(LoginPageActivity.this, "Username is empty.",
                     Toast.LENGTH_SHORT).show();
-            return result;
+            return isValid;
         }
 
         if (userPassword.isEmpty()){
             Toast.makeText(LoginPageActivity.this, "Password is empty.",
                     Toast.LENGTH_SHORT).show();
-            return result;
+            return isValid;
         }
 
         if (!isValidEmail(emailAddress)){
             Toast.makeText(LoginPageActivity.this, "Invalid email address..",
                     Toast.LENGTH_SHORT).show();
-            return result;
+            return isValid;
         }
 
+        isValid = true;
 
 
-        if (!emailAddress.isEmpty() && !userPassword.isEmpty()){
+
+        if (isValid){
             mAuth.signInWithEmailAndPassword(emailAddress, userPassword)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
@@ -117,6 +120,6 @@ public class LoginPageActivity extends AppCompatActivity {
                     Toast.LENGTH_SHORT).show();
         }
 
-        return result;
+        return isValid;
     }
 }
