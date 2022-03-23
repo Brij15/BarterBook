@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -61,10 +62,36 @@ public class LoginPageActivity extends AppCompatActivity {
 
     }
 
+    public static boolean isValidEmail(CharSequence target) {
+        return (Patterns.EMAIL_ADDRESS.matcher(target).matches());
+    }
+
     private boolean signIN(){
         String emailAddress = (String) String.valueOf(email.getText());
         String userPassword = (String) String.valueOf(password.getText());
         boolean result = false;
+
+        //validations
+        if (emailAddress.isEmpty()) {
+            Toast.makeText(LoginPageActivity.this, "Username is empty.",
+                    Toast.LENGTH_SHORT).show();
+            return result;
+        }
+
+        if (userPassword.isEmpty()){
+            Toast.makeText(LoginPageActivity.this, "Password is empty.",
+                    Toast.LENGTH_SHORT).show();
+            return result;
+        }
+
+        if (!isValidEmail(emailAddress)){
+            Toast.makeText(LoginPageActivity.this, "Invalid email address..",
+                    Toast.LENGTH_SHORT).show();
+            return result;
+        }
+
+
+
         if (!emailAddress.isEmpty() && !userPassword.isEmpty()){
             mAuth.signInWithEmailAndPassword(emailAddress, userPassword)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
