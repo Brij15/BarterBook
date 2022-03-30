@@ -169,7 +169,7 @@ public class LoginPageActivity extends AppCompatActivity {
         return (Patterns.EMAIL_ADDRESS.matcher(target).matches());
     }
 
-    private boolean signIN(){
+    private void signIN(){
         String emailAddress = (String) String.valueOf(email.getText());
         String userPassword = (String) String.valueOf(password.getText());
         boolean isValid = false;
@@ -178,24 +178,22 @@ public class LoginPageActivity extends AppCompatActivity {
         if (emailAddress.isEmpty()) {
             Toast.makeText(LoginPageActivity.this, "Username is empty.",
                     Toast.LENGTH_SHORT).show();
-            return isValid;
+            return;
         }
 
         if (userPassword.isEmpty()){
             Toast.makeText(LoginPageActivity.this, "Password is empty.",
                     Toast.LENGTH_SHORT).show();
-            return isValid;
+            return;
         }
 
         if (!isValidEmail(emailAddress)){
             Toast.makeText(LoginPageActivity.this, "Invalid email address..",
                     Toast.LENGTH_SHORT).show();
-            return isValid;
+            return;
         }
 
         isValid = true;
-
-
 
         if (isValid){
             mAuth.signInWithEmailAndPassword(emailAddress, userPassword)
@@ -221,7 +219,5 @@ public class LoginPageActivity extends AppCompatActivity {
             Toast.makeText(LoginPageActivity.this, "Username Password Empty.",
                     Toast.LENGTH_SHORT).show();
         }
-
-        return isValid;
     }
 }
