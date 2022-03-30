@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -18,6 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView categoryText;
 
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,66 +59,31 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
         budgetRef = FirebaseDatabase.getInstance().getReference().child("testBarterBooks");
-        String data = "Hello World";
-//        budgetRef.child(new Date().toString()).setValue(data).addOnCompleteListener(new OnCompleteListener<Void>() {
-//            @Override
-//            public void onComplete(@NonNull Task<Void> task) {
-//                if (task.isSuccessful()){
-//                    Toast.makeText(MainActivity.this, "Item added successfully", Toast.LENGTH_SHORT).show();
-//                }
-//                else {
-//                    Toast.makeText(MainActivity.this, task.getException().toString(), Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-//
-//        budgetRef.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                String value = "";
-//
-//                for  (DataSnapshot snap: snapshot.getChildren()){
-//                    value = String.valueOf(snap.getValue());
-//                    Toast.makeText(MainActivity.this, "retrieved " + value, Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
 
 
         bottomNavigationView = findViewById(R.id.bottomNavigationBar);
         bottomNavigationView.setSelectedItemId(R.id.go_home);
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            Intent intent;
+            switch (item.getItemId()){
+                case R.id.seller_list:
+                    intent = new Intent(MainActivity.this, SellerListActivity.class);
+                    startActivity(intent);
+                    break;
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Intent intent;
-                switch (item.getItemId()){
-                    case R.id.seller_list:
-                        intent = new Intent(MainActivity.this, SellerListActivity.class);
-                        startActivity(intent);
-                        break;
+                case R.id.userSettings:
+                    mAuth.signOut();
+                    intent = new Intent(MainActivity.this, LoginPageActivity.class);
+                    startActivity(intent);
+                    finish();
+                    break;
 
-                    case R.id.userSettings:
-                        mAuth.signOut();
-                        intent = new Intent(MainActivity.this, LoginPageActivity.class);
-                        startActivity(intent);
-                        finish();
-                        break;
-
-                    case R.id.searchPosts:
-                        searchPosts();
-                        break;
-                }
-
-                return true;
+                case R.id.searchPosts:
+                    searchPosts();
+                    break;
             }
+            return false;
         });
-
         bookPosts = new ArrayList<>();
         initializeTestData();
 
@@ -156,21 +124,15 @@ public class MainActivity extends AppCompatActivity {
 
         //Top Bar
         categorySelect = findViewById(R.id.categorySelect);
-        categorySelect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, CategoriesActivity.class);
-                startActivity(intent);
-            }
+        categorySelect.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, CategoriesActivity.class);
+            startActivity(intent);
         });
 
         locationSelect = findViewById(R.id.locationSelect);
-        locationSelect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, LocationActivity.class);
-                startActivity(intent);
-            }
+        locationSelect.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, LocationActivity.class);
+            startActivity(intent);
         });
 
     }
@@ -207,6 +169,7 @@ public class MainActivity extends AppCompatActivity {
         bookPosts.add(new BookPostDataModel("Wise Man's Fear", R.drawable.book8, "Patrick Rothfuss", "New", "Orilla", 14.00, "Fantasy and Science Friction"));
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private void searchPosts(){
         AlertDialog.Builder myDialog = new AlertDialog.Builder(this);
         LayoutInflater inflater = LayoutInflater.from(this);
@@ -219,31 +182,25 @@ public class MainActivity extends AppCompatActivity {
         final Button cancel = myView.findViewById(R.id.cancel);
         final Button search = myView.findViewById(R.id.search);
 
-        search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String searchText = searchTextView.getText().toString();
+        search.setOnClickListener(view -> {
+            String searchText = searchTextView.getText().toString();
 
-                if (TextUtils.isEmpty(searchText)){
-                    searchTextView.setError("You Need to type something");
-                    return;
-                }
-
-                else{
-                    adapter.setItems(getSearchData(searchText));
-                    adapter.notifyDataSetChanged();
-                }
-                dialog.dismiss();
-                bottomNavigationView.setSelectedItemId(R.id.go_home);
+            if (TextUtils.isEmpty(searchText)){
+                searchTextView.setError("You Need to type something");
+                return;
             }
+
+            else{
+                adapter.setItems(getSearchData(searchText));
+                adapter.notifyDataSetChanged();
+            }
+            dialog.dismiss();
+            bottomNavigationView.setSelectedItemId(R.id.go_home);
         });
 
-        cancel.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-                bottomNavigationView.setSelectedItemId(R.id.go_home);
-            }
+        cancel.setOnClickListener(view -> {
+            dialog.dismiss();
+            bottomNavigationView.setSelectedItemId(R.id.go_home);
         });
         dialog.show();
     }
