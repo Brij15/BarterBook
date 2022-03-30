@@ -68,7 +68,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Or Login Using"
+        android:text="Or Sign Up Using"
         android:textAlignment="center"
         android:textColor="#3F4F94"
         app:layout_constraintEnd_toEndOf="parent"
@@ -82,9 +82,9 @@
         android:backgroundTint="#4F6168"
         android:ems="10"
         android:foregroundTint="#4BB5E4"
+        android:hint="EmailAddress"
         android:inputType="textPersonName"
         android:shadowColor="#A1C7D5"
-        android:hint="EmailAddress"
         android:textAlignment="center"
         android:textColor="#3F4F94"
         android:textColorHint="#3F4F94"
@@ -133,42 +133,25 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="60dp"
-        android:layout_height="34dp"
-        android:foregroundTint="#325FBA"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom|center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/googleSignIn"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.89"
-        app:srcCompat="@drawable/twittericon" />
-
-    <ImageView
-        android:id="@+id/googleSignIn"
-        android:layout_width="33dp"
-        android:layout_height="34dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.89"
-        app:srcCompat="@drawable/googleicon" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="70dp"
-        android:layout_height="34dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/googleSignIn"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.887"
-        app:srcCompat="@drawable/facebook" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewAlternateLogin"
+        android:layout_marginBottom="50dp">
+
+
+        <ImageView
+            android:id="@+id/googleSignIn"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            app:srcCompat="@drawable/google_continue" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
