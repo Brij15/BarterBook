@@ -7,133 +7,149 @@
     android:background="#E0F0FA"
     tools:context=".LoginPageActivity">
 
-    <Button
-        android:id="@+id/buttonLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="57dp"
-        android:background="#3F4F94"
-        android:text="Log In"
-        app:layout_constraintBottom_toTopOf="@+id/textView11"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
-
-    <TextView
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="140dp"
-        android:layout_height="57dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Forgot Password"
-        android:textAlignment="center"
-        android:textColor="#3F4F94"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonLogin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userPasswordLogin" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="24dp"
-        android:layout_height="57dp"
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
         android:gravity="center"
-        android:text="Or"
-        android:textAlignment="center"
-        android:textColor="#3F4F94"
-        app:layout_constraintBottom_toTopOf="@+id/textViewSignup"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonLogin" />
-
-    <TextView
-        android:id="@+id/textViewSignup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:contextClickable="true"
-        android:text="Not a User Sign Up Here!"
-        android:textAlignment="center"
-        android:textColor="#3F4F94"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
-
-    <TextView
-        android:id="@+id/textViewAlternateLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Or Sign Up Using"
-        android:textAlignment="center"
-        android:textColor="#3F4F94"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSignup" />
-
-    <EditText
-        android:id="@+id/userEmailLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="57dp"
-        android:backgroundTint="#4F6168"
-        android:ems="10"
-        android:foregroundTint="#4BB5E4"
-        android:hint="EmailAddress"
-        android:inputType="textPersonName"
-        android:shadowColor="#A1C7D5"
-        android:textAlignment="center"
-        android:textColor="#3F4F94"
-        android:textColorHint="#3F4F94"
-        app:layout_constraintBottom_toTopOf="@+id/userPasswordLogin"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/userPasswordLogin"
-        android:layout_width="205dp"
-        android:layout_height="57dp"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:textAlignment="center"
-        android:textColor="#3F4F94"
-        android:textColorHint="#3F4F94"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userEmailLogin" />
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="282dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:foregroundGravity="center"
+            app:srcCompat="@drawable/logo" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="289dp"
-        android:layout_height="57dp"
-        android:text="WELCOME TO BARTER BOOKS"
-        android:textAlignment="center"
-        android:textColor="#3F4F94"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/userEmailLogin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="282dp"
-        android:layout_height="194dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="289dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:text="WELCOME TO BARTER BOOKS"
+            android:textAlignment="center"
+            android:textColor="@color/main_blue"
+            android:textSize="20sp" />
+    </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+        <EditText
+            android:id="@+id/userEmailLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:backgroundTint="#4F6168"
+            android:ems="10"
+            android:foregroundTint="#4BB5E4"
+            android:gravity="center"
+            android:hint="EmailAddress"
+            android:inputType="textEmailAddress"
+            android:shadowColor="#A1C7D5"
+            android:textAlignment="center"
+            android:textColor="@color/main_blue"
+            android:textColorHint="@color/main_blue" />
+
+        <EditText
+            android:id="@+id/userPasswordLogin"
+            android:layout_width="205dp"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textAlignment="center"
+            android:textColor="@color/main_blue"
+            android:textColorHint="@color/main_blue" />
+
+        <TextView
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="140dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="textPersonName"
+            android:text="Forgot Password"
+            android:textAlignment="center"
+            android:textColor="@color/main_blue"
+            android:textSize="10sp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonLogin"
+            android:layout_width="150dp"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:backgroundTint="@color/main_blue"
+            android:radius="15dp"
+            android:text="Log In"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            tools:ignore="TouchTargetSizeCheck" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Or"
+            android:textAlignment="center"
+            android:textColor="@color/main_blue" />
+
+        <TextView
+            android:id="@+id/textViewSignup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contextClickable="true"
+            android:text="Not a User Sign Up Here!"
+            android:textAlignment="center"
+            android:textColor="@color/main_blue" />
+
+        <TextView
+            android:id="@+id/textViewAlternateLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Or Sign Up Using"
+            android:textAlignment="center"
+            android:textColor="@color/main_blue" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="bottom|center"
@@ -142,14 +158,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAlternateLogin"
-        android:layout_marginBottom="50dp">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
 
         <ImageView
             android:id="@+id/googleSignIn"
-            android:layout_width="200dp"
-            android:layout_height="40dp"
+            android:layout_width="220dp"
+            android:layout_height="50dp"
+            android:background="@color/white"
+            android:paddingHorizontal="10dp"
+            android:radius="15dp"
             app:srcCompat="@drawable/google_continue" />
 
     </LinearLayout>
