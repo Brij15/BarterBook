@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.denzcoskun.imageslider.ImageSlider;
+import com.denzcoskun.imageslider.models.SlideModel;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,20 +30,23 @@ public class DetailsActivity extends AppCompatActivity {
         titleText = findViewById(R.id.bookdetailTitle);
         authorText = findViewById(R.id.authorDetailText);
         priceText = findViewById(R.id.priceDetailText);
-        bookImage = findViewById(R.id.bookImageDetail1);
+        //bookImage = findViewById(R.id.bookImageDetail1);
         bookPosts = new ArrayList<>();
         initializeTestData();
+
+        //Display slider/carousel images into slider.
+        getSliderImageList();
 
         Intent thisIntent = getIntent();
         if (thisIntent.hasExtra("BookID")){
             if (!thisIntent.getStringExtra("BookID").isEmpty()){
                 String filterValue = thisIntent.getStringExtra("BookID");
-                BookPostDataModel book = getBookByID(filterValue);
+                    BookPostDataModel book = getBookByID(filterValue);
                 if (!book.getTitle().isEmpty()){
                     titleText.setText(book.getTitle());
                     authorText.setText(book.getAuthor());
                     priceText.setText("$ " + book.getPrice().toString());
-                    bookImage.setImageResource(book.getImage());
+                    //bookImage.setImageResource(book.getImage());
                 }
             }
         }
@@ -58,6 +64,17 @@ public class DetailsActivity extends AppCompatActivity {
         return book;
     }
 
+    //set images into slider/carousel
+    private void getSliderImageList(){
+        ImageSlider imageSlider = findViewById(R.id.slider);
+        List<SlideModel> slideModels = new ArrayList<>();
+
+        for(Integer image : initImageList()) {
+            slideModels.add(new SlideModel(image));
+        }
+        imageSlider.setImageList(slideModels, true);
+    }
+
     private void initializeTestData(){
         //initialize images TEST only
         bookPosts.add(new BookPostDataModel("Gardens Of The moon",R.drawable.book1,"Steven Erikson", "Used Like New", "Aurora", 8.99, "Fantasy and Science Friction" ));
@@ -68,5 +85,17 @@ public class DetailsActivity extends AppCompatActivity {
         bookPosts.add(new BookPostDataModel("What IF", R.drawable.book6,"Randall Munroe", "Used Like New", "CollingWood", 10.00, "Science"));
         bookPosts.add(new BookPostDataModel("Deep Learning With Python", R.drawable.book7 ,"François Chollet", "Used", "CollingWood", 6.50, "Computers"));
         bookPosts.add(new BookPostDataModel("Wise Man's Fear", R.drawable.book8, "Patrick Rothfuss", "New", "Orilla", 14.00, "Fantasy and Science Friction"));
+    }
+
+    //Init image list for slider
+    private List<Integer> initImageList(){
+        List<Integer> imageList = new ArrayList<>();
+        imageList.add(R.drawable.book1);
+        imageList.add(R.drawable.book2);
+        imageList.add(R.drawable.book3);
+        imageList.add(R.drawable.book4);
+        imageList.add(R.drawable.book4);
+
+        return imageList;
     }
 }
