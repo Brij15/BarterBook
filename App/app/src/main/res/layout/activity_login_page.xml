@@ -141,13 +141,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintStart_toEndOf="@+id/googleSignIn"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.89"
         app:srcCompat="@drawable/twittericon" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/googleSignIn"
         android:layout_width="33dp"
         android:layout_height="34dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -163,7 +163,7 @@
         android:layout_width="70dp"
         android:layout_height="34dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+        app:layout_constraintEnd_toStartOf="@+id/googleSignIn"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"

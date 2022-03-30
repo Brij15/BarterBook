@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1005982740417-un2b1jncd82ro5n7vgc1r0rilvan99dr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.barterbooksapp",
+            "certificate_hash": "1d03d22cd8e8b89ff3c8697d3f88ef9461f8f973"
+          }
+        },
+        {
           "client_id": "1005982740417-utjl4bkpubvl1hggvfdcj0iekjbvo7tp.apps.googleusercontent.com",
           "client_type": 3
         }
