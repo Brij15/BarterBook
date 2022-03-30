@@ -1,32 +1,29 @@
 package com.example.barterbooksapp;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -108,6 +105,10 @@ public class MainActivity extends AppCompatActivity {
                         intent = new Intent(MainActivity.this, LoginPageActivity.class);
                         startActivity(intent);
                         finish();
+                        break;
+
+                    case R.id.searchPosts:
+                        searchPosts();
                         break;
                 }
 
@@ -204,6 +205,60 @@ public class MainActivity extends AppCompatActivity {
         bookPosts.add(new BookPostDataModel("What IF", R.drawable.book6,"Randall Munroe", "Used Like New", "CollingWood", 10.00, "Science"));
         bookPosts.add(new BookPostDataModel("Deep Learning With Python", R.drawable.book7 ,"François Chollet", "Used", "CollingWood", 6.50, "Computers"));
         bookPosts.add(new BookPostDataModel("Wise Man's Fear", R.drawable.book8, "Patrick Rothfuss", "New", "Orilla", 14.00, "Fantasy and Science Friction"));
+    }
+
+    private void searchPosts(){
+        AlertDialog.Builder myDialog = new AlertDialog.Builder(this);
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View myView = inflater.inflate(R.layout.search_input, null);
+        myDialog.setView(myView);
+
+        final AlertDialog dialog = myDialog.create();
+        dialog.setCancelable(false);
+        final EditText searchTextView =  myView.findViewById(R.id.search_title);
+        final Button cancel = myView.findViewById(R.id.cancel);
+        final Button search = myView.findViewById(R.id.search);
+
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String searchText = searchTextView.getText().toString();
+
+                if (TextUtils.isEmpty(searchText)){
+                    searchTextView.setError("You Need to type something");
+                    return;
+                }
+
+                else{
+                    adapter.setItems(getSearchData(searchText));
+                    adapter.notifyDataSetChanged();
+                }
+                dialog.dismiss();
+            }
+        });
+
+        cancel.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+    }
+
+    private List<BookPostDataModel> getSearchData(String searchText) {
+//        do the filtering here
+        List<BookPostDataModel> filteredList = new ArrayList<>();
+        //currently filter by category or Location not both
+        if (!searchText.isEmpty()){
+            for(BookPostDataModel item : bookPosts) {
+                if (item.getTitle().equals(searchText)){
+                    filteredList.add(item);
+                }
+            }
+        }
+
+        return filteredList;
     }
 
     private  enum FilterType{

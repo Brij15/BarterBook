@@ -81,4 +81,9 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             });
         }
     }
+
+    public void setItems(List<BookPostDataModel> newPostList) {
+        this.postList.clear();
+        this.postList = newPostList;
+    }
 }
