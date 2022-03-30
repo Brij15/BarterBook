@@ -1,8 +1,5 @@
 package com.example.barterbooksapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,7 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.auth.api.identity.BeginSignInRequest;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -88,7 +87,32 @@ public class LoginPageActivity extends AppCompatActivity {
             }
         });
 
+        //Forget Password
+        TextView forgotPassword = findViewById(R.id.forgetPasswordView);
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String emailAddress = (String) String.valueOf(email.getText());
 
+                //validations
+                if (emailAddress.isEmpty()) {
+                    Toast.makeText(LoginPageActivity.this, "Email is empty!",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                mAuth.sendPasswordResetEmail(emailAddress)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(LoginPageActivity.this, "Reset Email Sent!",
+                                            Toast.LENGTH_SHORT).show();
+                                    return;
+                                }
+                            }
+                        });
+            }
+        });
     }
 
     @Override

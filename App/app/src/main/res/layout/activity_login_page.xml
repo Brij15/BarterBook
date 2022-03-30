@@ -80,7 +80,7 @@
             android:textColorHint="@color/main_blue" />
 
         <TextView
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/forgetPasswordView"
             android:layout_width="140dp"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -90,7 +90,7 @@
             android:text="Forgot Password"
             android:textAlignment="center"
             android:textColor="@color/main_blue"
-            android:textSize="10sp"
+            android:textSize="12sp"
             tools:ignore="TouchTargetSizeCheck" />
 
         <com.google.android.material.button.MaterialButton
