@@ -234,6 +234,7 @@ public class MainActivity extends AppCompatActivity {
                     adapter.notifyDataSetChanged();
                 }
                 dialog.dismiss();
+                bottomNavigationView.setSelectedItemId(R.id.go_home);
             }
         });
 
@@ -241,6 +242,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
+                bottomNavigationView.setSelectedItemId(R.id.go_home);
             }
         });
         dialog.show();
