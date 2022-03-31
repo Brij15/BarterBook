@@ -11,14 +11,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.facebook.AccessToken;
-import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -35,9 +34,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
-import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
-
 
 public class LoginPageActivity extends AppCompatActivity {
 
@@ -51,7 +47,6 @@ public class LoginPageActivity extends AppCompatActivity {
 
     LoginButton facebookSignIn;
     CallbackManager mCallbackManager;
-    FirebaseAuth.AuthStateListener authStateListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,7 +68,7 @@ public class LoginPageActivity extends AppCompatActivity {
         }
 
         FacebookSdk.sdkInitialize(getApplicationContext());
-//        AppEventsLogger.activateApp(this);
+
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -100,59 +95,40 @@ public class LoginPageActivity extends AppCompatActivity {
 
             @Override
             public void onError(@NonNull FacebookException e) {
+                Toast.makeText(LoginPageActivity.this, "Facebook Sign In Error!",
+                        Toast.LENGTH_SHORT).show();
                 Log.d("FB", "facebook:onError", e);
             }
         });
 
 
 
-        signUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(LoginPageActivity.this, RegistrationScreenActivity.class));
-            }
-        });
+        signUp.setOnClickListener(view -> startActivity(new Intent(LoginPageActivity.this, RegistrationScreenActivity.class)));
 
 
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                signIN();
-            }
-        });
+        login.setOnClickListener(view -> signIN());
 
-        googleSignIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                signInGoogle();
-            }
-        });
+        googleSignIn.setOnClickListener(view -> signInGoogle());
 
         //Forget Password
         TextView forgotPassword = findViewById(R.id.forgetPasswordView);
-        forgotPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String emailAddress = (String) String.valueOf(email.getText());
+        forgotPassword.setOnClickListener(view -> {
+            String emailAddress = (String) String.valueOf(email.getText());
 
-                //validations
-                if (emailAddress.isEmpty()) {
-                    Toast.makeText(LoginPageActivity.this, "Email is empty!",
-                            Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                mAuth.sendPasswordResetEmail(emailAddress)
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()) {
-                                    Toast.makeText(LoginPageActivity.this, "Reset Email Sent!",
-                                            Toast.LENGTH_SHORT).show();
-                                    return;
-                                }
-                            }
-                        });
+            //validations
+            if (emailAddress.isEmpty()) {
+                Toast.makeText(LoginPageActivity.this, "Email is empty!",
+                        Toast.LENGTH_SHORT).show();
+                return;
             }
+            mAuth.sendPasswordResetEmail(emailAddress)
+                    .addOnCompleteListener(task -> {
+//                                Maybe do a alert Message here
+                        if (task.isSuccessful()) {
+                            Toast.makeText(LoginPageActivity.this, "Reset Email Sent!",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    });
         });
     }
 
@@ -176,11 +152,14 @@ public class LoginPageActivity extends AppCompatActivity {
                 }
             }
             else {
+                assert exception != null;
+                Toast.makeText(LoginPageActivity.this, "Google Sign In Failed!",
+                        Toast.LENGTH_SHORT).show();
                 Log.w("AUTH", "Google sign in failed" + exception.toString());
             }
         }
         else{
-            Log.i("FB", "requestCode" + requestCode);
+//            Log.i("FB", "requestCode" + requestCode);
             mCallbackManager.onActivityResult(requestCode, resultCode, data);
         }
         // Pass the activity result back to the Facebook SDK
@@ -190,19 +169,22 @@ public class LoginPageActivity extends AppCompatActivity {
     private void firebaseAuthWithGoogle(String idToken) {
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
         mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d("AUTH", "signInWithCredential:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        // Sign in success, update UI with the signed-in user's information
+                        Log.d("AUTH", "signInWithCredential:success");
+                        Toast.makeText(LoginPageActivity.this, "Google Sign In Success!",
+                                Toast.LENGTH_SHORT).show();
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        if (user != null){
                             startActivity(new Intent(LoginPageActivity.this, MainActivity.class));
                             finish();
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w("AUTH", "signInWithCredential:failure", task.getException());
                         }
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Toast.makeText(LoginPageActivity.this, "Google Sign In Failed!",
+                                Toast.LENGTH_SHORT).show();
+                        Log.w("AUTH", "signInWithCredential:failure", task.getException());
                     }
                 });
     }
@@ -219,7 +201,7 @@ public class LoginPageActivity extends AppCompatActivity {
     private void signIN(){
         String emailAddress = (String) String.valueOf(email.getText());
         String userPassword = (String) String.valueOf(password.getText());
-        boolean isValid = false;
+        boolean isValid;
 
         //validations
         if (emailAddress.isEmpty()) {
@@ -244,21 +226,18 @@ public class LoginPageActivity extends AppCompatActivity {
 
         if (isValid){
             mAuth.signInWithEmailAndPassword(emailAddress, userPassword)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                // Sign in success, update UI with the signed-in user's information
-                                FirebaseUser user = mAuth.getCurrentUser();
-                                if(user != null){
-                                    startActivity(new Intent(LoginPageActivity.this, MainActivity.class));
-                                    finish();
-                                }
-                            } else {
-                                // If sign in fails, display a message to the user.
-                                Toast.makeText(LoginPageActivity.this, "Authentication failed.",
-                                        Toast.LENGTH_SHORT).show();
+                    .addOnCompleteListener(this, task -> {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            if(user != null){
+                                startActivity(new Intent(LoginPageActivity.this, MainActivity.class));
+                                finish();
                             }
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Toast.makeText(LoginPageActivity.this, "Incorrect Username or Password!",
+                                    Toast.LENGTH_SHORT).show();
                         }
                     });
         }
@@ -273,23 +252,20 @@ public class LoginPageActivity extends AppCompatActivity {
 
         AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
         mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d("FB", "signInWithCredential:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            if(user != null){
-                                startActivity(new Intent(LoginPageActivity.this, MainActivity.class));
-                                finish();
-                            }
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w("FB", "signInWithCredential:failure", task.getException());
-                            Toast.makeText(LoginPageActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        // Sign in success, update UI with the signed-in user's information
+                        Log.d("FB", "signInWithCredential:success");
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        if(user != null){
+                            startActivity(new Intent(LoginPageActivity.this, MainActivity.class));
+                            finish();
                         }
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Log.w("FB", "signInWithCredential:failure", task.getException());
+                        Toast.makeText(LoginPageActivity.this, "Authentication with Facebook failed!",
+                                Toast.LENGTH_SHORT).show();
                     }
                 });
     }
