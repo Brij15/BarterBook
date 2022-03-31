@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Barter Books</string>
     <string name="barter_books_logo_text">Barter Books Logo</string>
+
+    <string name="facebook_app_id">474800184429361</string>
+    <string name="fb_login_protocol_scheme">fb1234</string>
+    <string name="facebook_client_token">56789</string>
+
+
 </resources>

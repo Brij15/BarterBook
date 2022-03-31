@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.facebook.login.LoginManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -69,7 +70,8 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.userSettings:
-                    mAuth.signOut();
+                    LoginManager.getInstance().logOut();
+                    FirebaseAuth.getInstance().signOut();
                     intent = new Intent(MainActivity.this, LoginPageActivity.class);
                     startActivity(intent);
                     finish();
