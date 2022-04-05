@@ -13,6 +13,10 @@
         android:theme="@style/Theme.BarterBooksApp"
         android:screenOrientation="portrait">
         <activity
+            android:name=".AboutUsScreen"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
             android:screenOrientation="portrait"
             android:name=".DetailsActivity"
             android:exported="false" />
