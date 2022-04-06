@@ -1,31 +1,54 @@
-# Barter Books
+<div align="center">
 
+  <img src="https://github.com/Brij15/BarterBook/blob/main/images/Logo_1-removebg-preview%20LoGO%20only.png" alt="logo" width="200" height="auto" />
+  <h1>Barter Books</h1>
+  
+  <p>
+    Sometimes it is hard to find books you want. Maybe they are expensive maybe they are out of print. This is an app that exclusively allows its users to post ads on their available books and view these ads according to their location (Target Barrie City - For Now). Users can post books they want with books they have so they can barter the books. This will also allow students to find textbooks at affordable prices and readers to buy/barter books used by other readers caringly. 
+  </p>
+  
+  
+<!-- Badges -->
 <p>
+  <a href="https://github.com/Brij15/BarterBook/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/Brij15/BarterBook" alt="contributors" />
+  </a>
+  <a href="">
+    <img src="https://img.shields.io/github/last-commit/Brij15/BarterBook" alt="last update" />
+  </a>
+  <a href="https://github.com/Brij15/BarterBook/network/members">
+    <img src="https://img.shields.io/github/forks/Brij15/BarterBook" alt="forks" />
+  </a>
+  <a href="https://github.com/Brij15/BarterBook/stargazers">
+    <img src="https://img.shields.io/github/stars/Brij15/BarterBook" alt="stars" />
+  </a>
+  <a href="https://github.com/Brij15/BarterBook/issues/">
+    <img src="https://img.shields.io/github/issues/Brij15/BarterBook" alt="open issues" />
+  </a> 
 </p>
-## Book Barter Application
-![Logo](https://github.com/Brij15/BarterBook/blob/main/images/Logo%201.png)
-<p style="text-align:center;">
- Sometimes it is hard to find books you want. Maybe they are expensive maybe they are out of print. This is an app that exclusively allows its users to post ads on their available books and view these ads according to their location (Target Barrie City - For Now). Users can post books they want with books they have so they can barter the books. This will also allow students to find textbooks at affordable prices and readers to buy/barter books used by other readers caringly. 
-</p>
+</div>
 
-<!-- ![Android Workflow](https://github.com/Brij15/BarterBook/blob/main/.github/workflows/android.yml/badge.svg) -->
-<hr>
+<div align="center">
 
 ### Miro Board
 ![BrainStorming](https://github.com/Brij15/BarterBook/blob/main/images/Miro.png)
 
 ### Use Case Diagram
-
- ![UML Case Diagram](https://github.com/Brij15/BarterBook/blob/main/images/class-diagram.jpeg)
-<hr>
+![UML Case Diagram](https://github.com/Brij15/BarterBook/blob/main/images/class-diagram.jpeg)
 
 ### Activity Diagram
 ![UML Case Diagram](https://github.com/Brij15/BarterBook/blob/main/images/activity-diagram.jpeg)
 
-### Technologies
-<ul style="list-style-type:none">
- <li> <img align="left" alt="MySQL" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/mysql/mysql.png" />  </li>
- <li><img align="left" alt="Java" width="26px" src="https://cdn.iconscout.com/icon/free/png-512/java-23-225999.png" /> </li>
- <li><img align="left" alt="MySQL" width="26px" src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Android_logo_2019.png" /> </li>
- </ul>
+ </div>
+
+### :space_invader: Tech Stack
+
+<details>
+  <summary>Android</summary>
+  <ul>   
+    <li><a href="#">Java</a></li>
+   <li><a href="#">Firebase Auth</a></li>   
+   <li><a href="#">Firebase Firestore</a></li>   
+  </ul>
+</details>
 
