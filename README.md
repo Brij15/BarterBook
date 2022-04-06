@@ -30,18 +30,18 @@
 
 <div align="center">
 
-### Miro Board
+## Miro Board
 ![BrainStorming](https://github.com/Brij15/BarterBook/blob/main/images/Miro.png)
 
-### Use Case Diagram
+## Use Case Diagram
 ![UML Case Diagram](https://github.com/Brij15/BarterBook/blob/main/images/class-diagram.jpeg)
 
-### Activity Diagram
+## Activity Diagram
 ![UML Case Diagram](https://github.com/Brij15/BarterBook/blob/main/images/activity-diagram.jpeg)
 
  </div>
 
-### :space_invader: Tech Stack
+## :space_invader: Tech Stack
 
 <details>
   <summary>Android</summary>
