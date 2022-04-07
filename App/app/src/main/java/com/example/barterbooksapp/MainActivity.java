@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -42,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private TextView locationText;
     private TextView categoryText;
-    private FilterUtilities filterUtilities;
 
 
     @SuppressLint("NonConstantResourceId")
@@ -142,8 +142,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private List<BookPostDataModel> filterBy(String filterValue, FilterType type){
-        List<BookPostDataModel> filteredList = filterUtilities.filterBy(filterValue, type, bookPosts);
-        return filteredList;
+        return FilterUtilities.filterBy(filterValue, type, bookPosts);
     }
 
     private void initializeTestData(){
@@ -178,7 +177,13 @@ public class MainActivity extends AppCompatActivity {
                 searchTextView.setError("You Need to type something");
                 return;
             }
-
+            String replacedStr = searchText.replaceAll("\\s", "");
+            Log.i("SE", replacedStr);
+            Log.i("SE", searchText);
+            if(replacedStr.isEmpty()){
+                searchTextView.setError("You Need to type something");
+                return;
+            }
             else{
                 adapter.setItems(getSearchData(searchText));
                 adapter.notifyDataSetChanged();
@@ -199,7 +204,7 @@ public class MainActivity extends AppCompatActivity {
         initializeTestData();
         List<BookPostDataModel> filteredList = new ArrayList<>();
         if (!searchText.isEmpty()){
-            filteredList = filterUtilities.getSearchData(searchText, bookPosts);
+            filteredList = FilterUtilities.getSearchData(searchText, bookPosts);
         }
         else {
             Toast.makeText(this, "The Entered Text Is Empty", Toast.LENGTH_SHORT).show();

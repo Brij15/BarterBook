@@ -10,9 +10,11 @@ public class FilterUtilities {
 
     public static List<BookPostDataModel> getSearchData(String searchText, List<BookPostDataModel> mainList) {
         List<BookPostDataModel> filteredList = new ArrayList<>();
+
         if (!searchText.isEmpty()){
             for(BookPostDataModel item : mainList) {
-                if (item.getTitle().toLowerCase().contains(searchText.toLowerCase())){
+                if ((item.getTitle().toLowerCase().contains(searchText.toLowerCase()))
+                || (item.getAuthor().toLowerCase().contains(searchText.toLowerCase()))){
                     filteredList.add(item);
                 }
             }
