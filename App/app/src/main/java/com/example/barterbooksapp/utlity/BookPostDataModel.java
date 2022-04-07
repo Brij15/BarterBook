@@ -1,4 +1,4 @@
-package com.example.barterbooksapp;
+package com.example.barterbooksapp.utlity;
 
 import java.util.Date;
 import java.util.List;

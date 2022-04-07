@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.example.barterbooksapp.utlity.BookPostDataModel;
 
 import java.util.ArrayList;
 import java.util.List;

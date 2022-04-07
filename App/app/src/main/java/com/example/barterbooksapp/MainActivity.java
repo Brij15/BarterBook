@@ -10,12 +10,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.barterbooksapp.recyclerViewAdapters.MyRecyclerViewAdapter;
+import com.example.barterbooksapp.utlity.BookPostDataModel;
+import com.example.barterbooksapp.utlity.FilterUtilities;
 import com.facebook.login.LoginManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -38,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private TextView locationText;
     private TextView categoryText;
+    private FilterUtilities filterUtilities;
 
 
     @SuppressLint("NonConstantResourceId")
@@ -137,22 +142,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private List<BookPostDataModel> filterBy(String filterValue, FilterType type){
-        List<BookPostDataModel> filteredList = new ArrayList<>();
-        //currently filter by category or Location not both
-        if (type.equals(FilterType.CATEGORY)){
-            for(BookPostDataModel item : bookPosts) {
-                if (item.getCategory().equals(filterValue)){
-                    filteredList.add(item);
-                }
-            }
-        }
-        else if(type.equals(FilterType.LOCATION)){
-            for(BookPostDataModel item : bookPosts) {
-                if (item.getLocation().equals(filterValue)){
-                    filteredList.add(item);
-                }
-            }
-        }
+        List<BookPostDataModel> filteredList = filterUtilities.filterBy(filterValue, type, bookPosts);
         return filteredList;
     }
 
@@ -176,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
         myDialog.setView(myView);
 
         final AlertDialog dialog = myDialog.create();
-        dialog.setCancelable(false);
+        dialog.setCancelable(true);
         final EditText searchTextView =  myView.findViewById(R.id.search_title);
         final Button cancel = myView.findViewById(R.id.cancel);
         final Button search = myView.findViewById(R.id.search);
@@ -205,21 +195,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private List<BookPostDataModel> getSearchData(String searchText) {
-//        do the filtering here
+        bookPosts.clear();
+        initializeTestData();
         List<BookPostDataModel> filteredList = new ArrayList<>();
-        //currently filter by category or Location not both
         if (!searchText.isEmpty()){
-            for(BookPostDataModel item : bookPosts) {
-                if (item.getTitle().equals(searchText)){
-                    filteredList.add(item);
-                }
-            }
+            filteredList = filterUtilities.getSearchData(searchText, bookPosts);
         }
-
+        else {
+            Toast.makeText(this, "The Entered Text Is Empty", Toast.LENGTH_SHORT).show();
+        }
         return filteredList;
     }
 
-    private  enum FilterType{
+    public enum FilterType{
         CATEGORY,
         LOCATION,
     }
