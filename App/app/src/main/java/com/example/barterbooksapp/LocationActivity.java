@@ -4,7 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+
+import com.example.barterbooksapp.recyclerViewAdapters.LocCatListRecyclerView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,12 +19,20 @@ public class LocationActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private List<String> locationsList;
     private LocCatListRecyclerView adapter;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
+        mAuth = FirebaseAuth.getInstance();
 
+
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser == null){
+            startActivity(new Intent(LocationActivity.this, LoginPageActivity.class));
+            finish();
+        }
 
         locationsList = new ArrayList<>();
         initiateLocationsList();

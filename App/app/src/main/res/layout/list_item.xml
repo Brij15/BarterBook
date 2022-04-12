@@ -70,13 +70,16 @@
                         android:id="@+id/lstBtnEdit"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:background="@drawable/edit_icon"/>
+                        android:background="@drawable/edit_icon"
+                        android:backgroundTint="#2D418A" />
 
                     <ImageButton
                         android:id="@+id/lstBtnDelete"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:background="@drawable/delete_icon" />
+                        android:background="@drawable/delete_icon"
+                        android:backgroundTint="#2D418A" />
+
                 </LinearLayout>
 
             </LinearLayout>

@@ -115,7 +115,7 @@ public class RegistrationScreenActivity extends AppCompatActivity {
             return false;
         } else if(!PASSWORD_PATTERN.matcher(passwordInput).matches()){
 
-            password.setError("Password too weak");
+            password.setError("Password must have atleast 9 characters and include atleast one lowercase letter, one uppercase letter and one special character");
             return false;
         }
 

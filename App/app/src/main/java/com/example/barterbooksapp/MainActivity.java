@@ -1,31 +1,34 @@
 package com.example.barterbooksapp;
 
-import androidx.annotation.NonNull;
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.example.barterbooksapp.recyclerViewAdapters.MyRecyclerViewAdapter;
+import com.example.barterbooksapp.utlity.BookPostDataModel;
+import com.example.barterbooksapp.utlity.FilterUtilities;
+import com.facebook.login.LoginManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -38,8 +41,11 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout locationSelect;
     private DatabaseReference budgetRef;
     private FirebaseAuth mAuth;
+    private TextView locationText;
+    private TextView categoryText;
 
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,65 +62,37 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
         budgetRef = FirebaseDatabase.getInstance().getReference().child("testBarterBooks");
-        String data = "Hello World";
-//        budgetRef.child(new Date().toString()).setValue(data).addOnCompleteListener(new OnCompleteListener<Void>() {
-//            @Override
-//            public void onComplete(@NonNull Task<Void> task) {
-//                if (task.isSuccessful()){
-//                    Toast.makeText(MainActivity.this, "Item added successfully", Toast.LENGTH_SHORT).show();
-//                }
-//                else {
-//                    Toast.makeText(MainActivity.this, task.getException().toString(), Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-//
-//        budgetRef.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                String value = "";
-//
-//                for  (DataSnapshot snap: snapshot.getChildren()){
-//                    value = String.valueOf(snap.getValue());
-//                    Toast.makeText(MainActivity.this, "retrieved " + value, Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
 
 
         bottomNavigationView = findViewById(R.id.bottomNavigationBar);
         bottomNavigationView.setSelectedItemId(R.id.go_home);
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            Intent intent;
+            switch (item.getItemId()){
+                case R.id.seller_list:
+                    intent = new Intent(MainActivity.this, SellerListActivity.class);
+                    startActivity(intent);
+                    break;
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Intent intent;
-                switch (item.getItemId()){
-                    case R.id.seller_list:
-                        intent = new Intent(MainActivity.this, SellerListActivity.class);
-                        startActivity(intent);
-                        break;
+                case R.id.userSettings:
+                    LoginManager.getInstance().logOut();
+                    FirebaseAuth.getInstance().signOut();
+                    intent = new Intent(MainActivity.this, LoginPageActivity.class);
+                    startActivity(intent);
+                    finish();
+                    break;
 
-                    case R.id.userSettings:
-                        mAuth.signOut();
-                        intent = new Intent(MainActivity.this, LoginPageActivity.class);
-                        startActivity(intent);
-                        finish();
-                        break;
-                }
-
-                return true;
+                case R.id.searchPosts:
+                    searchPosts();
+                    break;
             }
+            return false;
         });
-
         bookPosts = new ArrayList<>();
         initializeTestData();
 
+        locationText = findViewById(R.id.textViewLocationSelect);
+        categoryText = findViewById(R.id.textViewCategorySelect);
         //Do filter
         Intent thisIntent = getIntent();
         if (thisIntent.hasExtra("FilterID")){
@@ -123,19 +101,20 @@ public class MainActivity extends AppCompatActivity {
                 String filterValue = thisIntent.getStringExtra("FilterID");
                 String filterID = thisIntent.getStringExtra("PageID");
                 if (filterValue.equals("All Locations") || filterValue.equals("All Categories") ){
-//                    Do nothing
+//                    Do nothing here
                 }
                 else {
                     if (filterID.equals("LOCATION")){
                         bookPosts = filterBy(filterValue, FilterType.LOCATION);
+                        locationText.setText(filterValue);
                     }
                     else if((filterID.equals("CATEGORY"))){
                         bookPosts = filterBy(filterValue, FilterType.CATEGORY);
+                        categoryText.setText(filterValue);
                     }
                 }
             }
         }
-
 
         recyclerView = findViewById(R.id.recyclerView);
 
@@ -149,43 +128,21 @@ public class MainActivity extends AppCompatActivity {
 
         //Top Bar
         categorySelect = findViewById(R.id.categorySelect);
-        categorySelect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, CategoriesActivity.class);
-                startActivity(intent);
-            }
+        categorySelect.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, CategoriesActivity.class);
+            startActivity(intent);
         });
 
         locationSelect = findViewById(R.id.locationSelect);
-        locationSelect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, LocationActivity.class);
-                startActivity(intent);
-            }
+        locationSelect.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, LocationActivity.class);
+            startActivity(intent);
         });
 
     }
 
     private List<BookPostDataModel> filterBy(String filterValue, FilterType type){
-        List<BookPostDataModel> filteredList = new ArrayList<>();
-        //currently filter by category or Location not both
-        if (type.equals(FilterType.CATEGORY)){
-            for(BookPostDataModel item : bookPosts) {
-                if (item.getCategory().equals(filterValue)){
-                    filteredList.add(item);
-                }
-            }
-        }
-        else if(type.equals(FilterType.LOCATION)){
-            for(BookPostDataModel item : bookPosts) {
-                if (item.getLocation().equals(filterValue)){
-                    filteredList.add(item);
-                }
-            }
-        }
-        return filteredList;
+        return FilterUtilities.filterBy(filterValue, type, bookPosts);
     }
 
     private void initializeTestData(){
@@ -200,7 +157,62 @@ public class MainActivity extends AppCompatActivity {
         bookPosts.add(new BookPostDataModel("Wise Man's Fear", R.drawable.book8, "Patrick Rothfuss", "New", "Orilla", 14.00, "Fantasy and Science Friction"));
     }
 
-    private  enum FilterType{
+    @SuppressLint("NotifyDataSetChanged")
+    private void searchPosts(){
+        AlertDialog.Builder myDialog = new AlertDialog.Builder(this);
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View myView = inflater.inflate(R.layout.search_input, null);
+        myDialog.setView(myView);
+
+        final AlertDialog dialog = myDialog.create();
+        dialog.setCancelable(true);
+        final EditText searchTextView =  myView.findViewById(R.id.search_title);
+        final Button cancel = myView.findViewById(R.id.cancel);
+        final Button search = myView.findViewById(R.id.search);
+
+        search.setOnClickListener(view -> {
+            String searchText = searchTextView.getText().toString();
+
+            if (TextUtils.isEmpty(searchText)){
+                searchTextView.setError("You Need to type something");
+                return;
+            }
+            String replacedStr = searchText.replaceAll("\\s", "");
+            Log.i("SE", replacedStr);
+            Log.i("SE", searchText);
+            if(replacedStr.isEmpty()){
+                searchTextView.setError("You Need to type something");
+                return;
+            }
+            else{
+                adapter.setItems(getSearchData(searchText));
+                adapter.notifyDataSetChanged();
+            }
+            dialog.dismiss();
+            bottomNavigationView.setSelectedItemId(R.id.go_home);
+        });
+
+        cancel.setOnClickListener(view -> {
+            dialog.dismiss();
+            bottomNavigationView.setSelectedItemId(R.id.go_home);
+        });
+        dialog.show();
+    }
+
+    private List<BookPostDataModel> getSearchData(String searchText) {
+        bookPosts.clear();
+        initializeTestData();
+        List<BookPostDataModel> filteredList = new ArrayList<>();
+        if (!searchText.isEmpty()){
+            filteredList = FilterUtilities.getSearchData(searchText, bookPosts);
+        }
+        else {
+            Toast.makeText(this, "The Entered Text Is Empty", Toast.LENGTH_SHORT).show();
+        }
+        return filteredList;
+    }
+
+    public enum FilterType{
         CATEGORY,
         LOCATION,
     }

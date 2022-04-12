@@ -12,11 +12,11 @@
     <ImageView
         android:id="@+id/headerTextView"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="#314085"
-        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:gravity="top"
         android:scaleType="center"
-        android:src="@drawable/headerbar_image"
+        android:src="@drawable/header_image_new"
         tools:ignore="ContentDescription" />
 
     <LinearLayout
@@ -24,6 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:baselineAligned="false"
+        android:layout_marginTop="5dp"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -33,7 +34,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="horizontal"
-            android:paddingLeft="20dp"
+            android:paddingHorizontal="10dp"
             tools:ignore="RtlSymmetry,UseCompoundDrawables">
 
             <ImageView
@@ -43,7 +44,7 @@
                 tools:ignore="ContentDescription" />
 
             <TextView
-                android:id="@+id/textViewHaveAccount"
+                android:id="@+id/textViewLocationSelect"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -62,7 +63,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="horizontal"
-            android:paddingLeft="20dp">
+            android:paddingHorizontal="10dp">
 
             <ImageView
                 android:layout_width="30dp"
@@ -70,8 +71,8 @@
                 android:src="@drawable/categories_icon_" />
 
             <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
+                android:id="@+id/textViewCategorySelect"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingLeft="10dp"
@@ -93,7 +94,6 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#314085"
-
         app:menu="@menu/bottom_nav_menu" />
 
 

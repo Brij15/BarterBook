@@ -2,29 +2,42 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.barterbooksapp">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/applogo"
         android:label="@string/app_name"
         android:roundIcon="@drawable/applogo"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BarterBooksApp">
+        android:theme="@style/Theme.BarterBooksApp"
+        android:screenOrientation="portrait">
         <activity
+            android:name=".AboutUsScreen"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:screenOrientation="portrait"
             android:name=".DetailsActivity"
             android:exported="false" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".LoginPageActivity"
             android:exported="false" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".LocationActivity"
             android:exported="false" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".CategoriesActivity"
             android:exported="false" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".RegistrationScreenActivity"
             android:exported="false" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".SplashScreenActivity"
             android:exported="true">
             <intent-filter>
@@ -34,13 +47,17 @@
             </intent-filter>
         </activity>
         <activity
+            android:screenOrientation="portrait"
             android:name=".MainActivity"
             android:exported="false"
             android:label="Home" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".SellerListActivity"
             android:exported="false"
             android:label="SellerList" />
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/facebook_client_token"/>
     </application>
 
 </manifest>

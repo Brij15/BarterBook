@@ -21,26 +21,15 @@
         app:srcCompat="@drawable/line"
         tools:ignore="ImageContrastCheck" />
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="106dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textViewHaveAccount"
-        app:srcCompat="@drawable/line"
-        tools:ignore="ImageContrastCheck" />
-
     <EditText
         android:id="@+id/confirmPassword"
         android:layout_width="352dp"
-        android:layout_height="49dp"
+        android:layout_height="57dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="40dp"
-        android:background="#C3E3FA"
+        android:background="@drawable/border"
+        android:backgroundTint="#C3E3FA"
         android:ems="10"
         android:hint="Confirm Password"
         android:inputType="textPassword"
@@ -55,11 +44,12 @@
     <EditText
         android:id="@+id/password"
         android:layout_width="352dp"
-        android:layout_height="49dp"
+        android:layout_height="57dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="16dp"
-        android:background="#C3E3FA"
+        android:background="@drawable/border"
+        android:backgroundTint="#C3E3FA"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
@@ -74,11 +64,12 @@
     <EditText
         android:id="@+id/emailAddress"
         android:layout_width="352dp"
-        android:layout_height="49dp"
+        android:layout_height="57dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="16dp"
-        android:background="#C3E3FA"
+        android:background="@drawable/border"
+        android:backgroundTint="#C3E3FA"
         android:ems="10"
         android:hint="Email Address"
         android:inputType="textPersonName"
@@ -109,11 +100,12 @@
     <EditText
         android:id="@+id/userName"
         android:layout_width="352dp"
-        android:layout_height="49dp"
+        android:layout_height="57dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="12dp"
-        android:background="#C3E3FA"
+        android:background="@drawable/border"
+        android:backgroundTint="#C3E3FA"
         android:ems="10"
         android:hint="User Name"
         android:inputType="textPersonName"
@@ -121,15 +113,16 @@
         android:textColorHint="#7691C4"
         app:layout_constraintBottom_toTopOf="@+id/emailAddress"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.736"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/register"
         android:layout_width="163dp"
-        android:layout_height="49dp"
-        android:background="#314085"
+        android:layout_height="57dp"
+        android:background="@drawable/border"
+        android:backgroundTint="#314085"
         android:onClick="signUp"
         android:text="SIGN UP"
         android:textColor="#E5FAF9"
@@ -138,42 +131,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.684" />
+        app:layout_constraintVertical_bias="0.742" />
 
     <Button
         android:id="@+id/textViewHaveAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:layout_marginBottom="20dp"
         android:background="#E0F0FA"
         android:outlineAmbientShadowColor="#00FFFFFF"
         android:outlineSpotShadowColor="#00FFFFFF"
         android:shadowColor="#00FFFFFF"
         android:text="Already have an account? Sign in!"
         android:textColor="#314085"
-        android:textSize="12sp"
+        android:textSize="16sp"
         android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/register"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="TouchTargetSizeCheck" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="8dp"
-        android:text="or sign up with"
-        android:textColor="#7691C4"
-        app:layout_constraintEnd_toStartOf="@+id/imageView5"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/textViewHaveAccount"
-        tools:ignore="TextContrastCheck" />
 
     <TextView
         android:id="@+id/textView4"
@@ -191,18 +170,6 @@
         tools:ignore="TextContrastCheck" />
 
     <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="104dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintEnd_toStartOf="@+id/textView3"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewHaveAccount"
-        app:srcCompat="@drawable/line"
-        tools:ignore="ImageContrastCheck" />
-
-    <ImageView
         android:id="@+id/imageView13"
         android:layout_width="140dp"
         android:layout_height="4dp"
@@ -215,47 +182,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/line"
         tools:ignore="ImageContrastCheck" />
-
-    <ImageButton
-        android:id="@+id/googleRegister"
-        android:layout_width="57dp"
-        android:layout_height="46dp"
-        android:background="#00FFFFFF"
-        android:onClick="googleSignUp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/facebookRegister"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:srcCompat="@drawable/googleicon"
-        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
-    <ImageButton
-        android:id="@+id/facebookRegister"
-        android:layout_width="57dp"
-        android:layout_height="46dp"
-        android:onClick="facebookSignUp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/twitterRegister"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/googleRegister"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:srcCompat="@drawable/facebookicon"
-        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-    <ImageButton
-        android:id="@+id/twitterRegister"
-        android:layout_width="57dp"
-        android:layout_height="46dp"
-        android:background="#00FFFFFF"
-        android:onClick="twitterSignUp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/facebookRegister"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="0.6"
-        app:srcCompat="@drawable/twittericon"
-        tools:ignore="ImageContrastCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

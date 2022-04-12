@@ -35,8 +35,6 @@ public class SplashScreenActivity extends AppCompatActivity {
         Runnable r = () -> {
             startActivity(new Intent(SplashScreenActivity.this, LoginPageActivity.class));
             finish();
-//                or try this in manifest
-//                android:noHistory="true"
         };
 
         Handler h = new Handler();

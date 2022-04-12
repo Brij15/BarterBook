@@ -1,5 +1,6 @@
-package com.example.barterbooksapp;
+package com.example.barterbooksapp.recyclerViewAdapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -8,15 +9,18 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.barterbooksapp.DetailsActivity;
+import com.example.barterbooksapp.R;
+import com.example.barterbooksapp.utlity.BookPostDataModel;
+
 import java.util.List;
 
 public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.MyViewHolder> {
-    private Context context;
+    private final Context context;
     private List<BookPostDataModel> postList;
 
 
@@ -32,6 +36,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         return new MyViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.textView.setText(postList.get(position).getTitle());
@@ -39,7 +44,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         holder.authorTextView.setText(postList.get(position).getAuthor());
         holder.conditionTextView.setText(postList.get(position).getCondition());
         holder.locationTextView.setText(postList.get(position).getLocation());
-        holder.priceTextView.setText( "$"+ postList.get(position).getPrice().toString());
+        holder.priceTextView.setText("$"+ postList.get(position).getPrice().toString());
         holder.barterCheckBox.setChecked(Math.random() < 0.5);
     }
 
@@ -70,15 +75,17 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             barterCheckBox = itemView.findViewById(R.id.barterCheckBox);
 
 //            On click listener to open a Seller list view
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
+            itemView.setOnClickListener(view -> {
 //                    Toast.makeText(view.getContext(), "Item Clicked", Toast.LENGTH_SHORT ).show();
-                    Intent intent = new Intent(view.getContext(), DetailsActivity.class);
-                    intent.putExtra("BookID", textView.getText());
-                    view.getContext().startActivity(intent);
-                }
+                Intent intent = new Intent(view.getContext(), DetailsActivity.class);
+                intent.putExtra("BookID", textView.getText());
+                view.getContext().startActivity(intent);
             });
         }
+    }
+
+    public void setItems(List<BookPostDataModel> newPostList) {
+        this.postList.clear();
+        this.postList = newPostList;
     }
 }
