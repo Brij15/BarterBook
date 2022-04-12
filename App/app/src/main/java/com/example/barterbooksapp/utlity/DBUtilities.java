@@ -4,6 +4,7 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.example.barterbooksapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -14,6 +15,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,6 +24,8 @@ public class DBUtilities {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     public void AddPost(BookPostDataModel bookPostDataModel){
+        //Dummy Images
+        bookPostDataModel.setImagesList(Arrays.asList(R.drawable.default_book,R.drawable.default_book,R.drawable.default_book));
         if (bookPostDataModel != null){
             db.collection("BarterBooksDB")
                     .add(bookPostDataModel)

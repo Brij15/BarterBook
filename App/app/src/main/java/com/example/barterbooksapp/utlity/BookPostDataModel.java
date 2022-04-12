@@ -33,9 +33,8 @@ public class BookPostDataModel {
         this.category = category;
     }
 
-    public BookPostDataModel(String title, Integer image, String author, String condition, String location, Double price, String category, Date timePosted, String userID, List<Integer> imagesList, String userDetails) {
+    public BookPostDataModel(String title, String author, String condition, String location, Double price, String category, Date timePosted, String userID, List<Integer> imagesList, String userDetails) {
         this.title = title;
-        this.image = image;
         this.author = author;
         this.condition = condition;
         this.location = location;
