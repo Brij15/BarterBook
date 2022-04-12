@@ -60,7 +60,7 @@ public class DBUtilities {
 
 
 
-    public Map<String, BookPostDataModel> GetAllPosts(){
+    public Map<String, BookPostDataModel> getAllPosts(){
         final Map<String,BookPostDataModel> newPosts = new HashMap<>();
         db.collection("BarterBooksDB")
                 .get()
