@@ -75,11 +75,13 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.userSettings:
-                    LoginManager.getInstance().logOut();
-                    FirebaseAuth.getInstance().signOut();
-                    intent = new Intent(MainActivity.this, LoginPageActivity.class);
+                    intent = new Intent(MainActivity.this, EditUserActivity.class);
                     startActivity(intent);
-                    finish();
+                    break;
+
+                case R.id.add_post:
+                    intent = new Intent(MainActivity.this, PostAdActivity.class);
+                    startActivity(intent);
                     break;
 
                 case R.id.searchPosts:

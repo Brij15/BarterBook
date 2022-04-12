@@ -17,370 +17,257 @@
             android:layout_height="wrap_content"
             android:contentDescription="@string/header_image"
             android:scaleType="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/header_image_new" />
 
-
-        <EditText
-            android:id="@+id/editTextTextMultiLine2"
-            android:layout_width="305dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="48dp"
-            android:background="#C8DBE9"
-            android:backgroundTint="#C8DBE9"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine"
-            app:layout_constraintBottom_toTopOf="@+id/button"
-            app:layout_constraintEnd_toEndOf="@+id/textView12"
-            app:layout_constraintStart_toEndOf="@+id/textView12"
-            app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="16dp"
-            android:text="Contact Details"
-            android:textColor="#5163A0"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine2"
-            app:layout_constraintEnd_toStartOf="@+id/button"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/editLastName" />
-
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="18dp"
-            android:text="Your Location"
-            android:textColor="#5163A0"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/editLastName"
-            app:layout_constraintEnd_toEndOf="@+id/textView12"
-            app:layout_constraintStart_toStartOf="@+id/textView12"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
-
-        <RadioGroup
-            android:id="@+id/radioGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="3dp"
-            android:layout_marginBottom="78dp"
-            app:layout_constraintBottom_toTopOf="@+id/textView11"
-            app:layout_constraintEnd_toStartOf="@+id/radioButton"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioButton3" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
-            android:layout_marginTop="98dp"
-            android:layout_marginBottom="15dp"
-            android:text="Choose options below to post an ad "
-            android:textColor="#5163A0"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="20dp"
-            android:text="Choose File to upload"
-            android:textColor="#5163A0"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/imageView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
-            android:layout_marginBottom="7dp"
-            android:text="Name of the book"
-            android:textColor="#5163A0"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
-            android:layout_marginBottom="9dp"
-            android:text="Author Name"
-            android:textColor="#5163A0"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName6"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
-            android:layout_marginBottom="17dp"
-            android:text="Description"
-            android:textColor="#5163A0"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName6" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
-            android:layout_marginEnd="86dp"
-            android:layout_marginBottom="15dp"
-            android:text="Price"
-            android:textColor="#5163A0"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/editTextNumber"
-            app:layout_constraintEnd_toStartOf="@+id/textView7"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="Condition of the book"
-            android:textColor="#5163A0"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/radioButton5"
-            app:layout_constraintEnd_toEndOf="@+id/button"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="6dp"
-            android:text="Barter"
-            android:textColor="#5163A0"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/checkBox"
-            app:layout_constraintEnd_toEndOf="@+id/checkBox"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="0dp"
-            android:layout_height="54dp"
-            android:layout_marginTop="240dp"
-            android:layout_marginEnd="105dp"
-            android:layout_marginBottom="241dp"
-            android:text="OR"
-            android:textColor="#5163A0"
-            android:textSize="34sp"
-            app:layout_constraintBottom_toBottomOf="@+id/editLastName"
-            app:layout_constraintEnd_toStartOf="@+id/checkBox"
-            app:layout_constraintStart_toEndOf="@+id/textView6"
-            app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName6" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="match_parent"
-
-            android:layout_height="wrap_content"
-            android:layout_marginTop="140dp"
-            android:layout_marginBottom="958dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/headerImageView">
-
-            <!-- Inside text input layout add
-                      an auto complete text view
-                        and make its input type to none-->
-
-            <AutoCompleteTextView
-                android:id="@+id/autoCompleteTextView2"
-                android:layout_width="342dp"
-                android:layout_height="49dp"
-                android:layout_weight="1"
-                android:inputType="none"
-                android:text="Select category" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="209dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="65dp"
-            android:layout_marginEnd="65dp"
-            android:layout_marginBottom="28dp"
-            app:layout_constraintBottom_toTopOf="@+id/textView3"
-            app:layout_constraintEnd_toEndOf="@+id/textView9"
-            app:layout_constraintStart_toStartOf="@+id/radioButton"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"             />
-
-        <EditText
-            android:id="@+id/editTextTextPersonName2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="13dp"
-            android:background="#C8DBE9"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/textView4"
-            app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName6"
-            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName6"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-        <EditText
-            android:id="@+id/editTextTextPersonName6"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="25dp"
-            android:background="#C8DBE9"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/textView5"
-            app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine"
-            app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-        <EditText
-            android:id="@+id/editLastName"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="6dp"
-            android:layout_marginEnd="6dp"
-            android:layout_marginBottom="26dp"
-            android:background="#C8DBE9"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/textView12"
-            app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine"
-            app:layout_constraintStart_toStartOf="@+id/radioGroup"
-            app:layout_constraintTop_toBottomOf="@+id/textView11" />
-
-        <EditText
-            android:id="@+id/editTextTextMultiLine"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="21dp"
-            android:layout_marginBottom="37dp"
-            android:background="#C8DBE9"
-            android:backgroundTint="#C8DBE9"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine"
-            app:layout_constraintBottom_toTopOf="@+id/textView9"
-            app:layout_constraintEnd_toEndOf="@+id/checkBox"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-        <EditText
-            android:id="@+id/editTextNumber"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="14dp"
-            android:layout_marginEnd="191dp"
-            android:layout_marginBottom="40dp"
-            android:background="#C8DBE9"
-            android:ems="10"
-            android:inputType="number"
-            app:layout_constraintBottom_toTopOf="@+id/textView10"
-            app:layout_constraintEnd_toStartOf="@+id/checkBox"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/checkBox" />
-
-        <CheckBox
-            android:id="@+id/checkBox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="55dp"
-            app:layout_constraintBottom_toTopOf="@+id/editTextNumber"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/editTextNumber"
-            app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-        <RadioButton
-            android:id="@+id/radioButton"
-            android:layout_width="0dp"
-            android:layout_height="57dp"
-            android:text="Best"
-            app:layout_constraintBaseline_toBaselineOf="@+id/radioButton2"
-            app:layout_constraintEnd_toStartOf="@+id/radioButton2"
-            app:layout_constraintStart_toEndOf="@+id/radioGroup" />
-
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="Good"
-            app:layout_constraintBottom_toBottomOf="@+id/radioButton3"
-            app:layout_constraintEnd_toStartOf="@+id/radioButton3"
-            app:layout_constraintStart_toEndOf="@+id/radioButton"
-            app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
-        <RadioButton
-            android:id="@+id/radioButton3"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="Fair"
-            app:layout_constraintBottom_toTopOf="@+id/radioGroup"
-            app:layout_constraintEnd_toStartOf="@+id/radioButton5"
-            app:layout_constraintStart_toEndOf="@+id/radioButton2"
-            app:layout_constraintTop_toBottomOf="@+id/radioButton5" />
-
-        <RadioButton
-            android:id="@+id/radioButton5"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginEnd="49dp"
-            android:text="Average"
-            app:layout_constraintBottom_toTopOf="@+id/radioButton3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/radioButton3"
-            app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="145dp"
-            android:text="Post Ad"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine2" />
 
         <TextView
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="13dp"
-            android:layout_marginEnd="5dp"
             android:text="Post a New Ad"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            tools:layout_editor_absoluteX="140dp"
+            tools:layout_editor_absoluteY="86dp" />
+
+        <EditText
+            android:id="@+id/editTextTextMultiLine2"
+            android:layout_width="305dp"
+            android:layout_height="30dp"
+            android:background="#C8DBE9"
+            android:backgroundTint="#C8DBE9"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            tools:layout_editor_absoluteY="1090dp" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="47dp"
+            android:layout_height="30dp"
+            android:text="Contact Details"
+            android:textColor="#5163A0"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="1043dp" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="47dp"
+            android:layout_height="30dp"
+            android:text="Your Location"
+            android:textColor="#5163A0"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="940dp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="862dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose options below to post an ad "
+            android:textColor="#5163A0"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="42dp"
+            tools:layout_editor_absoluteY="131dp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose File to upload"
+            android:textColor="#5163A0"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="101dp"
+            tools:layout_editor_absoluteY="377dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name of the book"
+            android:textColor="#5163A0"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="20dp"
+            tools:layout_editor_absoluteY="193dp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Author Name"
+            android:textColor="#5163A0"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="24dp"
+            tools:layout_editor_absoluteY="260dp" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName6"
+            android:layout_width="315dp"
+            android:layout_height="30dp"
+            android:background="#C8DBE9"
+            android:ems="10"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="30dp"
+            tools:layout_editor_absoluteY="296dp" />
+
+        <EditText
+            android:id="@+id/editTextTextMultiLine"
+            android:layout_width="315dp"
+            android:layout_height="30dp"
+            android:background="#C8DBE9"
+            android:backgroundTint="#C8DBE9"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            tools:layout_editor_absoluteX="30dp"
+            tools:layout_editor_absoluteY="396dp" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:textColor="#5163A0"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="24dp"
+            tools:layout_editor_absoluteY="351dp" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price"
+            android:textColor="#5163A0"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="14dp"
+            tools:layout_editor_absoluteY="659dp" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="135dp"
+            android:layout_height="30dp"
+            android:text="Condition of the book"
+            android:textColor="#5163A0"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="771dp" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Barter"
+            android:textColor="#5163A0"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="295dp"
+            tools:layout_editor_absoluteY="642dp" />
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="209dp"
+            android:layout_height="30dp"
+            tools:layout_editor_absoluteX="76dp"
+            tools:layout_editor_absoluteY="305dp" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName2"
+            android:layout_width="315dp"
+            android:layout_height="30dp"
+            android:background="#C8DBE9"
+            android:ems="10"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="35dp"
+            tools:layout_editor_absoluteY="220dp" />
+
+        <EditText
+            android:id="@+id/editLastName"
+            android:layout_width="315dp"
+            android:layout_height="30dp"
+            android:background="#C8DBE9"
+            android:ems="10"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="14dp"
+            tools:layout_editor_absoluteY="988dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteY="297dp">
+
+            <EditText
+                android:id="@+id/editTextNumber"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_weight="2"
+                android:background="#C8DBE9"
+                android:ems="10"
+                android:inputType="number" />
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioButton"
+                android:layout_width="88dp"
+                android:layout_height="57dp"
+                android:layout_weight="1"
+                android:text="Best" />
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="88dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="Good" />
+
+            <RadioButton
+                android:id="@+id/radioButton3"
+                android:layout_width="88dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:text="Fair" />
+
+            <RadioButton
+                android:id="@+id/radioButton5"
+                android:layout_width="88dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:text="Average" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Post Ad"
+            tools:layout_editor_absoluteX="63dp"
+            tools:layout_editor_absoluteY="1168dp" />
+
+        <Button
+            android:id="@+id/btnCancelAddPost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            tools:layout_editor_absoluteX="294dp"
+            tools:layout_editor_absoluteY="1152dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
