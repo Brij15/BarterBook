@@ -8,98 +8,172 @@
 
     <ImageView
         android:id="@+id/headerImageView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
         android:contentDescription="@string/header_image"
         android:scaleType="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/header_image_new" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/textView16"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Address"
+        android:text="User Contact"
+        android:textAlignment="center"
         android:textColor="#314085"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="650dp" />
+        app:layout_constraintBottom_toTopOf="@+id/editMobileNumber"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editUserName" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/textView13"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Personal Information"
+        android:textAlignment="center"
         android:textColor="#314085"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="100dp" />
+        app:layout_constraintBottom_toTopOf="@+id/editFirstName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headerImageView" />
+
 
     <EditText
         android:id="@+id/editFirstName"
-        android:layout_width="355dp"
+        android:layout_width="match_parent"
         android:layout_height="58dp"
+        android:layout_marginHorizontal="40dp"
         android:background="#687691C4"
         android:ems="10"
         android:includeFontPadding="true"
         android:inputType="textPersonName"
+        android:paddingHorizontal="5dp"
+        android:radius="15dp"
         android:text="First Name"
         android:textColor="#7691C4"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="160dp" />
-
+        app:layout_constraintBottom_toTopOf="@+id/editLastName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName8"
-        android:layout_width="355dp"
+        android:id="@+id/editUserName"
+        android:layout_width="match_parent"
         android:layout_height="58dp"
+        android:layout_marginHorizontal="40dp"
         android:background="#687691C4"
         android:ems="10"
         android:includeFontPadding="true"
         android:inputType="textPersonName"
-        android:text="Last Name"
-        android:textColor="#7691C4"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="239dp" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName9"
-        android:layout_width="355dp"
-        android:layout_height="58dp"
-        android:background="#687691C4"
-        android:ems="10"
-        android:includeFontPadding="true"
-        android:inputType="textPersonName"
+        android:paddingHorizontal="5dp"
         android:text="UserName"
         android:textColor="#7691C4"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="320dp" />
-
+        app:layout_constraintBottom_toTopOf="@+id/textView16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editLastName" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName10"
-        android:layout_width="355dp"
+        android:id="@+id/editMobileNumber"
+        android:layout_width="match_parent"
         android:layout_height="58dp"
+        android:layout_marginHorizontal="40dp"
         android:background="#687691C4"
         android:ems="10"
         android:includeFontPadding="true"
         android:inputType="phone"
+        android:paddingHorizontal="5dp"
         android:text="Mobile No."
         android:textColor="#7691C4"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="401dp" />
+        app:layout_constraintBottom_toTopOf="@+id/editUserAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <EditText
+        android:id="@+id/editLastName"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_marginHorizontal="40dp"
+        android:background="#687691C4"
+        android:ems="10"
+        android:includeFontPadding="true"
+        android:inputType="textPersonName"
+        android:paddingHorizontal="5dp"
+        android:text="Last Name"
+        android:textColor="#7691C4"
+        app:layout_constraintBottom_toTopOf="@+id/editUserName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editFirstName" />
 
 
     <EditText
-        android:id="@+id/editTextTextPostalAddress2"
-        android:layout_width="356dp"
+        android:id="@+id/editUserAddress"
+        android:layout_width="match_parent"
         android:layout_height="85dp"
+        android:layout_marginHorizontal="40dp"
         android:background="#687691C4"
         android:ems="10"
         android:inputType="textPostalAddress"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="716dp" />
+        android:paddingHorizontal="5dp"
+        android:hint="User Address"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        android:tooltipText="User Address"
+
+        app:layout_constraintTop_toBottomOf="@+id/editMobileNumber"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginHorizontal="40dp"
+        app:layout_constraintTop_toBottomOf="@+id/editUserAddress">
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/main_blue"
+            android:radius="15dp"
+            android:text="Update"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/main_blue"
+            android:radius="15dp"
+            android:text="Cancel"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

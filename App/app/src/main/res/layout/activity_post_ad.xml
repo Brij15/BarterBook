@@ -50,7 +50,7 @@
             app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine2"
             app:layout_constraintEnd_toStartOf="@+id/button"
             app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName8" />
+            app:layout_constraintTop_toBottomOf="@+id/editLastName" />
 
         <TextView
             android:id="@+id/textView11"
@@ -60,7 +60,7 @@
             android:text="Your Location"
             android:textColor="#5163A0"
             android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName8"
+            app:layout_constraintBottom_toTopOf="@+id/editLastName"
             app:layout_constraintEnd_toEndOf="@+id/textView12"
             app:layout_constraintStart_toStartOf="@+id/textView12"
             app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
@@ -193,7 +193,7 @@
             android:text="OR"
             android:textColor="#5163A0"
             android:textSize="34sp"
-            app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName8"
+            app:layout_constraintBottom_toBottomOf="@+id/editLastName"
             app:layout_constraintEnd_toStartOf="@+id/checkBox"
             app:layout_constraintStart_toEndOf="@+id/textView6"
             app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName6" />
@@ -265,7 +265,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName8"
+            android:id="@+id/editLastName"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="6dp"
