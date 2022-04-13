@@ -9,7 +9,7 @@ android {
     defaultConfig {
         applicationId "com.example.barterbooksapp"
         minSdk 28
-        targetSdk 32
+        targetSdk 30
         versionCode 1
         versionName "1.0"
 
@@ -46,7 +46,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth:20.1.0'
 
     //Image Carousal
-    implementation 'com.github.denzcoskun:ImageSlideShow:0.0.6'
+    implementation 'com.github.denzcoskun:ImageSlideShow:0.1.0'
     //Facebook Login
     implementation 'com.facebook.android:facebook-android-sdk:latest.release'
 }

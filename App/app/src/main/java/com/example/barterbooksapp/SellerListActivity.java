@@ -48,7 +48,7 @@ public class SellerListActivity extends AppCompatActivity {
 
         bottomNavigationView = findViewById(R.id.sellerBottomNavigationBar);
         bottomNavigationView.setSelectedItemId(R.id.seller_list);
-
+        bottomNavigationView.getMenu().removeItem(R.id.searchPosts);
         bottomNavigationView.setOnItemSelectedListener(item -> {
                 Intent intent;
                 switch (item.getItemId()){
@@ -67,9 +67,6 @@ public class SellerListActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
 
-                    case R.id.searchPosts:
-//                        searchPosts();
-                        break;
                 }
                 return true;
         });

@@ -4,146 +4,96 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailsActivity">
+    tools:context=".DetailsActivity"
+    android:background="#E9F9F9">
 
-    <!--
     <ImageView
-        android:id="@+id/headerImageView"
-        android:layout_width="wrap_content"
+        android:id="@+id/headerTextView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:adjustViewBounds="false"
-        android:background="#00FFFFFF"
-        android:contentDescription="Header Image"
-        android:translationY="-8dp"
+        android:background="#2D418A"
+        android:gravity="top"
+        android:scaleType="center"
+        android:src="@drawable/header_image_new"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/headerbar_image" />
-
-    <ImageView
-        android:id="@+id/bookImageDetail1"
-        android:layout_width="210dp"
-        android:layout_height="200dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.004"
-        app:layout_constraintStart_toStartOf="@+id/headerImageView"
-        app:layout_constraintTop_toBottomOf="@+id/headerImageView"
-        app:layout_constraintVertical_bias="0.027"
-        app:srcCompat="@drawable/book1" />
-
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="13dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView10"
-        app:layout_constraintEnd_toStartOf="@+id/imageView9"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/bookImageDetail1"
-        app:layout_constraintTop_toBottomOf="@+id/headerImageView"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/book2" />
-
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView11"
-        app:layout_constraintEnd_toEndOf="@+id/headerImageView"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/bookImageDetail1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/book3" />
-
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="444dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView9"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/bookImageDetail1"
-        app:srcCompat="@drawable/book6" />
-
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="444dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/headerImageView"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView10"
-        app:srcCompat="@drawable/book8" />
-    !-->
+        tools:ignore="ContentDescription" />
 
     <com.denzcoskun.imageslider.ImageSlider
         android:id="@+id/slider"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_margin="20dp"
-        app:auto_cycle="true"
-        app:corner_radius="20"
-        app:delay="0"
-        app:period="2000"
-        app:placeholder="@color/black"
-        tools:layout_editor_absoluteX="20dp" />
+        android:layout_height="400dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="20dp"
+        android:paddingHorizontal="40dp"
+        app:iss_auto_cycle="true"
+        app:iss_corner_radius="20"
+        app:iss_delay="0"
+        app:iss_period="1000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headerTextView" />
 
-    <TextView
-        android:id="@+id/bookdetailTitle"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Gardens of the Moon"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:orientation="vertical"
+        android:padding="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/slider">
+
+        <TextView
+            android:id="@+id/bookdetailTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gardens of the Moon"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/authorDetailText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Steven Erikson"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/postDetailText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Posted On 4 March 2022, Barrie " />
+
+        <TextView
+            android:id="@+id/priceDetailText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$4.45"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/postDescription"
+            android:layout_width="match_parent"
+            android:layout_height="80sp"
+            android:text="TextView" />
+    </LinearLayout>
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/detailsBottomNavigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="0dp"
+        android:background="#314085"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/slider"
-        app:layout_constraintVertical_bias="0.1" />
-
-    <TextView
-        android:id="@+id/authorDetailText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Steven Erikson"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bookdetailTitle"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/postDetailText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Posted On 4 March 2022, Barrie "
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.076"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/authorDetailText"
-        app:layout_constraintVertical_bias="0.05" />
-
-    <TextView
-        android:id="@+id/priceDetailText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="$4.45"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/postDetailText"
-        app:layout_constraintVertical_bias="0.0" />
+        app:menu="@menu/bottom_nav_menu" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
