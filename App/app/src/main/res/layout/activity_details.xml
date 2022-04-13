@@ -24,7 +24,7 @@
     <com.denzcoskun.imageslider.ImageSlider
         android:id="@+id/slider"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="350dp"
         android:layout_marginHorizontal="20dp"
         android:layout_marginVertical="20dp"
         android:paddingHorizontal="40dp"
@@ -78,8 +78,8 @@
         <TextView
             android:id="@+id/postDescription"
             android:layout_width="match_parent"
-            android:layout_height="80sp"
-            android:text="TextView" />
+            android:layout_height="wrap_content"
+            android:text="@string/details_temp" />
     </LinearLayout>
 
 

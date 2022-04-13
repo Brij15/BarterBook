@@ -23,6 +23,7 @@
     <string name="send">Send</string>
     <string name="reach_us_through_email">Reach us through Email</string>
     <string name="barter_book_is_an_application_for_book_lovers_where_user_can_sell_or_barter_books_with_the_other_user_this_application_can_be_used_by_people_from_all_age_groups_who_love_books">Barter Book is an application for book lovers where user can sell or barter books with the other user. This application can be used by people from all age groups who love books.</string>
+    <string name="details_temp">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
 
 
 </resources>
