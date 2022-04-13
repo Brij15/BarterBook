@@ -49,9 +49,7 @@ public class SellerListActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.sellerBottomNavigationBar);
         bottomNavigationView.setSelectedItemId(R.id.seller_list);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        bottomNavigationView.setOnItemSelectedListener(item -> {
                 Intent intent;
                 switch (item.getItemId()){
                     case R.id.go_home:
@@ -60,13 +58,20 @@ public class SellerListActivity extends AppCompatActivity {
                         break;
 
                     case R.id.userSettings:
-                        intent = new Intent(SellerListActivity.this, RegistrationScreenActivity.class);
+                        intent = new Intent(SellerListActivity.this, EditUserActivity.class);
                         startActivity(intent);
                         break;
-                }
 
+                    case R.id.add_post:
+                        intent = new Intent(SellerListActivity.this, PostAdActivity.class);
+                        startActivity(intent);
+                        break;
+
+                    case R.id.searchPosts:
+//                        searchPosts();
+                        break;
+                }
                 return true;
-            }
         });
 
         recyclerView = findViewById(R.id.sellerRecycleView);
