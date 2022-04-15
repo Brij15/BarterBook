@@ -180,8 +180,6 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
             String replacedStr = searchText.replaceAll("\\s", "");
-//            Log.i("SE", replacedStr);
-//            Log.i("SE", searchText);
             if(replacedStr.isEmpty()){
                 searchTextView.setError("You Need to type something");
                 return;

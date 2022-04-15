@@ -1,38 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    android:layout_margin="10dp"
     android:elevation="10dp"
-    app:cardElevation="10dp"
-    android:layout_margin="10dp">
+    android:orientation="vertical"
+    app:cardElevation="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <TextView
+            android:id="@+id/alertHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/search"
             android:layout_marginVertical="20dp"
             android:gravity="center"
+            android:text="@string/search"
             android:textColor="#000"
-            android:id="@+id/item"
-            android:textSize="28sp"/>
+            android:textSize="24sp" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <EditText
+                android:id="@+id/search_title"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
                 android:gravity="center"
                 android:hint="Search For....."
-                android:id="@+id/search_title"
                 android:textColor="#000"
-                android:textColorHint="#000"/>
+                android:textColorHint="#000" />
         </LinearLayout>
 
         <LinearLayout
@@ -44,23 +47,32 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_marginHorizontal="10dp"
+                android:layout_weight="1"
+                android:radius="15dp">
 
                 <Button
                     android:id="@+id/cancel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:background="@color/main_blue"
+                    android:radius="15dp"
                     android:text="@string/cancel"
                     android:textAllCaps="false"
                     android:textColor="#000"
-                    android:textStyle="bold"
-                    android:layout_margin="2dp"/>
+                    android:textStyle="bold" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_marginHorizontal="10dp"
+                android:layout_weight="1"
+                android:radius="15dp">
 
                 <Button
                     android:id="@+id/search"
@@ -70,6 +82,8 @@
                     android:layout_marginTop="2dp"
                     android:layout_marginEnd="2dp"
                     android:layout_marginBottom="2dp"
+                    android:background="@color/main_blue"
+                    android:radius="15dp"
                     android:text="@string/search"
                     android:textAllCaps="false"
                     android:textColor="#000"
@@ -78,8 +92,6 @@
         </LinearLayout>
 
     </LinearLayout>
-
-
 
 
 </androidx.cardview.widget.CardView>
