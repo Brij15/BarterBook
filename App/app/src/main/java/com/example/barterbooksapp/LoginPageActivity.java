@@ -102,8 +102,6 @@ public class LoginPageActivity extends AppCompatActivity {
             }
         });
 
-
-
         signUp.setOnClickListener(view -> startActivity(new Intent(LoginPageActivity.this, RegistrationScreenActivity.class)));
 
 
@@ -114,23 +112,8 @@ public class LoginPageActivity extends AppCompatActivity {
         //Forget Password
         TextView forgotPassword = findViewById(R.id.forgetPasswordView);
         forgotPassword.setOnClickListener(view -> {
-//            String emailAddress = (String) String.valueOf(email.getText());
-
-//            //validations
-//            if (emailAddress.isEmpty()) {
-//                Toast.makeText(LoginPageActivity.this, "Email is empty!",
-//                        Toast.LENGTH_SHORT).show();
-//                return;
-//            }
             ForgotPasswordAlert.showAlertDialog(this, mAuth);
-//            mAuth.sendPasswordResetEmail(emailAddress)
-//                    .addOnCompleteListener(task -> {
-////                                Maybe do a alert Message here
-//                        if (task.isSuccessful()) {
-//                            Toast.makeText(LoginPageActivity.this, "Reset Email Sent!",
-//                                    Toast.LENGTH_SHORT).show();
-//                        }
-//                    });
+
         });
     }
 
