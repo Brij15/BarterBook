@@ -194,6 +194,8 @@ public class MainActivity extends AppCompatActivity {
 
         cancel.setOnClickListener(view -> {
             dialog.dismiss();
+            bookPosts.clear();
+            initializeTestData();
             bottomNavigationView.setSelectedItemId(R.id.go_home);
         });
         dialog.show();
