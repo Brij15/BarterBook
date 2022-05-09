@@ -33,7 +33,7 @@
             android:layout_height="0dp"
             android:layout_weight="0.2"
             android:gravity="center"
-            android:text="WELCOME TO BARTER BOOKS"
+            android:text="@string/welcome_to_barter_books"
             android:textAlignment="center"
             android:textColor="@color/main_blue"
             android:textSize="20sp" />
@@ -42,7 +42,7 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="220dp"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
@@ -60,7 +60,7 @@
             android:ems="10"
             android:foregroundTint="#4BB5E4"
             android:gravity="center"
-            android:hint="EmailAddress"
+            android:hint="@string/emailaddress"
             android:inputType="textEmailAddress"
             android:shadowColor="#A1C7D5"
             android:textAlignment="center"
@@ -73,7 +73,7 @@
             android:layout_height="0dp"
             android:layout_weight="2"
             android:gravity="center"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="textPassword"
             android:textAlignment="center"
             android:textColor="@color/main_blue"
@@ -81,16 +81,16 @@
 
         <TextView
             android:id="@+id/forgetPasswordView"
-            android:layout_width="140dp"
+            android:layout_width="wrap_content"
             android:layout_height="0dp"
+            android:layout_marginVertical="10dp"
             android:layout_weight="1"
             android:ems="10"
             android:gravity="center"
-            android:inputType="textPersonName"
-            android:text="Forgot Password"
+            android:text="@string/forgot_password"
             android:textAlignment="center"
             android:textColor="@color/main_blue"
-            android:textSize="12sp"
+            android:textSize="16sp"
             tools:ignore="TouchTargetSizeCheck" />
 
         <Button
@@ -100,7 +100,7 @@
             android:layout_weight="2"
             android:backgroundTint="@color/main_blue"
             android:radius="15dp"
-            android:text="Log In"
+            android:text="@string/log_in"
             android:textColor="@color/white"
             android:textSize="18sp"
             tools:ignore="TouchTargetSizeCheck" />
@@ -118,15 +118,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Or"
-            android:textAlignment="center"
-            android:textColor="@color/main_blue" />
 
         <TextView
             android:id="@+id/textViewSignup"
@@ -134,7 +125,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:contextClickable="true"
-            android:text="Not a User Sign Up Here!"
+            android:text="@string/not_a_user_sign_up_here"
             android:textAlignment="center"
             android:textColor="@color/main_blue" />
 
@@ -143,7 +134,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Or Sign Up Using"
+            android:text="@string/or_sign_up_using"
             android:textAlignment="center"
             android:textColor="@color/main_blue" />
     </LinearLayout>
@@ -177,7 +168,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
-            android:layout_marginBottom="30dp"
             android:radius="30dp" />
     </LinearLayout>
 

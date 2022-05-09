@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.barterbooksapp.utlity.ForgotPasswordAlert;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -101,8 +102,6 @@ public class LoginPageActivity extends AppCompatActivity {
             }
         });
 
-
-
         signUp.setOnClickListener(view -> startActivity(new Intent(LoginPageActivity.this, RegistrationScreenActivity.class)));
 
 
@@ -113,22 +112,8 @@ public class LoginPageActivity extends AppCompatActivity {
         //Forget Password
         TextView forgotPassword = findViewById(R.id.forgetPasswordView);
         forgotPassword.setOnClickListener(view -> {
-            String emailAddress = (String) String.valueOf(email.getText());
+            ForgotPasswordAlert.showAlertDialog(this, mAuth);
 
-            //validations
-            if (emailAddress.isEmpty()) {
-                Toast.makeText(LoginPageActivity.this, "Email is empty!",
-                        Toast.LENGTH_SHORT).show();
-                return;
-            }
-            mAuth.sendPasswordResetEmail(emailAddress)
-                    .addOnCompleteListener(task -> {
-//                                Maybe do a alert Message here
-                        if (task.isSuccessful()) {
-                            Toast.makeText(LoginPageActivity.this, "Reset Email Sent!",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    });
         });
     }
 

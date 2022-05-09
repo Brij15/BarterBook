@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -21,7 +20,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.barterbooksapp.recyclerViewAdapters.MyRecyclerViewAdapter;
 import com.example.barterbooksapp.utlity.BookPostDataModel;
 import com.example.barterbooksapp.utlity.FilterUtilities;
-import com.facebook.login.LoginManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -75,11 +73,13 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.userSettings:
-                    LoginManager.getInstance().logOut();
-                    FirebaseAuth.getInstance().signOut();
-                    intent = new Intent(MainActivity.this, LoginPageActivity.class);
+                    intent = new Intent(MainActivity.this, EditUserActivity.class);
                     startActivity(intent);
-                    finish();
+                    break;
+
+                case R.id.add_post:
+                    intent = new Intent(MainActivity.this, PostAdActivity.class);
+                    startActivity(intent);
                     break;
 
                 case R.id.searchPosts:
@@ -178,8 +178,6 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
             String replacedStr = searchText.replaceAll("\\s", "");
-            Log.i("SE", replacedStr);
-            Log.i("SE", searchText);
             if(replacedStr.isEmpty()){
                 searchTextView.setError("You Need to type something");
                 return;
@@ -194,6 +192,8 @@ public class MainActivity extends AppCompatActivity {
 
         cancel.setOnClickListener(view -> {
             dialog.dismiss();
+            bookPosts.clear();
+            initializeTestData();
             bottomNavigationView.setSelectedItemId(R.id.go_home);
         });
         dialog.show();

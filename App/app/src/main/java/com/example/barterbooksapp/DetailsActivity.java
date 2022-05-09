@@ -1,15 +1,15 @@
 package com.example.barterbooksapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ImageView;
 import android.widget.TextView;
-
+import androidx.appcompat.app.AppCompatActivity;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.barterbooksapp.utlity.BookPostDataModel;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.denzcoskun.imageslider.constants.ScaleTypes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,10 +19,11 @@ public class DetailsActivity extends AppCompatActivity {
     TextView authorText;
     TextView priceText;
     TextView titleText;
-    ImageView bookImage;
     private List<BookPostDataModel> bookPosts ;
+    private BottomNavigationView bottomNavigationView;
 
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +32,6 @@ public class DetailsActivity extends AppCompatActivity {
         titleText = findViewById(R.id.bookdetailTitle);
         authorText = findViewById(R.id.authorDetailText);
         priceText = findViewById(R.id.priceDetailText);
-        //bookImage = findViewById(R.id.bookImageDetail1);
         bookPosts = new ArrayList<>();
         initializeTestData();
 
@@ -51,7 +51,35 @@ public class DetailsActivity extends AppCompatActivity {
                 }
             }
         }
+        //Navigation Bar Code
+        bottomNavigationView = findViewById(R.id.detailsBottomNavigationBar);
+        bottomNavigationView.getMenu().removeItem(R.id.searchPosts);
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            Intent intent;
+            switch (item.getItemId()){
 
+                case R.id.go_home:
+                    intent = new Intent(DetailsActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    break;
+
+                case R.id.seller_list:
+                    intent = new Intent(DetailsActivity.this, SellerListActivity.class);
+                    startActivity(intent);
+                    break;
+
+                case R.id.userSettings:
+                    intent = new Intent(DetailsActivity.this, EditUserActivity.class);
+                    startActivity(intent);
+                    break;
+
+                case R.id.add_post:
+                    intent = new Intent(DetailsActivity.this, PostAdActivity.class);
+                    startActivity(intent);
+                    break;
+            }
+            return false;
+        });
     }
 
     private BookPostDataModel getBookByID(String filterValue){
@@ -71,9 +99,9 @@ public class DetailsActivity extends AppCompatActivity {
         List<SlideModel> slideModels = new ArrayList<>();
 
         for(Integer image : initImageList()) {
-            slideModels.add(new SlideModel(image));
+            slideModels.add(new SlideModel(image, ScaleTypes.CENTER_INSIDE));
         }
-        imageSlider.setImageList(slideModels, true);
+        imageSlider.setImageList(slideModels);
     }
 
     private void initializeTestData(){

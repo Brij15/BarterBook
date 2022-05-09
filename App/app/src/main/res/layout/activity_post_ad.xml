@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E9F9F9">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".PostAdActivity">
+
+        <ImageView
+            android:id="@+id/headerImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/header_image"
+            android:scaleType="center"
+            app:srcCompat="@drawable/header_image_new" />
+
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Post a New Ad"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="140dp"
+            tools:layout_editor_absoluteY="86dp" />
+
+        <EditText
+            android:id="@+id/editTextTextMultiLine2"
+            android:layout_width="305dp"
+            android:layout_height="30dp"
+            android:background="#C8DBE9"
+            android:backgroundTint="#C8DBE9"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            tools:layout_editor_absoluteY="1090dp" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="47dp"
+            android:layout_height="30dp"
+            android:text="Contact Details"
+            android:textColor="#5163A0"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="1043dp" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="47dp"
+            android:layout_height="30dp"
+            android:text="Your Location"
+            android:textColor="#5163A0"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="940dp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="862dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose options below to post an ad "
+            android:textColor="#5163A0"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="42dp"
+            tools:layout_editor_absoluteY="131dp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose File to upload"
+            android:textColor="#5163A0"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="101dp"
+            tools:layout_editor_absoluteY="377dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name of the book"
+            android:textColor="#5163A0"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="20dp"
+            tools:layout_editor_absoluteY="193dp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Author Name"
+            android:textColor="#5163A0"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="24dp"
+            tools:layout_editor_absoluteY="260dp" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName6"
+            android:layout_width="315dp"
+            android:layout_height="30dp"
+            android:background="#C8DBE9"
+            android:ems="10"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="30dp"
+            tools:layout_editor_absoluteY="296dp" />
+
+        <EditText
+            android:id="@+id/editTextTextMultiLine"
+            android:layout_width="315dp"
+            android:layout_height="30dp"
+            android:background="#C8DBE9"
+            android:backgroundTint="#C8DBE9"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            tools:layout_editor_absoluteX="30dp"
+            tools:layout_editor_absoluteY="396dp" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:textColor="#5163A0"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="24dp"
+            tools:layout_editor_absoluteY="351dp" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price"
+            android:textColor="#5163A0"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="14dp"
+            tools:layout_editor_absoluteY="659dp" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="135dp"
+            android:layout_height="30dp"
+            android:text="Condition of the book"
+            android:textColor="#5163A0"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="771dp" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Barter"
+            android:textColor="#5163A0"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="295dp"
+            tools:layout_editor_absoluteY="642dp" />
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="209dp"
+            android:layout_height="30dp"
+            tools:layout_editor_absoluteX="76dp"
+            tools:layout_editor_absoluteY="305dp" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName2"
+            android:layout_width="315dp"
+            android:layout_height="30dp"
+            android:background="#C8DBE9"
+            android:ems="10"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="35dp"
+            tools:layout_editor_absoluteY="220dp" />
+
+        <EditText
+            android:id="@+id/editLastName"
+            android:layout_width="315dp"
+            android:layout_height="30dp"
+            android:background="#C8DBE9"
+            android:ems="10"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="14dp"
+            tools:layout_editor_absoluteY="988dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteY="297dp">
+
+            <EditText
+                android:id="@+id/editTextNumber"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_weight="2"
+                android:background="#C8DBE9"
+                android:ems="10"
+                android:inputType="number" />
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioButton"
+                android:layout_width="88dp"
+                android:layout_height="57dp"
+                android:layout_weight="1"
+                android:text="Best" />
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="88dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="Good" />
+
+            <RadioButton
+                android:id="@+id/radioButton3"
+                android:layout_width="88dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:text="Fair" />
+
+            <RadioButton
+                android:id="@+id/radioButton5"
+                android:layout_width="88dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:text="Average" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Post Ad"
+            tools:layout_editor_absoluteX="63dp"
+            tools:layout_editor_absoluteY="1168dp" />
+
+        <Button
+            android:id="@+id/btnCancelAddPost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            tools:layout_editor_absoluteX="294dp"
+            tools:layout_editor_absoluteY="1152dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
