@@ -8,268 +8,189 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:context=".PostAdActivity">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/headerImageView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:contentDescription="@string/header_image"
             android:scaleType="center"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/header_image_new" />
 
 
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Post a New Ad"
-            android:textSize="20sp"
-            tools:layout_editor_absoluteX="140dp"
-            tools:layout_editor_absoluteY="86dp" />
+        <LinearLayout
+            android:id="@+id/linearLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/selectImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/headerImageView">
 
-        <EditText
-            android:id="@+id/editTextTextMultiLine2"
-            android:layout_width="305dp"
-            android:layout_height="30dp"
-            android:background="#C8DBE9"
-            android:backgroundTint="#C8DBE9"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine"
-            tools:layout_editor_absoluteY="1090dp" />
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Post Your Ad"
+                android:textAlignment="center"
+                android:textSize="26sp"
+                android:textColor="@color/main_blue"/>
 
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="47dp"
-            android:layout_height="30dp"
-            android:text="Contact Details"
-            android:textColor="#5163A0"
-            android:textSize="20sp"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="1043dp" />
+            <Spinner
+                android:id="@+id/bookType"
+                android:minHeight="48dp"
+                android:entries="@array/book_categories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="Select Book Category"/>
 
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="47dp"
-            android:layout_height="30dp"
-            android:text="Your Location"
-            android:textColor="#5163A0"
-            android:textSize="20sp"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="940dp" />
+        </LinearLayout>
 
-        <RadioGroup
-            android:id="@+id/radioGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="862dp" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Choose options below to post an ad "
-            android:textColor="#5163A0"
-            android:textSize="20sp"
-            tools:layout_editor_absoluteX="42dp"
-            tools:layout_editor_absoluteY="131dp" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Choose File to upload"
-            android:textColor="#5163A0"
-            android:textSize="20sp"
-            tools:layout_editor_absoluteX="101dp"
-            tools:layout_editor_absoluteY="377dp" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Name of the book"
-            android:textColor="#5163A0"
-            android:textSize="20sp"
-            tools:layout_editor_absoluteX="20dp"
-            tools:layout_editor_absoluteY="193dp" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Author Name"
-            android:textColor="#5163A0"
-            android:textSize="20sp"
-            tools:layout_editor_absoluteX="24dp"
-            tools:layout_editor_absoluteY="260dp" />
-
-        <EditText
-            android:id="@+id/editTextTextPersonName6"
-            android:layout_width="315dp"
-            android:layout_height="30dp"
-            android:background="#C8DBE9"
-            android:ems="10"
-            android:inputType="textPersonName"
-            tools:layout_editor_absoluteX="30dp"
-            tools:layout_editor_absoluteY="296dp" />
-
-        <EditText
-            android:id="@+id/editTextTextMultiLine"
-            android:layout_width="315dp"
-            android:layout_height="30dp"
-            android:background="#C8DBE9"
-            android:backgroundTint="#C8DBE9"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine"
-            tools:layout_editor_absoluteX="30dp"
-            tools:layout_editor_absoluteY="396dp" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Description"
-            android:textColor="#5163A0"
-            android:textSize="20sp"
-            tools:layout_editor_absoluteX="24dp"
-            tools:layout_editor_absoluteY="351dp" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Price"
-            android:textColor="#5163A0"
-            android:textSize="20sp"
-            tools:layout_editor_absoluteX="14dp"
-            tools:layout_editor_absoluteY="659dp" />
-
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="135dp"
-            android:layout_height="30dp"
-            android:text="Condition of the book"
-            android:textColor="#5163A0"
-            android:textSize="20sp"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="771dp" />
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Barter"
-            android:textColor="#5163A0"
-            android:textSize="20sp"
-            tools:layout_editor_absoluteX="295dp"
-            tools:layout_editor_absoluteY="642dp" />
-
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="209dp"
-            android:layout_height="30dp"
-            tools:layout_editor_absoluteX="76dp"
-            tools:layout_editor_absoluteY="305dp" />
-
-        <EditText
-            android:id="@+id/editTextTextPersonName2"
-            android:layout_width="315dp"
-            android:layout_height="30dp"
-            android:background="#C8DBE9"
-            android:ems="10"
-            android:inputType="textPersonName"
-            tools:layout_editor_absoluteX="35dp"
-            tools:layout_editor_absoluteY="220dp" />
-
-        <EditText
-            android:id="@+id/editLastName"
-            android:layout_width="315dp"
-            android:layout_height="30dp"
-            android:background="#C8DBE9"
-            android:ems="10"
-            android:inputType="textPersonName"
-            tools:layout_editor_absoluteX="14dp"
-            tools:layout_editor_absoluteY="988dp" />
+        <ImageButton
+            android:id="@+id/selectImage"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+            app:srcCompat="@drawable/default_book"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <LinearLayout
+            android:id="@+id/linearLayout7"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="10dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/selectImage">
+
+            <EditText
+                android:id="@+id/txtBookName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Book Name"
+                android:minHeight="48dp"
+                android:textColorHint="@color/main_blue" />
+
+            <EditText
+                android:id="@+id/txtBookAuthor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Book Author"
+                android:minHeight="48dp"
+                android:textColorHint="@color/main_blue" />
+
+            <EditText
+                android:id="@+id/txtDescription"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:hint="Book Description"
+                android:minHeight="48dp"
+                android:textColorHint="@color/main_blue" />
+
+            <Spinner
+                android:id="@+id/bookCondition"
+                android:minHeight="48dp"
+                android:entries="@array/book_condition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <EditText
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="40sp"
+                    android:layout_weight="1"
+                    android:hint="Price"
+                    android:importantForAutofill="no"
+                    android:inputType="numberDecimal"
+                    android:minHeight="48dp"
+                    android:textColorHint="@color/main_blue"></EditText>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:text="Will Barter?"
+                    android:textColor="@color/main_blue"
+                    android:textSize="18sp" />
+
+                <CheckBox
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:checked="false" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/txtContactDetails"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:hint="Contact Details"
+                android:minHeight="48dp"
+                android:textColorHint="@color/main_blue" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            tools:layout_editor_absoluteY="297dp">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout7">
 
-            <EditText
-                android:id="@+id/editTextNumber"
-                android:layout_width="120dp"
-                android:layout_height="30dp"
-                android:layout_weight="2"
-                android:background="#C8DBE9"
-                android:ems="10"
-                android:inputType="number" />
-
-            <CheckBox
-                android:id="@+id/checkBox"
-                android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/btnPostAd"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_marginHorizontal="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/main_blue"
+                android:radius="15dp"
+                android:text="Post Ad"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btnCancelAD"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/main_blue"
+                android:radius="15dp"
+                android:text="Cancel"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/radioButton"
-                android:layout_width="88dp"
-                android:layout_height="57dp"
-                android:layout_weight="1"
-                android:text="Best" />
-
-            <RadioButton
-                android:id="@+id/radioButton2"
-                android:layout_width="88dp"
-                android:layout_height="60dp"
-                android:layout_weight="1"
-                android:text="Good" />
-
-            <RadioButton
-                android:id="@+id/radioButton3"
-                android:layout_width="88dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
-                android:text="Fair" />
-
-            <RadioButton
-                android:id="@+id/radioButton5"
-                android:layout_width="88dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
-                android:text="Average" />
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Post Ad"
-            tools:layout_editor_absoluteX="63dp"
-            tools:layout_editor_absoluteY="1168dp" />
-
-        <Button
-            android:id="@+id/btnCancelAddPost"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Button"
-            tools:layout_editor_absoluteX="294dp"
-            tools:layout_editor_absoluteY="1152dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </ScrollView>

@@ -8,6 +8,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.barterbooksapp.utlity.BookPostDataModel;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -39,8 +42,23 @@ public class PostAdActivity extends AppCompatActivity {
         budgetRef = FirebaseDatabase.getInstance().getReference().child("testBarterBooks");
 
 //        Set on Click listner calling select image for the image select button
+        ImageView imageView = findViewById(R.id.selectImage);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectImage();
+            }
+        });
 
 
+        Button saveButton = findViewById(R.id.btnPostAd);
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Do Save here
+
+            }
+        });
 
 //        save post
 //        db.collection("BarterBooksDB")
@@ -69,6 +87,10 @@ public class PostAdActivity extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
         startActivityForResult(intent, SELECT_PICTURE);
+    }
+
+    private void showImage(){
+
     }
 
     private void uploadImage(String toString) {
