@@ -41,16 +41,16 @@
                 android:layout_height="wrap_content"
                 android:text="Post Your Ad"
                 android:textAlignment="center"
-                android:textSize="26sp"
-                android:textColor="@color/main_blue"/>
+                android:textColor="@color/main_blue"
+                android:textSize="26sp" />
 
             <Spinner
                 android:id="@+id/bookType"
-                android:minHeight="48dp"
-                android:entries="@array/book_categories"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:contentDescription="Select Book Category"/>
+                android:contentDescription="Select Book Category"
+                android:entries="@array/book_categories"
+                android:minHeight="48dp" />
 
         </LinearLayout>
 
@@ -106,10 +106,10 @@
 
             <Spinner
                 android:id="@+id/bookCondition"
-                android:minHeight="48dp"
-                android:entries="@array/book_condition"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:entries="@array/book_condition"
+                android:minHeight="48dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -119,6 +119,7 @@
 
                 <EditText
 
+                    android:id="@+id/txtBookPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="40sp"
@@ -138,6 +139,7 @@
                     android:textSize="18sp" />
 
                 <CheckBox
+                    android:id="@+id/chkBarter"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:checked="false" />

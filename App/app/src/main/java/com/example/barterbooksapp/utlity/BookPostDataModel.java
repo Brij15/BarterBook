@@ -11,6 +11,9 @@ public class BookPostDataModel {
     private String location;
     private Double price;
     private String category;
+    private Boolean isBarter;
+    private String details;
+
     private Date timePosted;
 
 //  Use this
@@ -134,6 +137,22 @@ public class BookPostDataModel {
         this.userDetails = userDetails;
     }
 
+    public Boolean getBarter() {
+        return isBarter;
+    }
+
+    public void setBarter(Boolean barter) {
+        isBarter = barter;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
+
     @Override
     public String toString() {
         return "BookPostDataModel{" +
@@ -144,6 +163,8 @@ public class BookPostDataModel {
                 ", location='" + location + '\'' +
                 ", price=" + price +
                 ", category='" + category + '\'' +
+                ", isBarter=" + isBarter +
+                ", details='" + details + '\'' +
                 ", timePosted=" + timePosted +
                 ", userID='" + userID + '\'' +
                 ", imagesList=" + imagesList +

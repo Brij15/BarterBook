@@ -48,8 +48,11 @@
         <item>Select Item</item>
         <item>New</item>
         <item>Like New</item>
-        <item>Used</item>
-        <item>Library Used</item>
+        <item>Very Good</item>
+        <item>Good</item>
+        <item>Fair</item>
+        <item>Poor</item>
+        <item>Ex Library</item>
     </string-array>
 
     <string-array name="locations">
