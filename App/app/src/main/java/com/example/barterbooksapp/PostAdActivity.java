@@ -91,6 +91,14 @@ public class PostAdActivity extends AppCompatActivity {
             }
         });
 
+        Button cancelButton = findViewById(R.id.btnCancelAD);
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(PostAdActivity.this, MainActivity.class));
+            }
+        });
+
     }
     private void selectImage(){
         Intent intent = new Intent(Intent.ACTION_PICK ,MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -220,16 +228,6 @@ public class PostAdActivity extends AppCompatActivity {
                     });
                 }
             });
-//            imagename.putFile(photosUrls[i]).addOnSuccessListener {
-//
-//                imagename.downloadUrl.addOnSuccessListener {
-//                    val url = it.toString()
-//                    sendLink(url, toString)
-//                }
-//
-//            }.addOnFailureListener {
-//
-//            }
             i++;
         }
 
@@ -240,7 +238,7 @@ public class PostAdActivity extends AppCompatActivity {
 
         FirebaseFirestore fireStore = FirebaseFirestore.getInstance();
 
-        fireStore.collection("testBarterBooks")
+        fireStore.collection("BarterBooksDB")
                 .document(documentID)
                 .update("imagesList", imageUrlList)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
