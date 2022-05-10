@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private TextView locationText;
     private TextView categoryText;
+    private Boolean isDataLoading = true;
 
 
     @SuppressLint("NonConstantResourceId")
@@ -173,6 +174,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getAllPosts(){
+        isDataLoading = true;
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("BarterBooksDB").orderBy("timePosted", Query.Direction.DESCENDING)
                 .get()
@@ -186,6 +188,7 @@ public class MainActivity extends AppCompatActivity {
                                 bookPosts.add(post);
                                 adapter.notifyItemInserted(bookPosts.size() - 1);
                             }
+                            isDataLoading = false;
                         } else {
                             Log.i("DB", "Error getting documents: ", task.getException());
                         }
