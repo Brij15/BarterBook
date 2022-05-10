@@ -168,11 +168,10 @@ public class MainActivity extends AppCompatActivity {
         DBUtilities dbutil = new DBUtilities();
         Map<String, BookPostDataModel> dbBooks =  dbutil.getAllPosts();
         for (Map.Entry<String,BookPostDataModel> entry : dbBooks.entrySet()) {
-            System.out.println("Key = " + entry.getKey() +
-                    ", Value = " + entry.getValue());
-
             BookPostDataModel book = entry.getValue();
+            book.setImage(R.drawable.default_book);
             Log.d("DB", book.toString());
+            bookPosts.add(book);
         }
     }
 
