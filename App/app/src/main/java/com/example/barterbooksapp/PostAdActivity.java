@@ -195,11 +195,6 @@ public class PostAdActivity extends AppCompatActivity {
 
 
     private void uploadImage(String documentRefID) {
-//        PB progress Dialog
-//        pb.setMessage("Uploading photos")
-//        pb.setCancelable(false)
-//        pb.show()
-
         StorageReference storageRef = FirebaseStorage.getInstance().getReference("post_images");
 
         int i = 0;
@@ -230,7 +225,8 @@ public class PostAdActivity extends AppCompatActivity {
             });
             i++;
         }
-
+        Toast.makeText(this,"New Book Post Added", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(PostAdActivity.this, MainActivity.class));
     }
 
     private void sendLink(String url, String documentID) {
@@ -253,7 +249,6 @@ public class PostAdActivity extends AppCompatActivity {
                         Log.i("DB", "Error updating document", e);
                     }
                 });
-
     }
 
     // this function is triggered when user
@@ -276,6 +271,4 @@ public class PostAdActivity extends AppCompatActivity {
             }
         }
     }
-
-
 }

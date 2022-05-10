@@ -3,6 +3,7 @@ package com.example.barterbooksapp.recyclerViewAdapters;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,6 +47,8 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         holder.locationTextView.setText(postList.get(position).getLocation());
         holder.priceTextView.setText("$"+ postList.get(position).getPrice().toString());
         holder.barterCheckBox.setChecked(Math.random() < 0.5);
+//        Uri myUri = Uri.parse(postList.get(position).getImagesList().get(0));
+//        holder.imageView.setImageURI(myUri);
     }
 
     @Override
@@ -76,7 +79,6 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
 //            On click listener to open a Seller list view
             itemView.setOnClickListener(view -> {
-//                    Toast.makeText(view.getContext(), "Item Clicked", Toast.LENGTH_SHORT ).show();
                 Intent intent = new Intent(view.getContext(), DetailsActivity.class);
                 intent.putExtra("BookID", textView.getText());
                 view.getContext().startActivity(intent);

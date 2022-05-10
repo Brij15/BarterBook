@@ -33,8 +33,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -165,14 +169,28 @@ public class MainActivity extends AppCompatActivity {
         bookPosts.add(new BookPostDataModel("Deep Learning With Python", R.drawable.book7 ,"François Chollet", "Used", "CollingWood", 6.50, "Computers"));
         bookPosts.add(new BookPostDataModel("Wise Man's Fear", R.drawable.book8, "Patrick Rothfuss", "New", "Orilla", 14.00, "Fantasy and Science Friction"));
 
-        DBUtilities dbutil = new DBUtilities();
-        Map<String, BookPostDataModel> dbBooks =  dbutil.getAllPosts();
-        for (Map.Entry<String,BookPostDataModel> entry : dbBooks.entrySet()) {
-            BookPostDataModel book = entry.getValue();
-            book.setImage(R.drawable.default_book);
-            Log.d("DB", book.toString());
-            bookPosts.add(book);
-        }
+        getAllPosts();
+    }
+
+    public void getAllPosts(){
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("BarterBooksDB").orderBy("timePosted", Query.Direction.DESCENDING)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                BookPostDataModel post = document.toObject(BookPostDataModel.class);
+                                post.setImage(R.drawable.default_book);
+                                bookPosts.add(post);
+                                adapter.notifyItemInserted(bookPosts.size() - 1);
+                            }
+                        } else {
+                            Log.i("DB", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
     }
 
     @SuppressLint("NotifyDataSetChanged")
