@@ -14,7 +14,7 @@ public class BookPostDataModel {
     private Boolean isBarter;
     private String details;
     private Date timePosted;
-    private List<Integer> imagesList;
+    private List<String> imagesList;
 
 //  User details
     private String userID;
@@ -37,7 +37,7 @@ public class BookPostDataModel {
         this.category = category;
     }
 
-    public BookPostDataModel(String title, String author, String condition, String location, Double price, String category, Date timePosted, String userID, List<Integer> imagesList, String userDetails) {
+    public BookPostDataModel(String title, String author, String condition, String location, Double price, String category, Date timePosted, String userID, List<String> imagesList, String userDetails) {
         this.title = title;
         this.author = author;
         this.condition = condition;
@@ -122,11 +122,11 @@ public class BookPostDataModel {
         this.userID = userID;
     }
 
-    public List<Integer> getImagesList() {
+    public List<String> getImagesList() {
         return imagesList;
     }
 
-    public void setImagesList(List<Integer> imagesList) {
+    public void setImagesList(List<String> imagesList) {
         this.imagesList = imagesList;
     }
 

@@ -86,7 +86,6 @@ public class DBUtilities {
 //        Not working
         DocumentReference postRef = db.collection("BarterBooksDB").document(ID);
 
-        // Set the "isCapital" field of the city 'DC'
         postRef
                 .update("author", post.getAuthor())
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
