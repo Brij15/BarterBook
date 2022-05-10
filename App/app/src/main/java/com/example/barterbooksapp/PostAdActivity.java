@@ -22,12 +22,17 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -108,6 +113,7 @@ public class PostAdActivity extends AppCompatActivity {
         String strPrice = bookPrice.getText().toString();
         Boolean isBarter = barter.isChecked();
         String strContactDetails = contactDetails.getText().toString();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         BookPostDataModel book = new BookPostDataModel();
         book.setTitle(strBookName);
@@ -119,6 +125,16 @@ public class PostAdActivity extends AppCompatActivity {
         book.setBarter(isBarter);
         book.setDetails(strDescription);
         book.setUserDetails(strContactDetails);
+        if (user != null) {
+            // Check if user's email is verified
+//            boolean emailVerified = user.isEmailVerified();
+
+            // The user's ID, unique to the Firebase project.
+            book.setUserID(user.getUid());
+            // Name, email address, and profile photo Url
+            book.setUserEmail(user.getEmail());
+            book.setUserName(user.getDisplayName());
+        }
 
         if (validateInputs(book)){
             if (book != null){
@@ -128,7 +144,7 @@ public class PostAdActivity extends AppCompatActivity {
                             @Override
                             public void onSuccess(DocumentReference documentReference) {
                                 Log.i("DB", "DocumentSnapshot written with ID: " + documentReference.getId());
-//                                uploadImage(selectImage.getId());
+                                uploadImage(documentReference.getId());
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
@@ -170,18 +186,40 @@ public class PostAdActivity extends AppCompatActivity {
     }
 
 
-    private void uploadImage(int imageResource) {
+    private void uploadImage(String documentRefID) {
 //        PB progress Dialog
 //        pb.setMessage("Uploading photos")
 //        pb.setCancelable(false)
 //        pb.show()
 
-//        DatabaseReference storageRef = FirebaseStorage.getInstance().getReference("post_images");
+        StorageReference storageRef = FirebaseStorage.getInstance().getReference("post_images");
 
         int i = 0;
         while (i < photosUrls.size()) {
             Uri image = (Uri) photosUrls.get(i);
-//            val imageName = storageRef.child(image.lastPathSegment.toString())
+            StorageReference imageName = storageRef.child(image.getLastPathSegment().toString());
+            UploadTask uploadTask = imageName.putFile(image);
+            uploadTask.addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+
+                }
+            });
+            uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    imageName.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Uri> task) {
+                            if (task.isSuccessful()) {
+                                //downloadable uri
+                                Uri path = task.getResult();
+                                sendLink(path.toString(), documentRefID);
+                            }
+                        }
+                    });
+                }
+            });
 //            imagename.putFile(photosUrls[i]).addOnSuccessListener {
 //
 //                imagename.downloadUrl.addOnSuccessListener {
@@ -197,14 +235,14 @@ public class PostAdActivity extends AppCompatActivity {
 
     }
 
-    private void sendLink(String url, String toString) {
+    private void sendLink(String url, String documentID) {
         imageUrlList.add(url);
 
         FirebaseFirestore fireStore = FirebaseFirestore.getInstance();
 
         fireStore.collection("testBarterBooks")
-                .document(toString)
-                .update("images", imageUrlList)
+                .document(documentID)
+                .update("imagesList", imageUrlList)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {

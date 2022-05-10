@@ -25,7 +25,6 @@ public class DBUtilities {
 
     public void AddPost(BookPostDataModel bookPostDataModel){
         //Dummy Images
-        bookPostDataModel.setImagesList(Arrays.asList(R.drawable.default_book,R.drawable.default_book,R.drawable.default_book));
         if (bookPostDataModel != null){
             db.collection("BarterBooksDB")
                     .add(bookPostDataModel)

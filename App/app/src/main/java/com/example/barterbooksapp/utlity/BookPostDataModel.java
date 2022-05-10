@@ -13,12 +13,13 @@ public class BookPostDataModel {
     private String category;
     private Boolean isBarter;
     private String details;
-
     private Date timePosted;
-
-//  Use this
-    private String userID;
     private List<Integer> imagesList;
+
+//  User details
+    private String userID;
+    private String userName;
+    private String userEmail;
     private String userDetails;
 
     public BookPostDataModel() {
@@ -153,6 +154,22 @@ public class BookPostDataModel {
         this.details = details;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
     @Override
     public String toString() {
         return "BookPostDataModel{" +
@@ -166,8 +183,10 @@ public class BookPostDataModel {
                 ", isBarter=" + isBarter +
                 ", details='" + details + '\'' +
                 ", timePosted=" + timePosted +
-                ", userID='" + userID + '\'' +
                 ", imagesList=" + imagesList +
+                ", userID='" + userID + '\'' +
+                ", userName='" + userName + '\'' +
+                ", userEmail='" + userEmail + '\'' +
                 ", userDetails='" + userDetails + '\'' +
                 '}';
     }
