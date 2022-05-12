@@ -39,7 +39,7 @@
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="160dp"
-                    android:layout_height="220dp"
+                    android:layout_height="200dp"
                     android:contentDescription="Post Main Image"
                     android:padding="2dp"
                     android:src="@drawable/book1" />
@@ -48,6 +48,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtIDHidden"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        tools:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/txtImageURIHidden"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:visibility="gone" />
 
                     <TextView
                         android:id="@+id/conditionText"

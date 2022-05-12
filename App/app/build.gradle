@@ -50,4 +50,6 @@ dependencies {
     implementation 'com.github.denzcoskun:ImageSlideShow:0.1.0'
     //Facebook Login
     implementation 'com.facebook.android:facebook-android-sdk:latest.release'
+    // To load the images from URI
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }

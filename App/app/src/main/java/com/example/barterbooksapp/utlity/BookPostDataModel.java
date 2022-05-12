@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 public class BookPostDataModel {
+    private String postID;
     private String title;
     private Integer image;
     private String author;
@@ -48,6 +49,14 @@ public class BookPostDataModel {
         this.userID = userID;
         this.imagesList = imagesList;
         this.userDetails = userDetails;
+    }
+
+    public String getPostID() {
+        return postID;
+    }
+
+    public void setPostID(String postID) {
+        this.postID = postID;
     }
 
     public String getTitle() {
@@ -173,7 +182,8 @@ public class BookPostDataModel {
     @Override
     public String toString() {
         return "BookPostDataModel{" +
-                "title='" + title + '\'' +
+                "postID='" + postID + '\'' +
+                ", title='" + title + '\'' +
                 ", image=" + image +
                 ", author='" + author + '\'' +
                 ", condition='" + condition + '\'' +

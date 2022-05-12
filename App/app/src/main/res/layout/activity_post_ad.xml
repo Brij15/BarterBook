@@ -145,6 +145,13 @@
                     android:checked="false" />
             </LinearLayout>
 
+            <Spinner
+                android:id="@+id/bookLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/locations"
+                android:minHeight="48dp" />
+
             <EditText
                 android:id="@+id/txtContactDetails"
                 android:layout_width="match_parent"

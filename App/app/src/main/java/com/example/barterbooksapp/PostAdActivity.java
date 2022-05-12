@@ -55,6 +55,7 @@ public class PostAdActivity extends AppCompatActivity {
     CheckBox barter;
     EditText contactDetails;
     ImageButton selectImage;
+    Spinner bookLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,10 +72,10 @@ public class PostAdActivity extends AppCompatActivity {
         barter = findViewById(R.id.chkBarter);
         contactDetails = findViewById(R.id.txtContactDetails);
         selectImage = findViewById(R.id.selectImage);
+        bookLocation = findViewById(R.id.bookLocation);
 
-//        Set on Click listner calling select image for the image select button
-        ImageView imageView = findViewById(R.id.selectImage);
-        imageView.setOnClickListener(new View.OnClickListener() {
+//        Set on Click listener calling select image for the image select button
+        selectImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 selectImage();
@@ -121,6 +122,7 @@ public class PostAdActivity extends AppCompatActivity {
         String strPrice = bookPrice.getText().toString();
         Boolean isBarter = barter.isChecked();
         String strContactDetails = contactDetails.getText().toString();
+        String strBookLocation = bookLocation.getSelectedItem().toString();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         BookPostDataModel book = new BookPostDataModel();
@@ -132,6 +134,7 @@ public class PostAdActivity extends AppCompatActivity {
         book.setTimePosted(new Date());
         book.setBarter(isBarter);
         book.setDetails(strDescription);
+        book.setLocation(strBookLocation);
         book.setUserDetails(strContactDetails);
         if (user != null) {
             // Check if user's email is verified
@@ -173,8 +176,12 @@ public class PostAdActivity extends AppCompatActivity {
             Toast.makeText(this,"Select a Category", Toast.LENGTH_SHORT).show();
             return false;
         }
-        if (book.getCondition().equals("Select Item")){
+        if (book.getCondition().equals("Select Your Books Condition")){
             Toast.makeText(this,"Select a Condition", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (book.getLocation().equals("Select Your Location")){
+            Toast.makeText(this,"Select a Location", Toast.LENGTH_SHORT).show();
             return false;
         }
         if(book.getTitle().isEmpty()){

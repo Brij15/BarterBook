@@ -45,7 +45,7 @@
     </string-array>
 
     <string-array name="book_condition">
-        <item>Select Item</item>
+        <item>Select Your Books Condition</item>
         <item>New</item>
         <item>Like New</item>
         <item>Very Good</item>
