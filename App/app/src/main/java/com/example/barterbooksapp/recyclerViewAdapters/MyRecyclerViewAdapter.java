@@ -56,7 +56,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         }
         else {
             Uri myUri = Uri.parse(postList.get(position).getImagesList().get(0));
-            Log.d("PIC", postList.get(position).getImagesList().get(0));
+//            Log.d("PIC", postList.get(position).getImagesList().get(0));
             holder.barterCheckBox.setChecked(postList.get(position).getBarter());
             Picasso.get().load(myUri).into(holder.imageView);
         }

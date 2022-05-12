@@ -26,14 +26,14 @@ public class FilterUtilities {
     public static List<BookPostDataModel> filterBy(String filterValue, MainActivity.FilterType type, List<BookPostDataModel> mainList ){
         List<BookPostDataModel> filteredList = new ArrayList<>();
         //currently filter by category or Location not both
-        if (type.equals(MainActivity.FilterType.CATEGORY)){
+        if (type.equals(MainActivity.FilterType.category)){
             for(BookPostDataModel item : mainList) {
                 if (item.getCategory().equals(filterValue)){
                     filteredList.add(item);
                 }
             }
         }
-        else if(type.equals(MainActivity.FilterType.LOCATION)){
+        else if(type.equals(MainActivity.FilterType.location)){
             for(BookPostDataModel item : mainList) {
                 if (item.getLocation().equals(filterValue)){
                     filteredList.add(item);

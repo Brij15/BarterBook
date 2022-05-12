@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
             return false;
         });
         bookPosts = new ArrayList<>();
-        initializeTestData();
+//        initializeTestData();
 
         locationText = findViewById(R.id.textViewLocationSelect);
         categoryText = findViewById(R.id.textViewCategorySelect);
@@ -114,20 +114,24 @@ public class MainActivity extends AppCompatActivity {
             if (!thisIntent.getStringExtra("FilterID").isEmpty()){
                 String filterValue = thisIntent.getStringExtra("FilterID");
                 String filterID = thisIntent.getStringExtra("PageID");
-                if (filterValue.equals("All Locations") || filterValue.equals("All Categories") ){
+                if (filterValue.equals("Select Your Location") || filterValue.equals("Select Book Category") ){
 //                    Do nothing here
+                    getAllPosts();
                 }
                 else {
                     if (filterID.equals("LOCATION")){
-                        bookPosts = filterBy(filterValue, FilterType.LOCATION);
+                        filterBy(filterValue, FilterType.location);
                         locationText.setText(filterValue);
                     }
                     else if((filterID.equals("CATEGORY"))){
-                        bookPosts = filterBy(filterValue, FilterType.CATEGORY);
+                        filterBy(filterValue, FilterType.category);
                         categoryText.setText(filterValue);
                     }
                 }
             }
+        }
+        else {
+            getAllPosts();
         }
 
         recyclerView = findViewById(R.id.recyclerView);
@@ -155,8 +159,33 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private List<BookPostDataModel> filterBy(String filterValue, FilterType type){
-        return FilterUtilities.filterBy(filterValue, type, bookPosts);
+    private void filterBy(String filterValue, FilterType type){
+        bookPosts.clear();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        Log.d("PIC", filterValue);
+        Log.d("PIC", type.toString());
+        db.collection("BarterBooksDB")
+                .whereEqualTo(String.valueOf(type), filterValue)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            Log.d("PIC", String.valueOf(bookPosts.size()));
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                String postID =  document.getId();
+                                BookPostDataModel post = document.toObject(BookPostDataModel.class);
+                                post.setImage(R.drawable.default_book);
+                                post.setPostID(postID);
+                                bookPosts.add(post);
+                                adapter.notifyItemInserted(bookPosts.size() - 1);
+                            }
+                            isDataLoading = false;
+                        } else {
+                            Log.i("DB", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
     }
 
     private void initializeTestData(){
@@ -175,6 +204,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void getAllPosts(){
         isDataLoading = true;
+        Log.d("PIC", "I was Called");
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("BarterBooksDB").orderBy("timePosted", Query.Direction.DESCENDING)
                 .get()
@@ -234,7 +264,7 @@ public class MainActivity extends AppCompatActivity {
         cancel.setOnClickListener(view -> {
             dialog.dismiss();
             bookPosts.clear();
-            initializeTestData();
+//            initializeTestData();
             bottomNavigationView.setSelectedItemId(R.id.go_home);
         });
         dialog.show();
@@ -242,7 +272,7 @@ public class MainActivity extends AppCompatActivity {
 
     private List<BookPostDataModel> getSearchData(String searchText) {
         bookPosts.clear();
-        initializeTestData();
+//        initializeTestData();
         List<BookPostDataModel> filteredList = new ArrayList<>();
         if (!searchText.isEmpty()){
             filteredList = FilterUtilities.getSearchData(searchText, bookPosts);
@@ -254,8 +284,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public enum FilterType{
-        CATEGORY,
-        LOCATION,
+        category,
+        location,
     }
 
 }
