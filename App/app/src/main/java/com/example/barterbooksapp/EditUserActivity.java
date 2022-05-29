@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class EditUserActivity extends AppCompatActivity {
 
@@ -33,5 +34,13 @@ public class EditUserActivity extends AppCompatActivity {
             Intent intent = new Intent(EditUserActivity.this, MainActivity.class);
             startActivity(intent);
         });
+
+        //
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        //Use ID as the indicator this to create a new entry
+        String userID = user.getUid();
+        // Name, email address, and profile photo Url
+        String userEmail =  user.getEmail();
+        String userDisplayName =  user.getDisplayName();
     }
 }

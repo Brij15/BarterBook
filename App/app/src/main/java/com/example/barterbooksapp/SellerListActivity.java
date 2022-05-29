@@ -2,6 +2,7 @@ package com.example.barterbooksapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
@@ -9,9 +10,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.barterbooksapp.utlity.BookPostDataModel;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +34,7 @@ public class SellerListActivity extends AppCompatActivity {
 
     private SellerRecycleViewAdapter adapter;
     private FirebaseAuth mAuth;
+    String userID;
 
 
     @Override
@@ -34,6 +43,7 @@ public class SellerListActivity extends AppCompatActivity {
         setContentView(R.layout.seller_list_main);
 
         mAuth = FirebaseAuth.getInstance();
+        userID = mAuth.getUid();
 
         //Remove action bar
         if(getSupportActionBar() != null){
@@ -127,5 +137,29 @@ public class SellerListActivity extends AppCompatActivity {
         authorList.add("Patrick Rothfuss");
 
         return authorList;
+    }
+
+    public void getAllPostsForUser(){
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("BarterBooksDB")
+                .whereEqualTo("userID", userID)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                String postID =  document.getId();
+                                BookPostDataModel post = document.toObject(BookPostDataModel.class);
+                                post.setImage(R.drawable.default_book);
+                                post.setPostID(postID);
+//                                bookPosts.add(post);
+//                                adapter.notifyItemInserted(bookPosts.size() - 1);
+                            }
+                        } else {
+                            Log.i("DB", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
     }
 }
