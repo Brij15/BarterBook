@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailsActivity"
-    android:background="#E9F9F9">
+    android:background="#E9F9F9"
+    tools:context=".DetailsActivity">
 
     <ImageView
         android:id="@+id/headerTextView"
@@ -37,50 +37,124 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headerTextView" />
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/detailsBottomNavigationBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/slider">
 
-        <TextView
-            android:id="@+id/bookdetailTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Gardens of the Moon"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/authorDetailText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Steven Erikson"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/postDetailText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Posted On 4 March 2022, Barrie " />
-
-        <TextView
-            android:id="@+id/priceDetailText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="$4.45"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/postDescription"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/details_temp" />
-    </LinearLayout>
+            android:orientation="vertical"
+            android:padding="10sp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/bookdetailTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gardens of the Moon"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/emailUser"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_weight="0.5"
+                android:text="Email User" />
+        </LinearLayout>
+
+
+
+            <TextView
+                android:id="@+id/authorDetailText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Steven Erikson"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/postCondition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="NEW " />
+
+                <TextView
+                    android:id="@+id/postDetailText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Posted On 4 March 2022, Barrie "
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/postCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fantasy" />
+
+                <TextView
+                    android:id="@+id/postBarter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Is For Barter Yes"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/priceDetailText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$4.45"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/postLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="NewMarket"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/postDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/details_temp" />
+        </LinearLayout>
+
+    </ScrollView>
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

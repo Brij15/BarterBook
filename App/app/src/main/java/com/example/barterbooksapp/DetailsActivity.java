@@ -2,15 +2,26 @@ package com.example.barterbooksapp;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Button;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.denzcoskun.imageslider.ImageSlider;
+import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.barterbooksapp.utlity.BookPostDataModel;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.denzcoskun.imageslider.constants.ScaleTypes;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +30,15 @@ public class DetailsActivity extends AppCompatActivity {
     TextView authorText;
     TextView priceText;
     TextView titleText;
-    private List<BookPostDataModel> bookPosts ;
+    TextView postDetailText;
+    TextView postDescription;
+    TextView postCondition;
+    TextView postCategory;
+    TextView postBarter;
+    TextView postLocation;
+    ImageSlider imageSlider;
+    String userEmail;
+
     private BottomNavigationView bottomNavigationView;
 
 
@@ -28,27 +47,60 @@ public class DetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         titleText = findViewById(R.id.bookdetailTitle);
         authorText = findViewById(R.id.authorDetailText);
         priceText = findViewById(R.id.priceDetailText);
-        bookPosts = new ArrayList<>();
-        initializeTestData();
+        imageSlider = findViewById(R.id.slider);
+        postDetailText = findViewById(R.id.postDetailText);
+        postDescription = findViewById(R.id.postDescription);
+        postCondition = findViewById(R.id.postCondition);
+        postCategory = findViewById(R.id.postCategory);
+        postBarter = findViewById(R.id.postBarter);
+        postLocation = findViewById(R.id.postLocation);
 
-        //Display slider/carousel images into slider.
-        getSliderImageList();
 
         Intent thisIntent = getIntent();
-        if (thisIntent.hasExtra("BookID")){
-            if (!thisIntent.getStringExtra("BookID").isEmpty()){
-                String filterValue = thisIntent.getStringExtra("BookID");
-                    BookPostDataModel book = getBookByID(filterValue);
-                if (!book.getTitle().isEmpty()){
-                    titleText.setText(book.getTitle());
-                    authorText.setText(book.getAuthor());
-                    priceText.setText("$ " + book.getPrice().toString());
-                    //bookImage.setImageResource(book.getImage());
-                }
+
+
+        if (thisIntent.hasExtra("postID")){
+            if (!thisIntent.getStringExtra("postID").isEmpty()){
+                String filterValue = thisIntent.getStringExtra("postID");
+                DocumentReference docRef = db.collection("BarterBooksDB").document(filterValue);
+                docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        BookPostDataModel book = documentSnapshot.toObject(BookPostDataModel.class);
+                        titleText.setText(book.getTitle());
+                        authorText.setText(book.getAuthor());
+                        priceText.setText(book.getPrice().toString());
+
+                        String pattern = "MM/dd/yyyy HH:mm:ss";
+                        DateFormat df = new SimpleDateFormat(pattern);
+
+                        String dateAsString = df.format(book.getTimePosted());
+                        postDetailText.setText(dateAsString);
+                        postDescription.setText(book.getDetails());
+
+                        postCondition.setText(book.getCondition());
+                        postCategory.setText(book.getCategory());
+                        postBarter.setText("");
+                        postLocation.setText(book.getLocation());
+                        userEmail = book.getUserEmail();
+                        List<SlideModel> slideModels = new ArrayList<>();
+                        if (book.getImagesList() == null){
+                            //            Do default image Here
+                            slideModels.add(new SlideModel(R.drawable.default_book, ScaleTypes.CENTER_INSIDE));
+                        }
+                        else {
+                            for(String image : book.getImagesList()) {
+                                slideModels.add(new SlideModel(image, ScaleTypes.CENTER_INSIDE));
+                            }
+                        }
+                        imageSlider.setImageList(slideModels);
+                    }
+                });
             }
         }
         //Navigation Bar Code
@@ -80,51 +132,21 @@ public class DetailsActivity extends AppCompatActivity {
             }
             return false;
         });
+
+        Button emailBtn = findViewById(R.id.emailUser);
+        emailBtn.setOnClickListener(v -> {
+
+            Uri uri = Uri.parse("mailto:" + userEmail)
+                    .buildUpon()
+                    .appendQueryParameter("subject", titleText.getText() + "Book Ad on Barter Books")
+                    .build();
+
+            Intent emailIntent = new Intent(Intent.ACTION_SENDTO, uri);
+            startActivity(Intent.createChooser(emailIntent, "Select your Email app"));
+        });
     }
 
-    private BookPostDataModel getBookByID(String filterValue){
-        BookPostDataModel book = new BookPostDataModel();
-        //currently filter by category or Location not both
-        for(BookPostDataModel item : bookPosts) {
-            if (item.getTitle().equals(filterValue)){
-                book = item;
-            }
-        }
-        return book;
-    }
 
-    //set images into slider/carousel
-    private void getSliderImageList(){
-        ImageSlider imageSlider = findViewById(R.id.slider);
-        List<SlideModel> slideModels = new ArrayList<>();
 
-        for(Integer image : initImageList()) {
-            slideModels.add(new SlideModel(image, ScaleTypes.CENTER_INSIDE));
-        }
-        imageSlider.setImageList(slideModels);
-    }
 
-    private void initializeTestData(){
-        //initialize images TEST only
-        bookPosts.add(new BookPostDataModel("Gardens Of The moon",R.drawable.book1,"Steven Erikson", "Used Like New", "Aurora", 8.99, "Fantasy and Science Friction" ));
-        bookPosts.add(new BookPostDataModel("Algebra and Geometry", R.drawable.book2,"Mark V. Lawson", "Library", "Crimson Ridge", 8.99, "Text Books"));
-        bookPosts.add(new BookPostDataModel("Mathematics and The Real World",R.drawable.book3 ,"Zvi Artstein", "Used", "Stanely", 4.99, "Text Books"));
-        bookPosts.add(new BookPostDataModel("Fifth Season",R.drawable.book4,"N. K Jemsin", "Used","Crimson Ridge", 6.00 , "Fantasy and Science Friction"));
-        bookPosts.add(new BookPostDataModel("Name of the Wind", R.drawable.book5,"Patrick Rothfuss", "Used Like New", "Orilla", 12.99, "Fantasy and Science Friction"));
-        bookPosts.add(new BookPostDataModel("What IF", R.drawable.book6,"Randall Munroe", "Used Like New", "CollingWood", 10.00, "Science"));
-        bookPosts.add(new BookPostDataModel("Deep Learning With Python", R.drawable.book7 ,"François Chollet", "Used", "CollingWood", 6.50, "Computers"));
-        bookPosts.add(new BookPostDataModel("Wise Man's Fear", R.drawable.book8, "Patrick Rothfuss", "New", "Orilla", 14.00, "Fantasy and Science Friction"));
-    }
-
-    //Init image list for slider
-    private List<Integer> initImageList(){
-        List<Integer> imageList = new ArrayList<>();
-        imageList.add(R.drawable.book1);
-        imageList.add(R.drawable.book2);
-        imageList.add(R.drawable.book3);
-        imageList.add(R.drawable.book4);
-        imageList.add(R.drawable.book4);
-
-        return imageList;
-    }
 }

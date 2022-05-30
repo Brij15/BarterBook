@@ -93,12 +93,12 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             postID = itemView.findViewById(R.id.txtIDHidden);
 
 //            On click listener to open a Seller list view
-//            itemView.setOnClickListener(view -> {
-//                Intent intent = new Intent(view.getContext(), DetailsActivity.class);
-//                intent.putExtra("postID", postID.getText());
+            itemView.setOnClickListener(view -> {
+                Intent intent = new Intent(view.getContext(), DetailsActivity.class);
+                intent.putExtra("postID", postID.getText());
 //                intent.putExtra("BookID", textView.getText());
-//                view.getContext().startActivity(intent);
-//            });
+                view.getContext().startActivity(intent);
+            });
         }
     }
 

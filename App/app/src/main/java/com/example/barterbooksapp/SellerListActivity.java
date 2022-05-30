@@ -153,6 +153,7 @@ public class SellerListActivity extends AppCompatActivity {
                                 BookPostDataModel post = document.toObject(BookPostDataModel.class);
                                 post.setImage(R.drawable.default_book);
                                 post.setPostID(postID);
+
 //                                bookPosts.add(post);
 //                                adapter.notifyItemInserted(bookPosts.size() - 1);
                             }
