@@ -2,6 +2,7 @@ package com.example.barterbooksapp;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -55,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView locationText;
     private TextView categoryText;
     private Boolean isDataLoading = true;
+    private Integer pageNo = 0;
 
 
     @SuppressLint("NonConstantResourceId")
@@ -103,14 +106,12 @@ public class MainActivity extends AppCompatActivity {
             return false;
         });
         bookPosts = new ArrayList<>();
-//        initializeTestData();
 
         locationText = findViewById(R.id.textViewLocationSelect);
         categoryText = findViewById(R.id.textViewCategorySelect);
         //Do filter
         Intent thisIntent = getIntent();
         if (thisIntent.hasExtra("FilterID")){
-//            Log.i("FilterID", thisIntent.getStringExtra("FilterID"));
             if (!thisIntent.getStringExtra("FilterID").isEmpty()){
                 String filterValue = thisIntent.getStringExtra("FilterID");
                 String filterID = thisIntent.getStringExtra("PageID");
@@ -157,73 +158,93 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        //Page nav
+        ImageButton prevButton = findViewById(R.id.btnPrevPage);
+        ImageButton nextButton = findViewById(R.id.btnNextPage);
+        if (pageNo == 0){
+            prevButton.setEnabled(false);
+        }
+        prevButton.setOnClickListener(v -> {
+            pageNo++;
+        });
+
+        nextButton.setOnClickListener(v -> {
+            if (pageNo > 0) {
+                pageNo--;
+            }
+
+        });
+
+
     }
 
     private void filterBy(String filterValue, FilterType type){
         bookPosts.clear();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        Log.d("PIC", filterValue);
-        Log.d("PIC", type.toString());
         db.collection("BarterBooksDB")
                 .whereEqualTo(String.valueOf(type), filterValue)
                 .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            Log.d("PIC", String.valueOf(bookPosts.size()));
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                String postID =  document.getId();
-                                BookPostDataModel post = document.toObject(BookPostDataModel.class);
-                                post.setImage(R.drawable.default_book);
-                                post.setPostID(postID);
-                                bookPosts.add(post);
-                                adapter.notifyItemInserted(bookPosts.size() - 1);
-                            }
-                            isDataLoading = false;
-                        } else {
-                            Log.i("DB", "Error getting documents: ", task.getException());
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Log.d("PIC", String.valueOf(bookPosts.size()));
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            String postID =  document.getId();
+                            BookPostDataModel post = document.toObject(BookPostDataModel.class);
+                            post.setImage(R.drawable.default_book);
+                            post.setPostID(postID);
+                            bookPosts.add(post);
+                            adapter.notifyItemInserted(bookPosts.size() - 1);
                         }
+                        isDataLoading = false;
+                    } else {
+                        Log.i("DB", "Error getting documents: ", task.getException());
                     }
                 });
     }
 
-    private void initializeTestData(){
-        //initialize images TEST only
-//        bookPosts.add(new BookPostDataModel("Gardens Of The moon",R.drawable.book1,"Steven Erikson", "Used Like New", "Aurora", 8.99, "Fantasy and Science Friction" ));
-//        bookPosts.add(new BookPostDataModel("Algebra and Geometry", R.drawable.book2,"Mark V. Lawson", "Library", "Crimson Ridge", 8.99, "Text Books"));
-//        bookPosts.add(new BookPostDataModel("Mathematics and The Real World",R.drawable.book3 ,"Zvi Artstein", "Used", "Stanely", 4.99, "Text Books"));
-//        bookPosts.add(new BookPostDataModel("Fifth Season",R.drawable.book4,"N. K Jemsin", "Used","Crimson Ridge", 6.00 , "Fantasy and Science Friction"));
-//        bookPosts.add(new BookPostDataModel("Name of the Wind", R.drawable.book5,"Patrick Rothfuss", "Used Like New", "Orilla", 12.99, "Fantasy and Science Friction"));
-//        bookPosts.add(new BookPostDataModel("What IF", R.drawable.book6,"Randall Munroe", "Used Like New", "CollingWood", 10.00, "Science"));
-//        bookPosts.add(new BookPostDataModel("Deep Learning With Python", R.drawable.book7 ,"François Chollet", "Used", "CollingWood", 6.50, "Computers"));
-//        bookPosts.add(new BookPostDataModel("Wise Man's Fear", R.drawable.book8, "Patrick Rothfuss", "New", "Orilla", 14.00, "Fantasy and Science Friction"));
-
-        getAllPosts();
-    }
+//    public void getAllPostsWithLimit(Integer page){
+//        isDataLoading = true;
+//        Integer limit = 10;
+//        Integer skip = page * 10;
+//        FirebaseFirestore db = FirebaseFirestore.getInstance();
+//        db.collection("BarterBooksDB").orderBy("timePosted", Query.Direction.DESCENDING)
+//                .limit(10)
+//                .get()
+//                .addOnCompleteListener(task -> {
+//                    if (task.isSuccessful()) {
+//                        for (QueryDocumentSnapshot document : task.getResult()) {
+//                            String postID =  document.getId();
+//                            BookPostDataModel post = document.toObject(BookPostDataModel.class);
+//                            post.setImage(R.drawable.default_book);
+//                            post.setPostID(postID);
+//                            bookPosts.add(post);
+//                            adapter.notifyItemInserted(bookPosts.size() - 1);
+//                        }
+//                        isDataLoading = false;
+//                    } else {
+//                        Log.i("DB", "Error getting documents: ", task.getException());
+//                    }
+//                });
+//    }
 
     public void getAllPosts(){
         isDataLoading = true;
-        Log.d("PIC", "I was Called");
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("BarterBooksDB").orderBy("timePosted", Query.Direction.DESCENDING)
                 .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                String postID =  document.getId();
-                                BookPostDataModel post = document.toObject(BookPostDataModel.class);
-                                post.setImage(R.drawable.default_book);
-                                post.setPostID(postID);
-                                bookPosts.add(post);
-                                adapter.notifyItemInserted(bookPosts.size() - 1);
-                            }
-                            isDataLoading = false;
-                        } else {
-                            Log.i("DB", "Error getting documents: ", task.getException());
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            String postID =  document.getId();
+                            BookPostDataModel post = document.toObject(BookPostDataModel.class);
+                            post.setImage(R.drawable.default_book);
+                            post.setPostID(postID);
+                            bookPosts.add(post);
+                            adapter.notifyItemInserted(bookPosts.size() - 1);
                         }
+                        isDataLoading = false;
+                    } else {
+                        Log.i("DB", "Error getting documents: ", task.getException());
                     }
                 });
     }
@@ -264,7 +285,7 @@ public class MainActivity extends AppCompatActivity {
         cancel.setOnClickListener(view -> {
             dialog.dismiss();
             bookPosts.clear();
-//            initializeTestData();
+            getAllPosts();
             bottomNavigationView.setSelectedItemId(R.id.go_home);
         });
         dialog.show();
@@ -272,7 +293,7 @@ public class MainActivity extends AppCompatActivity {
 
     private List<BookPostDataModel> getSearchData(String searchText) {
         bookPosts.clear();
-//        initializeTestData();
+        getAllPosts();
         List<BookPostDataModel> filteredList = new ArrayList<>();
         if (!searchText.isEmpty()){
             filteredList = FilterUtilities.getSearchData(searchText, bookPosts);

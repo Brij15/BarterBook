@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,7 +42,6 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.textView.setText(postList.get(position).getTitle());
-//        holder.imageView.setImageResource(postList.get(position).getImage());
         holder.authorTextView.setText(postList.get(position).getAuthor());
         holder.conditionTextView.setText(postList.get(position).getCondition());
         holder.locationTextView.setText(postList.get(position).getLocation());
@@ -96,7 +94,6 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             itemView.setOnClickListener(view -> {
                 Intent intent = new Intent(view.getContext(), DetailsActivity.class);
                 intent.putExtra("postID", postID.getText());
-//                intent.putExtra("BookID", textView.getText());
                 view.getContext().startActivity(intent);
             });
         }
