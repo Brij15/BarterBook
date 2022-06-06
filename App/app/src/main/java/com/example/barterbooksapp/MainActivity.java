@@ -275,7 +275,28 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
             else{
-                adapter.setItems(getSearchData(searchText));
+                bookPosts.clear();
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                db.collection("BarterBooksDB")
+                        .whereEqualTo("title", searchText)
+                        .get()
+                        .addOnCompleteListener(task -> {
+                            if (task.isSuccessful()) {
+                                Log.d("PIC", String.valueOf(bookPosts.size()));
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    String postID =  document.getId();
+                                    BookPostDataModel post = document.toObject(BookPostDataModel.class);
+                                    post.setImage(R.drawable.default_book);
+                                    post.setPostID(postID);
+                                    bookPosts.add(post);
+                                    adapter.notifyItemInserted(bookPosts.size() - 1);
+                                }
+                                isDataLoading = false;
+                            } else {
+                                Log.i("DB", "Error getting documents: ", task.getException());
+                            }
+                        });
+//                adapter.setItems(getSearchData(searchText));
                 adapter.notifyDataSetChanged();
             }
             dialog.dismiss();
