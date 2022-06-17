@@ -62,7 +62,12 @@
             android:exported="false"
             android:label="SellerList"
             android:screenOrientation="portrait" />
-
+        <service
+            android:name=".FirebasenotificationsService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
