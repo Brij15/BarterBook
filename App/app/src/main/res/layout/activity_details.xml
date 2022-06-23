@@ -91,6 +91,30 @@
                     android:text="Email User"
                     tools:ignore="TouchTargetSizeCheck" />
 
+                <ImageButton
+                    android:id="@+id/editAd"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="0.5"
+                    android:background="#00FFFFFF"
+                    android:src="@drawable/edit_ad"
+                    android:text="Email User"
+                    android:visibility="gone"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <ImageButton
+                    android:id="@+id/deleteAd"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="0.5"
+                    android:background="#00FFFFFF"
+                    android:src="@drawable/delete_ad"
+                    android:text="Email User"
+                    android:visibility="gone"
+                    tools:ignore="TouchTargetSizeCheck" />
+
             </LinearLayout>
 
 
