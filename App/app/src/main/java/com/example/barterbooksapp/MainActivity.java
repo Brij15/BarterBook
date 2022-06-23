@@ -250,10 +250,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         cancel.setOnClickListener(view -> {
-            dialog.dismiss();
-            bookPosts.clear();
-            getAllPosts();
-            bottomNavigationView.setSelectedItemId(R.id.go_home);
+            Intent i = new Intent(MainActivity.this, MainActivity.class);
+            finish();
+            overridePendingTransition(0, 0);
+            startActivity(i);
+            overridePendingTransition(0, 0);
         });
         dialog.show();
     }
