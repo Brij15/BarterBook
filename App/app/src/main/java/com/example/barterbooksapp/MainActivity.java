@@ -174,31 +174,6 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-//    public void getAllPostsWithLimit(Integer page){
-//        isDataLoading = true;
-//        Integer limit = 10;
-//        Integer skip = page * 10;
-//        FirebaseFirestore db = FirebaseFirestore.getInstance();
-//        db.collection("BarterBooksDB").orderBy("timePosted", Query.Direction.DESCENDING)
-//                .limit(10)
-//                .get()
-//                .addOnCompleteListener(task -> {
-//                    if (task.isSuccessful()) {
-//                        for (QueryDocumentSnapshot document : task.getResult()) {
-//                            String postID =  document.getId();
-//                            BookPostDataModel post = document.toObject(BookPostDataModel.class);
-//                            post.setImage(R.drawable.default_book);
-//                            post.setPostID(postID);
-//                            bookPosts.add(post);
-//                            adapter.notifyItemInserted(bookPosts.size() - 1);
-//                        }
-//                        isDataLoading = false;
-//                    } else {
-//                        Log.i("DB", "Error getting documents: ", task.getException());
-//                    }
-//                });
-//    }
-
     public void getAllPosts(){
         isDataLoading = true;
         FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -268,7 +243,6 @@ public class MainActivity extends AppCompatActivity {
                                 Log.i("DB", "Error getting documents: ", task.getException());
                             }
                         });
-//                adapter.setItems(getSearchData(searchText));
                 adapter.notifyDataSetChanged();
             }
             dialog.dismiss();
