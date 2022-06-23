@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView locationText;
     private TextView categoryText;
     private Boolean isDataLoading = true;
-    private Integer pageNo = 0;
 
 
     @SuppressLint("NonConstantResourceId")
@@ -146,23 +145,6 @@ public class MainActivity extends AppCompatActivity {
         locationSelect.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, LocationActivity.class);
             startActivity(intent);
-        });
-
-        //Page nav
-        ImageButton prevButton = findViewById(R.id.btnPrevPage);
-        ImageButton nextButton = findViewById(R.id.btnNextPage);
-        if (pageNo == 0){
-            prevButton.setEnabled(false);
-        }
-        prevButton.setOnClickListener(v -> {
-            pageNo++;
-        });
-
-        nextButton.setOnClickListener(v -> {
-            if (pageNo > 0) {
-                pageNo--;
-            }
-
         });
 
 
