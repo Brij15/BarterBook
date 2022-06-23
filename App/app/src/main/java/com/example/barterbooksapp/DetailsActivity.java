@@ -5,12 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,7 +26,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -64,6 +58,7 @@ public class DetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
         db = FirebaseFirestore.getInstance();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         titleText = findViewById(R.id.bookdetailTitle);
         authorText = findViewById(R.id.authorDetailText);
@@ -75,6 +70,12 @@ public class DetailsActivity extends AppCompatActivity {
         postCategory = findViewById(R.id.postCategory);
         postBarter = findViewById(R.id.postBarter);
         postLocation = findViewById(R.id.postLocation);
+
+        ImageButton emailBtn = findViewById(R.id.emailUser);
+        ImageButton notifyBtn = findViewById(R.id.notifyUser);
+
+        ImageButton editBtn = findViewById(R.id.editAd);
+        ImageButton deleteBtn = findViewById(R.id.deleteAd);
 
 
         Intent thisIntent = getIntent();
@@ -114,6 +115,15 @@ public class DetailsActivity extends AppCompatActivity {
                                 slideModels.add(new SlideModel(image, ScaleTypes.CENTER_INSIDE));
                             }
                         }
+
+                        if (user.getUid() == book.getUserID()){
+                            emailBtn.setVisibility(View.GONE);
+                            notifyBtn.setVisibility(View.GONE);
+                            editBtn.setVisibility(View.VISIBLE);
+                            deleteBtn.setVisibility(View.VISIBLE);
+                        }
+
+
                         imageSlider.setImageList(slideModels);
                     }
                 });
@@ -148,22 +158,6 @@ public class DetailsActivity extends AppCompatActivity {
             }
             return false;
         });
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-
-
-        ImageButton emailBtn = findViewById(R.id.emailUser);
-        ImageButton notifyBtn = findViewById(R.id.notifyUser);
-
-        ImageButton editBtn = findViewById(R.id.editAd);
-        ImageButton deleteBtn = findViewById(R.id.deleteAd);
-
-        if (user.getUid() == book.getUserID()){
-            emailBtn.setVisibility(View.GONE);
-            notifyBtn.setVisibility(View.GONE);
-            editBtn.setVisibility(View.VISIBLE);
-            deleteBtn.setVisibility(View.VISIBLE);
-        }
 
         emailBtn.setOnClickListener(v -> {
             Uri uri = Uri.parse("mailto:" + userEmail)
