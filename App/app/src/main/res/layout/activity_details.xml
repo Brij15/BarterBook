@@ -64,14 +64,37 @@
                 android:text="Gardens of the Moon"
                 android:textSize="20sp"
                 android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="40dp">
 
-            <Button
-                android:id="@+id/emailUser"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_weight="0.5"
-                android:text="Email User" />
+                <ImageButton
+                    android:id="@+id/emailUser"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="0.5"
+                    android:background="#00FFFFFF"
+                    android:src="@drawable/email_icon"
+                    android:text="Email User"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <ImageButton
+                    android:id="@+id/notifyUser"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="0.5"
+                    android:background="#00FFFFFF"
+                    android:src="@drawable/notify_user"
+                    android:text="Email User"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+            </LinearLayout>
+
+
+
         </LinearLayout>
 
 

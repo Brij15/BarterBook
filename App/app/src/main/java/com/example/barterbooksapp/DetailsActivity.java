@@ -6,7 +6,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +18,8 @@ import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.barterbooksapp.utlity.BookPostDataModel;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -38,6 +42,7 @@ public class DetailsActivity extends AppCompatActivity {
     TextView postLocation;
     ImageSlider imageSlider;
     String userEmail;
+    BookPostDataModel book;
 
     private BottomNavigationView bottomNavigationView;
 
@@ -71,7 +76,7 @@ public class DetailsActivity extends AppCompatActivity {
                 docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        BookPostDataModel book = documentSnapshot.toObject(BookPostDataModel.class);
+                        book = documentSnapshot.toObject(BookPostDataModel.class);
                         titleText.setText(book.getTitle());
                         authorText.setText(book.getAuthor());
                         priceText.setText(book.getPrice().toString());
@@ -133,9 +138,9 @@ public class DetailsActivity extends AppCompatActivity {
             return false;
         });
 
-        Button emailBtn = findViewById(R.id.emailUser);
+        ImageButton emailBtn = findViewById(R.id.emailUser);
+        ImageButton notifyBtn = findViewById(R.id.notifyUser);
         emailBtn.setOnClickListener(v -> {
-
             Uri uri = Uri.parse("mailto:" + userEmail)
                     .buildUpon()
                     .appendQueryParameter("subject", titleText.getText() + "Book Ad on Barter Books")
@@ -143,6 +148,37 @@ public class DetailsActivity extends AppCompatActivity {
 
             Intent emailIntent = new Intent(Intent.ACTION_SENDTO, uri);
             startActivity(Intent.createChooser(emailIntent, "Select your Email app"));
+        });
+
+        notifyBtn.setOnClickListener(v -> {
+            // The topic name can be optionally prefixed with "/topics/".
+            String topic = book.getUserID();
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            if (user != null) {
+                // Check if user's email is verified
+//            boolean emailVerified = user.isEmailVerified();
+
+                // The user's ID, unique to the Firebase project.
+                book.setUserID(user.getUid());
+                // Name, email address, and profile photo Url
+                book.setUserEmail(user.getEmail());
+                book.setUserName(user.getDisplayName());
+
+                // See documentation on defining a message payload.
+//                Message message = Message.builder()
+//                        .putData("Title", "Your Post " + titleText.getText().toString())
+//                        .putData("Other", "Posted on " + postDetailText.getText().toString() + " Got " + user.getDisplayName()+ "interested!")
+//                        .putData("Email",  user.getEmail())
+//                        .setTopic(topic)
+//                        .build();
+
+//                String response = FirebaseMessaging.getInstance().send(message);
+//                System.out.println("Successfully sent message: " + response);
+                Toast.makeText(this,"Successfully sent message", Toast.LENGTH_SHORT).show();
+            }
+
+
+
         });
     }
 
