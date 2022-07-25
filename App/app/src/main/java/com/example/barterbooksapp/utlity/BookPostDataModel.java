@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 public class BookPostDataModel {
+    private String postID;
     private String title;
     private Integer image;
     private String author;
@@ -11,11 +12,15 @@ public class BookPostDataModel {
     private String location;
     private Double price;
     private String category;
+    private Boolean isBarter;
+    private String details;
     private Date timePosted;
+    private List<String> imagesList;
 
-//  Use this
+//  User details
     private String userID;
-    private List<Integer> imagesList;
+    private String userName;
+    private String userEmail;
     private String userDetails;
 
     public BookPostDataModel() {
@@ -33,7 +38,7 @@ public class BookPostDataModel {
         this.category = category;
     }
 
-    public BookPostDataModel(String title, String author, String condition, String location, Double price, String category, Date timePosted, String userID, List<Integer> imagesList, String userDetails) {
+    public BookPostDataModel(String title, String author, String condition, String location, Double price, String category, Date timePosted, String userID, List<String> imagesList, String userDetails) {
         this.title = title;
         this.author = author;
         this.condition = condition;
@@ -44,6 +49,14 @@ public class BookPostDataModel {
         this.userID = userID;
         this.imagesList = imagesList;
         this.userDetails = userDetails;
+    }
+
+    public String getPostID() {
+        return postID;
+    }
+
+    public void setPostID(String postID) {
+        this.postID = postID;
     }
 
     public String getTitle() {
@@ -118,11 +131,11 @@ public class BookPostDataModel {
         this.userID = userID;
     }
 
-    public List<Integer> getImagesList() {
+    public List<String> getImagesList() {
         return imagesList;
     }
 
-    public void setImagesList(List<Integer> imagesList) {
+    public void setImagesList(List<String> imagesList) {
         this.imagesList = imagesList;
     }
 
@@ -134,19 +147,56 @@ public class BookPostDataModel {
         this.userDetails = userDetails;
     }
 
+    public Boolean getBarter() {
+        return isBarter;
+    }
+
+    public void setBarter(Boolean barter) {
+        isBarter = barter;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
     @Override
     public String toString() {
         return "BookPostDataModel{" +
-                "title='" + title + '\'' +
+                "postID='" + postID + '\'' +
+                ", title='" + title + '\'' +
                 ", image=" + image +
                 ", author='" + author + '\'' +
                 ", condition='" + condition + '\'' +
                 ", location='" + location + '\'' +
                 ", price=" + price +
                 ", category='" + category + '\'' +
+                ", isBarter=" + isBarter +
+                ", details='" + details + '\'' +
                 ", timePosted=" + timePosted +
-                ", userID='" + userID + '\'' +
                 ", imagesList=" + imagesList +
+                ", userID='" + userID + '\'' +
+                ", userName='" + userName + '\'' +
+                ", userEmail='" + userEmail + '\'' +
                 ", userDetails='" + userDetails + '\'' +
                 '}';
     }

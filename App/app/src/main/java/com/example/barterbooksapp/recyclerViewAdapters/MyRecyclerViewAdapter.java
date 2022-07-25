@@ -3,6 +3,7 @@ package com.example.barterbooksapp.recyclerViewAdapters;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.barterbooksapp.DetailsActivity;
 import com.example.barterbooksapp.R;
 import com.example.barterbooksapp.utlity.BookPostDataModel;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -40,12 +42,22 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.textView.setText(postList.get(position).getTitle());
-        holder.imageView.setImageResource(postList.get(position).getImage());
         holder.authorTextView.setText(postList.get(position).getAuthor());
         holder.conditionTextView.setText(postList.get(position).getCondition());
         holder.locationTextView.setText(postList.get(position).getLocation());
         holder.priceTextView.setText("$"+ postList.get(position).getPrice().toString());
         holder.barterCheckBox.setChecked(Math.random() < 0.5);
+        holder.postID.setText(postList.get(position).getPostID());
+        if (postList.get(position).getImagesList() == null){
+        //            Do default image Here
+            holder.imageView.setImageResource(R.drawable.default_book);
+        }
+        else {
+            Uri myUri = Uri.parse(postList.get(position).getImagesList().get(0));
+//            Log.d("PIC", postList.get(position).getImagesList().get(0));
+            holder.barterCheckBox.setChecked(postList.get(position).getBarter());
+            Picasso.get().load(myUri).into(holder.imageView);
+        }
     }
 
     @Override
@@ -62,6 +74,8 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         TextView conditionTextView;
         TextView priceTextView;
         CheckBox barterCheckBox;
+        TextView imageURI;
+        TextView postID;
 
 
         public MyViewHolder(@NonNull View itemView) {
@@ -73,12 +87,13 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             conditionTextView = itemView.findViewById(R.id.conditionText);
             priceTextView = itemView.findViewById(R.id.priceText);
             barterCheckBox = itemView.findViewById(R.id.barterCheckBox);
+            imageURI = itemView.findViewById(R.id.txtImageURIHidden);
+            postID = itemView.findViewById(R.id.txtIDHidden);
 
 //            On click listener to open a Seller list view
             itemView.setOnClickListener(view -> {
-//                    Toast.makeText(view.getContext(), "Item Clicked", Toast.LENGTH_SHORT ).show();
                 Intent intent = new Intent(view.getContext(), DetailsActivity.class);
-                intent.putExtra("BookID", textView.getText());
+                intent.putExtra("postID", postID.getText());
                 view.getContext().startActivity(intent);
             });
         }
