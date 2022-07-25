@@ -163,10 +163,12 @@ public class LoginPageActivity extends AppCompatActivity {
                             finish();
                         }
                     } else {
+
                         // If sign in fails, display a message to the user.
                         Toast.makeText(LoginPageActivity.this, "Google Sign In Failed!",
                                 Toast.LENGTH_SHORT).show();
-                        Log.w("AUTH", "signInWithCredential:failure", task.getException());
+                        Log.w("AUTH", "signInWithCredential:failure" +task.getException().toString() , task.getException());
+                        Log.w("AUTH", "signInWithCredential:failure" + task.getResult().toString() );
                     }
                 });
     }
