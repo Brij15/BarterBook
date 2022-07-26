@@ -1,4 +1,4 @@
-package com.example.barterbooksapp.utlity;
+package com.formulator.barterbooksapp.utlity;
 
 import java.util.Date;
 import java.util.List;

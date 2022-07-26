@@ -1,4 +1,4 @@
-package com.example.barterbooksapp.recyclerViewAdapters;
+package com.formulator.barterbooksapp.recyclerViewAdapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,8 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.barterbooksapp.MainActivity;
-import com.example.barterbooksapp.R;
+import com.formulator.barterbooksapp.MainActivity;
+import com.formulator.barterbooksapp.R;
 
 import java.util.List;
 

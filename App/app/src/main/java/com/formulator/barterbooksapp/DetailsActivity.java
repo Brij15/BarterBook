@@ -1,4 +1,4 @@
-package com.example.barterbooksapp;
+package com.formulator.barterbooksapp;
 
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
@@ -17,7 +17,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
-import com.example.barterbooksapp.utlity.BookPostDataModel;
+import com.formulator.barterbooksapp.R;
+import com.formulator.barterbooksapp.utlity.BookPostDataModel;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;

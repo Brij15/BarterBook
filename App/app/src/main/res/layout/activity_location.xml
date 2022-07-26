@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E9F9F9"
-    tools:context=".LocationActivity">
+    tools:context="com.formulator.barterbooksapp.LocationActivity">
 
     <ImageView
         android:id="@+id/headerImageView"

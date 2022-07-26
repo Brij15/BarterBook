@@ -1,4 +1,4 @@
-package com.example.barterbooksapp;
+package com.formulator.barterbooksapp;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +12,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.barterbooksapp.utlity.ForgotPasswordAlert;
+import com.formulator.barterbooksapp.R;
+import com.formulator.barterbooksapp.utlity.ForgotPasswordAlert;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;

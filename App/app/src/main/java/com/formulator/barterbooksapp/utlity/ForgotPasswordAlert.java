@@ -1,4 +1,4 @@
-package com.example.barterbooksapp.utlity;
+package com.formulator.barterbooksapp.utlity;
 
 import android.content.Context;
 import android.text.TextUtils;
@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 
-import com.example.barterbooksapp.R;
+import com.formulator.barterbooksapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class ForgotPasswordAlert {

@@ -8,28 +8,12 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1005982740417:android:022e5be7e02b1b1b7c0940",
+        "mobilesdk_app_id": "1:1005982740417:android:db6a9489b1f340b67c0940",
         "android_client_info": {
-          "package_name": "com.example.barterbooksapp"
+          "package_name": "com.example.budgetingapp"
         }
       },
       "oauth_client": [
-        {
-          "client_id": "1005982740417-51r9kvnej7tihcnbg0jr76qu4a7npn6d.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.barterbooksapp",
-            "certificate_hash": "0fd723e18a506eb349932ac9549ce27e72e56445"
-          }
-        },
-        {
-          "client_id": "1005982740417-un2b1jncd82ro5n7vgc1r0rilvan99dr.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.barterbooksapp",
-            "certificate_hash": "1d03d22cd8e8b89ff3c8697d3f88ef9461f8f973"
-          }
-        },
         {
           "client_id": "1005982740417-utjl4bkpubvl1hggvfdcj0iekjbvo7tp.apps.googleusercontent.com",
           "client_type": 3
@@ -53,9 +37,9 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1005982740417:android:db6a9489b1f340b67c0940",
+        "mobilesdk_app_id": "1:1005982740417:android:2ceab674087932817c0940",
         "android_client_info": {
-          "package_name": "com.example.budgetingapp"
+          "package_name": "com.formulator.barterbooksapp"
         }
       },
       "oauth_client": [

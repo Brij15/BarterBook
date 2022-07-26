@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#E9F9F9"
     android:orientation="vertical"
-    tools:context=".SellerListActivity">
+    tools:context="com.formulator.barterbooksapp.SellerListActivity">
 
     <ImageView
         android:id="@+id/headerTextView"

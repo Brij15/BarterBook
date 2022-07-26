@@ -1,4 +1,4 @@
-package com.example.barterbooksapp.recyclerViewAdapters;
+package com.formulator.barterbooksapp.recyclerViewAdapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -14,9 +14,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.barterbooksapp.DetailsActivity;
-import com.example.barterbooksapp.R;
-import com.example.barterbooksapp.utlity.BookPostDataModel;
+import com.formulator.barterbooksapp.DetailsActivity;
+import com.formulator.barterbooksapp.R;
+import com.formulator.barterbooksapp.utlity.BookPostDataModel;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

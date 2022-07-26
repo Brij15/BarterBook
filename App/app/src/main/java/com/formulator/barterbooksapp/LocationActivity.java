@@ -1,4 +1,4 @@
-package com.example.barterbooksapp;
+package com.formulator.barterbooksapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -7,13 +7,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.barterbooksapp.recyclerViewAdapters.LocCatListRecyclerView;
+import com.formulator.barterbooksapp.R;
+import com.formulator.barterbooksapp.recyclerViewAdapters.LocCatListRecyclerView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class LocationActivity extends AppCompatActivity {
 

@@ -1,7 +1,7 @@
-package com.example.barterbooksapp.utlity;
+package com.formulator.barterbooksapp.utlity;
 
 
-import com.example.barterbooksapp.MainActivity;
+import com.formulator.barterbooksapp.MainActivity;
 
 import java.util.ArrayList;
 import java.util.List;

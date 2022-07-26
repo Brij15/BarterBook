@@ -1,4 +1,4 @@
-package com.example.barterbooksapp.utlity;
+package com.formulator.barterbooksapp.utlity;
 
 public class UserModel {
     private String userID;

@@ -1,4 +1,4 @@
-package com.example.barterbooksapp;
+package com.formulator.barterbooksapp;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,9 +18,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.barterbooksapp.recyclerViewAdapters.MyRecyclerViewAdapter;
-import com.example.barterbooksapp.utlity.BookPostDataModel;
-import com.example.barterbooksapp.utlity.FilterUtilities;
+import com.formulator.barterbooksapp.R;
+import com.formulator.barterbooksapp.recyclerViewAdapters.MyRecyclerViewAdapter;
+import com.formulator.barterbooksapp.utlity.BookPostDataModel;
+import com.formulator.barterbooksapp.utlity.FilterUtilities;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

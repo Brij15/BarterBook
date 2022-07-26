@@ -1,10 +1,9 @@
-package com.example.barterbooksapp.utlity;
+package com.formulator.barterbooksapp.utlity;
 
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.example.barterbooksapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -15,7 +14,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 

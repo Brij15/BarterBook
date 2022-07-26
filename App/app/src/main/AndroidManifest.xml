@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.barterbooksapp">
+    package="com.formulator.barterbooksapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -13,37 +13,37 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BarterBooksApp">
         <activity
-            android:name=".EditUserActivity"
+            android:name="com.formulator.barterbooksapp.EditUserActivity"
             android:exported="false" />
         <activity
-            android:name=".PostAdActivity"
+            android:name="com.formulator.barterbooksapp.PostAdActivity"
             android:exported="false" />
         <activity
-            android:name=".AboutUsScreen"
+            android:name="com.formulator.barterbooksapp.AboutUsScreen"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".DetailsActivity"
+            android:name="com.formulator.barterbooksapp.DetailsActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".LoginPageActivity"
+            android:name="com.formulator.barterbooksapp.LoginPageActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".LocationActivity"
+            android:name="com.formulator.barterbooksapp.LocationActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CategoriesActivity"
+            android:name="com.formulator.barterbooksapp.CategoriesActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".RegistrationScreenActivity"
+            android:name="com.formulator.barterbooksapp.RegistrationScreenActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SplashScreenActivity"
+            android:name="com.formulator.barterbooksapp.SplashScreenActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -53,17 +53,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="com.formulator.barterbooksapp.MainActivity"
             android:exported="false"
             android:label="Home"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SellerListActivity"
+            android:name="com.formulator.barterbooksapp.SellerListActivity"
             android:exported="false"
             android:label="SellerList"
             android:screenOrientation="portrait" />
         <service
-            android:name=".FirebasenotificationsService">
+            android:name="com.formulator.barterbooksapp.FirebasenotificationsService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>
             </intent-filter>

@@ -1,10 +1,12 @@
-package com.example.barterbooksapp;
+package com.formulator.barterbooksapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.formulator.barterbooksapp.R;
 
 public class AboutUsScreen extends AppCompatActivity {
 
