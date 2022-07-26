@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.barterbooksapp.recyclerViewAdapters.MyRecyclerViewAdapter;
 import com.example.barterbooksapp.utlity.BookPostDataModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -28,9 +29,8 @@ public class SellerListActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private BottomNavigationView bottomNavigationView;
-    private List<String> titles;
-    private List<String> authors;
-    private List<Integer> images;
+    private List<BookPostDataModel> bookPosts ;
+
 
     private SellerRecycleViewAdapter adapter;
     private FirebaseAuth mAuth;
@@ -82,61 +82,16 @@ public class SellerListActivity extends AppCompatActivity {
         });
 
         recyclerView = findViewById(R.id.sellerRecycleView);
-        titles = new ArrayList<>();
-        images = new ArrayList<>();
-        authors = new ArrayList<>();
 
-        images = initializeTestImages(images);
-        authors = initializeTestAuthors(authors);
-        titles = initializeTestTitles(titles);
-
-        adapter = new SellerRecycleViewAdapter(this, titles, authors, images);
-
+        bookPosts = new ArrayList<>();
+        getAllPostsForUser();
+        //adapter = new SellerRecycleViewAdapter(this, titles, authors, images);
+        adapter = new SellerRecycleViewAdapter(this, bookPosts);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1, GridLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setHasFixedSize(true);
 
         recyclerView.setAdapter(adapter);
-    }
-
-    private List<Integer> initializeTestImages(List<Integer> imageList){
-        imageList.add(R.drawable.book1);
-        imageList.add(R.drawable.book2);
-        imageList.add(R.drawable.book3);
-        imageList.add(R.drawable.book4);
-        imageList.add(R.drawable.book5);
-        imageList.add(R.drawable.book6);
-        imageList.add(R.drawable.book7);
-        imageList.add(R.drawable.book8);
-        return imageList;
-    }
-
-    private List<String> initializeTestTitles(List<String> titlesList){
-        //initialize images TEST only
-        titlesList.add("Gardens Of The moon");
-        titlesList.add("Algebra and Geometry");
-        titlesList.add("Mathematics and The Real World");
-        titlesList.add("Fifth Season");
-        titlesList.add("Name of the Wind");
-        titlesList.add("What IF");
-        titlesList.add("Deep Learning With Python");
-        titlesList.add("Wise Man's Fear");
-
-        return titlesList;
-    }
-
-    private List<String> initializeTestAuthors(List<String> authorList){
-        //initialize images TEST only
-        authorList.add("Steven Erikson");
-        authorList.add("Mark V. Lawson");
-        authorList.add("Zvi Artstein");
-        authorList.add("N. K Jemsin");
-        authorList.add("Patrick Rothfuss");
-        authorList.add("Randall Munroe");
-        authorList.add("François Chollet");
-        authorList.add("Patrick Rothfuss");
-
-        return authorList;
     }
 
     public void getAllPostsForUser(){
@@ -153,10 +108,11 @@ public class SellerListActivity extends AppCompatActivity {
                                 BookPostDataModel post = document.toObject(BookPostDataModel.class);
                                 post.setImage(R.drawable.default_book);
                                 post.setPostID(postID);
-
-//                                bookPosts.add(post);
-//                                adapter.notifyItemInserted(bookPosts.size() - 1);
+                                Log.i("DBTEST", postID);
+                                bookPosts.add(post);
+                                adapter.notifyItemInserted(bookPosts.size() - 1);
                             }
+
                         } else {
                             Log.i("DB", "Error getting documents: ", task.getException());
                         }
