@@ -57,11 +57,11 @@ public class LocCatListRecyclerView extends RecyclerView.Adapter<LocCatListRecyc
                 intent.putExtra("FilterID", textView.getText());
 
                 String pageContext = view.getContext().getClass().toString();
-                if (pageContext.equals("class com.example.barterbooksapp.LocationActivity") ){
+                if (pageContext.equals("class com.formulator.barterbooksapp.LocationActivity") ){
                     Log.i("Context", "Im Inside Location");
                     intent.putExtra("PageID", "LOCATION");
                 }
-                else if(pageContext.equals("class com.example.barterbooksapp.CategoriesActivity") ){
+                else if(pageContext.equals("class com.formulator.barterbooksapp.CategoriesActivity") ){
                     Log.i("Context", "Im Inside Category");
                     intent.putExtra("PageID", "CATEGORY");
                 }
